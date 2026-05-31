@@ -1,0 +1,109 @@
+:root {
+    --bg-color: #F7F5F0; /* Bej Arka Plan */
+    --text-color: #1A1A1A; /* Koyu Gri / Siyah Metin */
+    --white: #FFFFFF;
+    --border-color: #E5E0D8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: -1px;
+}
+
+.search-box {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+input {
+    flex: 1;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    background-color: var(--white);
+}
+
+input:focus {
+    border-color: var(--text-color);
+}
+
+button {
+    padding: 1rem 2rem;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+#resultContainer {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    line-height: 1.8;
+}
+
+.hidden {
+    display: none;
+}
+/* Karanlık Mod Renkleri */
+body.dark-mode {
+    --bg-color: #1A1A1A;
+    --text-color: #F7F5F0;
+    --white: #2A2A2A;
+    --border-color: #333333;
+}
+.hover-word {
+    border-bottom: 1px dashed var(--text-color);
+    cursor: pointer;
+    position: relative;
+    font-weight: 500;
+}
+
+.hover-word:hover::after {
+    content: attr(data-tr);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    margin-bottom: 5px;
+}
