@@ -1,43 +1,187 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almanca Aşkına</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Almanca Aşkına - Almanca Çalışma Aracı</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <main class="container">
-        <button id="themeToggle" style="margin-bottom: 2rem; font-size: 0.8rem; padding: 0.5rem 1rem;">Karanlık Mod / Aydınlık Mod</button>
-        <h1>Almanca Aşkına</h1>
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Almanca kelime yazın...">
-            <button id="searchBtn">Ara</button>
-        </div>
-        <div id="resultContainer" class="hidden">
-            <!-- Sonuçlar buraya gelecek -->
-        </div>
-    </main>
-    <div class="reading-box" style="margin-top: 3rem; border-top: 1px solid var(--border-color); padding-top: 2rem;">
-    <h2>Okuma Pratiği (A1)</h2>
-    <p style="margin-top: 1rem; line-height: 1.8;">
-        Der <span class="hover-word" data-tr="Masa">Tisch</span> ist groß. 
-        Das <span class="hover-word" data-tr="Kitap">Buch</span> liegt auf dem Tisch. 
-        Ich brauche einen <span class="hover-word" data-tr="Sandalye">Stuhl</span>.
-        <div class="game-box" style="margin-top: 3rem; border-top: 1px solid var(--border-color); padding-top: 2rem;">
-    <h2>Kelime Tahmin Oyunu</h2>
-    <button id="randomWordBtn" style="margin: 1rem 0;">Rastgele Kelime Getir</button>
-    <p id="gameWord" style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; text-transform: capitalize;">?</p>
-    
-    <div class="search-box">
-        <input type="text" id="guessInput" placeholder="Türkçesini tahmin et...">
-        <button id="guessBtn">Kontrol Et</button>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="Almanca Aşkına ana sayfa">Almanca Aşkına</a>
+      <button class="theme-toggle" id="themeToggle" type="button">Gece Modu</button>
     </div>
-    <p id="gameResult" style="margin-top: 1rem; font-weight: 500;"></p>
-</div>
-    </p>
-</div>
-    <script src="script.js"></script>
+  </header>
+
+  <main>
+    <section class="category-strip container" aria-label="Ana bölümler">
+      <button class="category-card is-active" type="button" data-section-target="dictionary">
+        <span>Sözlük &amp; Çekim</span>
+        <small>Artikel, anlam ve fiil zamanları</small>
+      </button>
+      <button class="category-card" type="button" data-section-target="reading">
+        <span>Okuma Pratiği</span>
+        <small>Seviye seç, hikaye oku</small>
+      </button>
+      <button class="category-card" type="button" data-section-target="game">
+        <span>Kelime Oyunu</span>
+        <small>A1/A2 kelime tekrarları</small>
+      </button>
+      <button class="category-card" type="button" data-section-target="grammar">
+        <span>Gramer Hapları</span>
+        <small>Kısa ve net kurallar</small>
+      </button>
+    </section>
+
+    <section class="hero container">
+      <h1>Almanca çalışırken hızlıca netleş.</h1>
+      <p>Kelime çevirisi, artikel, isim çekimi ve fiil zamanlarını tek ekranda gör.</p>
+    </section>
+
+    <section id="dictionary" class="dictionary-section container">
+      <div class="search-card">
+        <div class="section-kicker">Sözlük &amp; Çekim Motoru</div>
+        <form class="search-form" id="searchForm">
+          <input type="text" id="searchInput" placeholder="Örn: geben, Haus, Tasse..." autocomplete="off" />
+          <button type="submit">Ara</button>
+        </form>
+        <div id="resultPreview" class="result-preview">
+          <div class="empty-state">
+            <strong>Bir Almanca kelime veya fiil yaz.</strong>
+            <span>İsimlerde artikel ve hâl bilgisi; fiillerde Präsens, Perfekt, Präteritum ve Futur I görünür.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reading" class="section-panel container" aria-labelledby="readingTitle">
+      <div class="panel-head">
+        <div>
+          <div class="section-kicker">Okuma Pratiği</div>
+          <h2 id="readingTitle">Seviyeni seç, hikayeyi aç, kelimeleri dokunarak öğren.</h2>
+        </div>
+        <p>Hikaye metinlerinde altı çizili kelimelerin üzerine gelince veya dokununca Türkçe anlam görünür.</p>
+      </div>
+
+      <div class="level-choice" id="readingLevelChoice">
+        <button type="button" class="level-card" data-reading-level="A1">
+          <span>A1 Başlangıç</span>
+          <small>Kısa cümleler, günlük kelimeler, basit olaylar.</small>
+        </button>
+        <button type="button" class="level-card" data-reading-level="A2">
+          <span>A2 Temel Seviye</span>
+          <small>Daha uzun metinler, günlük diyaloglar, geçmiş zaman örnekleri.</small>
+        </button>
+      </div>
+
+      <div class="story-list hidden" id="storyList"></div>
+
+      <article class="reader-card hidden" id="readerCard">
+        <button type="button" class="ghost-btn" id="backToStories">← Hikayelere dön</button>
+        <div class="reader-meta" id="readerMeta"></div>
+        <h3 id="readerTitle"></h3>
+        <div class="reader-text" id="readerText"></div>
+      </article>
+    </section>
+
+    <section id="game" class="section-panel container" aria-labelledby="gameTitle">
+      <div class="panel-head compact">
+        <div>
+          <div class="section-kicker">Kelime Oyunu</div>
+          <h2 id="gameTitle">Kelimeleri daha odaklı ve temiz bir oyun kartında tekrar et.</h2>
+        </div>
+      </div>
+
+      <div class="game-card">
+        <div class="game-toolbar">
+          <div class="segmented" aria-label="Seviye seçimi">
+            <button type="button" class="segment-btn is-active" data-game-level="A1">A1</button>
+            <button type="button" class="segment-btn" data-game-level="A2">A2</button>
+            <button type="button" class="segment-btn" data-game-level="ALL">Karışık</button>
+          </div>
+
+          <div class="score-pill">Seri: <strong id="streakCount">0</strong></div>
+        </div>
+
+        <div class="mode-grid" aria-label="Oyun modu">
+          <button type="button" class="mode-card is-active" data-game-mode="meaning">
+            <span>Kelime Anlamı</span>
+            <small>Almanca → Türkçe</small>
+          </button>
+          <button type="button" class="mode-card" data-game-mode="article">
+            <span>Artikel Tahmini</span>
+            <small>der / die / das</small>
+          </button>
+          <button type="button" class="mode-card" data-game-mode="mixed">
+            <span>Hızlı Tekrar</span>
+            <small>Karışık pratik</small>
+          </button>
+        </div>
+
+        <div class="game-question">
+          <span class="game-direction" id="gameDirection">Almanca → Türkçe</span>
+          <strong id="gameWord">?</strong>
+          <small id="gameHint">Yeni kelime ile başla.</small>
+        </div>
+
+        <div class="answer-area" id="answerArea">
+          <input type="text" id="guessInput" placeholder="Türkçesini yaz..." autocomplete="off" />
+        </div>
+
+        <div class="game-actions">
+          <button type="button" class="primary-btn" id="guessBtn">Kontrol Et</button>
+          <button type="button" class="secondary-btn" id="randomWordBtn">Yeni Kelime</button>
+        </div>
+
+        <p class="game-feedback" id="gameResult" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="grammar" class="section-panel container" aria-labelledby="grammarTitle">
+      <div class="panel-head">
+        <div>
+          <div class="section-kicker">Gramer Hapları</div>
+          <h2 id="grammarTitle">Sık takılan kurallar için kısa ve kopyalanabilir notlar.</h2>
+        </div>
+        <p>Bu alan ana özellik değil; hızlı referans alanı olarak sade tutuldu.</p>
+      </div>
+
+      <div class="grammar-grid" id="grammarGrid">
+        <article class="grammar-card">
+          <h3>Dativ Alan Edatlar</h3>
+          <p>aus, bei, mit, nach, seit, von, zu</p>
+          <button type="button" class="copy-btn" data-copy="aus, bei, mit, nach, seit, von, zu">Kopyala</button>
+        </article>
+
+        <article class="grammar-card">
+          <h3>Akkusativ Alan Edatlar</h3>
+          <p>durch, für, gegen, ohne, um</p>
+          <button type="button" class="copy-btn" data-copy="durch, für, gegen, ohne, um">Kopyala</button>
+        </article>
+
+        <article class="grammar-card">
+          <h3>Perfekt Mantığı</h3>
+          <p>haben/sein + Partizip II. Örn: ich habe gemacht, ich bin gegangen.</p>
+          <button type="button" class="copy-btn" data-copy="Perfekt = haben/sein + Partizip II. Örn: ich habe gemacht, ich bin gegangen.">Kopyala</button>
+        </article>
+
+        <article class="grammar-card">
+          <h3>Artikel İpuçları</h3>
+          <p>-ung çoğunlukla die, -chen çoğunlukla das, günler ve aylar çoğunlukla der.</p>
+          <button type="button" class="copy-btn" data-copy="-ung çoğunlukla die, -chen çoğunlukla das, günler ve aylar çoğunlukla der.">Kopyala</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <p>Almanca Aşkına — sade, hızlı ve dikkat dağıtmayan Almanca çalışma aracı.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
