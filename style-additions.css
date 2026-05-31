@@ -1,0 +1,30 @@
+
+/* Grammar V2 Accordion */
+.grammar-accordion { display: grid; gap: 14px; }
+.grammar-accordion-item { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+.grammar-accordion-trigger { width: 100%; display: flex; justify-content: space-between; gap: 18px; align-items: center; text-align: left; background: transparent; color: var(--text); border: 0; padding: 20px 22px; }
+.grammar-accordion-trigger span { display:block; color: var(--accent); font-size: 12px; font-weight: 800; margin-bottom: 4px; }
+.grammar-accordion-trigger strong { display:block; font-size: 20px; letter-spacing: -0.03em; }
+.grammar-accordion-trigger small { display:block; color: var(--muted); margin-top: 4px; }
+.grammar-accordion-trigger .chevron { flex: 0 0 auto; color: var(--accent); font-weight: 800; transition: transform .2s ease; }
+.grammar-accordion-item.is-open .chevron { transform: rotate(180deg); }
+.grammar-accordion-content { display: none; padding: 0 22px 22px; }
+.grammar-accordion-item.is-open .grammar-accordion-content { display: block; }
+.grammar-chip-row { display:flex; flex-wrap:wrap; gap:8px; margin: 12px 0 16px; }
+.grammar-chip { background: var(--soft); color: var(--accent); border-radius: 999px; padding: 6px 10px; font-weight: 800; font-size: 13px; }
+.grammar-example-list { display:grid; gap:10px; margin: 12px 0 16px; }
+.grammar-example { background: var(--bg); border:1px solid var(--border); border-radius: var(--radius-md); padding: 12px 14px; }
+.grammar-example strong { display:block; margin-bottom: 3px; }
+.grammar-example span { color: var(--muted); }
+.grammar-note { border-left: 3px solid var(--accent); padding: 10px 0 10px 14px; color: var(--muted); }
+.grammar-table-wrap { overflow-x:auto; margin: 14px 0 16px; }
+.grammar-table { width:100%; border-collapse: collapse; background: var(--bg); border:1px solid var(--border); border-radius: var(--radius-md); overflow:hidden; }
+.grammar-table th, .grammar-table td { padding: 11px 12px; border-bottom:1px solid var(--border); text-align:left; vertical-align: top; }
+.grammar-table th { color: var(--accent); font-size: 13px; }
+.grammar-table tr:last-child td { border-bottom: 0; }
+
+/* Reading all-word tooltip */
+.reader-word { position: relative; display: inline-block; border-bottom: 1px dotted color-mix(in srgb, var(--accent) 55%, transparent); cursor: help; }
+.reader-word::after { content: attr(data-tr); position: absolute; left: 50%; bottom: 132%; transform: translateX(-50%) translateY(5px); opacity: 0; visibility: hidden; background: var(--text); color: var(--bg); padding: 7px 10px; border-radius: 9px; font-size: 13px; line-height: 1; white-space: nowrap; transition: .18s ease; z-index: 10; box-shadow: var(--shadow); }
+.reader-word:hover::after, .reader-word.is-visible::after { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.reader-word.is-missing { border-bottom-color: color-mix(in srgb, var(--muted) 35%, transparent); }
