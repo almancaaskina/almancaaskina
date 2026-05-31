@@ -1,0 +1,696 @@
+{
+  "abbreviations": [
+    {
+      "de": "ca.",
+      "tr": "yaklaşık"
+    },
+    {
+      "de": "d.h.",
+      "tr": "yani"
+    },
+    {
+      "de": "ICE",
+      "tr": "hızlı tren"
+    },
+    {
+      "de": "Lkw",
+      "tr": "kamyon"
+    },
+    {
+      "de": "PC",
+      "tr": "bilgisayar"
+    },
+    {
+      "de": "SMS",
+      "tr": "kısa mesaj"
+    },
+    {
+      "de": "usw.",
+      "tr": "vesaire"
+    },
+    {
+      "de": "WC",
+      "tr": "tuvalet"
+    },
+    {
+      "de": "z. B.",
+      "tr": "örneğin"
+    }
+  ],
+  "professions": [
+    {
+      "de": "Angestellter / Angestellte",
+      "tr": "çalışan, memur"
+    },
+    {
+      "de": "Arzt / Ärztin",
+      "tr": "doktor"
+    },
+    {
+      "de": "Auszubildender / Auszubildende",
+      "tr": "stajyer/meslek eğitimi alan"
+    },
+    {
+      "de": "Autor / Autorin",
+      "tr": "yazar"
+    },
+    {
+      "de": "Babysitter",
+      "tr": "çocuk bakıcısı"
+    },
+    {
+      "de": "Bäcker / Bäckerin",
+      "tr": "fırıncı"
+    },
+    {
+      "de": "Doktor / Doktorin",
+      "tr": "doktor"
+    },
+    {
+      "de": "Fahrer / Fahrerin",
+      "tr": "sürücü"
+    },
+    {
+      "de": "Friseur / Friseurin",
+      "tr": "kuaför"
+    },
+    {
+      "de": "Handwerker / Handwerkerin",
+      "tr": "zanaatkar"
+    },
+    {
+      "de": "Hausmann / Hausfrau",
+      "tr": "ev erkeği / ev kadını"
+    },
+    {
+      "de": "Journalist / Journalistin",
+      "tr": "gazeteci"
+    },
+    {
+      "de": "Kaufmann / Kauffrau",
+      "tr": "ticaret çalışanı"
+    },
+    {
+      "de": "Kellner / Kellnerin",
+      "tr": "garson"
+    },
+    {
+      "de": "Koch / Köchin",
+      "tr": "aşçı"
+    },
+    {
+      "de": "Krankenpfleger / Krankenschwester",
+      "tr": "hemşire / hasta bakıcı"
+    },
+    {
+      "de": "Künstler / Künstlerin",
+      "tr": "sanatçı"
+    },
+    {
+      "de": "Lehrer / Lehrerin",
+      "tr": "öğretmen"
+    },
+    {
+      "de": "Mechaniker / Mechanikerin",
+      "tr": "mekanikçi"
+    },
+    {
+      "de": "Model",
+      "tr": "model"
+    },
+    {
+      "de": "Musiker / Musikerin",
+      "tr": "müzisyen"
+    },
+    {
+      "de": "Polizist / Polizistin",
+      "tr": "polis"
+    },
+    {
+      "de": "Rentner / Rentnerin",
+      "tr": "emekli"
+    },
+    {
+      "de": "Sänger / Sängerin",
+      "tr": "şarkıcı"
+    },
+    {
+      "de": "Schauspieler / Schauspielerin",
+      "tr": "oyuncu"
+    },
+    {
+      "de": "Techniker / Technikerin",
+      "tr": "tekniker"
+    },
+    {
+      "de": "Verkäufer / Verkäuferin",
+      "tr": "satıcı"
+    }
+  ],
+  "family": [
+    {
+      "de": "Bruder",
+      "tr": "erkek kardeş"
+    },
+    {
+      "de": "Cousin",
+      "tr": "kuzen erkek"
+    },
+    {
+      "de": "Cousine",
+      "tr": "kuzen kız"
+    },
+    {
+      "de": "Eltern",
+      "tr": "anne baba"
+    },
+    {
+      "de": "Enkel",
+      "tr": "erkek torun"
+    },
+    {
+      "de": "Enkelin",
+      "tr": "kız torun"
+    },
+    {
+      "de": "Geschwister",
+      "tr": "kardeşler"
+    },
+    {
+      "de": "Großeltern",
+      "tr": "büyükanne ve büyükbaba"
+    },
+    {
+      "de": "Großmutter / Oma",
+      "tr": "büyükanne"
+    },
+    {
+      "de": "Großvater / Opa",
+      "tr": "büyükbaba"
+    },
+    {
+      "de": "Kind",
+      "tr": "çocuk"
+    },
+    {
+      "de": "Mutter / Mama",
+      "tr": "anne"
+    },
+    {
+      "de": "Onkel",
+      "tr": "amca/dayı"
+    },
+    {
+      "de": "Schwester",
+      "tr": "kız kardeş"
+    },
+    {
+      "de": "Sohn",
+      "tr": "oğul"
+    },
+    {
+      "de": "Tante",
+      "tr": "teyze/hala"
+    },
+    {
+      "de": "Tochter",
+      "tr": "kız evlat"
+    },
+    {
+      "de": "Vater / Papa",
+      "tr": "baba"
+    },
+    {
+      "de": "Verwandte",
+      "tr": "akraba"
+    }
+  ],
+  "family_status": [
+    {
+      "de": "ledig",
+      "tr": "bekar"
+    },
+    {
+      "de": "verheiratet",
+      "tr": "evli"
+    },
+    {
+      "de": "getrennt / geschieden",
+      "tr": "ayrı / boşanmış"
+    }
+  ],
+  "colors": [
+    {
+      "de": "blau",
+      "tr": "mavi"
+    },
+    {
+      "de": "braun",
+      "tr": "kahverengi"
+    },
+    {
+      "de": "gelb",
+      "tr": "sarı"
+    },
+    {
+      "de": "grau",
+      "tr": "gri"
+    },
+    {
+      "de": "grün",
+      "tr": "yeşil"
+    },
+    {
+      "de": "lila",
+      "tr": "mor"
+    },
+    {
+      "de": "orange",
+      "tr": "turuncu"
+    },
+    {
+      "de": "rosa",
+      "tr": "pembe"
+    },
+    {
+      "de": "rot",
+      "tr": "kırmızı"
+    },
+    {
+      "de": "schwarz",
+      "tr": "siyah"
+    },
+    {
+      "de": "weiß",
+      "tr": "beyaz"
+    }
+  ],
+  "directions": [
+    {
+      "de": "Norden",
+      "tr": "kuzey"
+    },
+    {
+      "de": "Süden",
+      "tr": "güney"
+    },
+    {
+      "de": "Osten",
+      "tr": "doğu"
+    },
+    {
+      "de": "Westen",
+      "tr": "batı"
+    }
+  ],
+  "countries": [
+    {
+      "de": "Deutschland",
+      "tr": "Almanya"
+    },
+    {
+      "de": "deutsch",
+      "tr": "Almanca; Alman"
+    },
+    {
+      "de": "Österreich",
+      "tr": "Avusturya"
+    },
+    {
+      "de": "österreichisch",
+      "tr": "Avusturyalı"
+    },
+    {
+      "de": "die Schweiz",
+      "tr": "İsviçre"
+    },
+    {
+      "de": "schweizerisch",
+      "tr": "İsviçreli"
+    },
+    {
+      "de": "Luxemburg",
+      "tr": "Lüksemburg"
+    },
+    {
+      "de": "luxemburgisch",
+      "tr": "Lüksemburglu"
+    },
+    {
+      "de": "Europa",
+      "tr": "Avrupa"
+    },
+    {
+      "de": "europäisch",
+      "tr": "Avrupalı"
+    }
+  ],
+  "school_subjects": [
+    {
+      "de": "Biologie",
+      "tr": "biyoloji"
+    },
+    {
+      "de": "Chemie",
+      "tr": "kimya"
+    },
+    {
+      "de": "Deutsch",
+      "tr": "Almanca"
+    },
+    {
+      "de": "Englisch",
+      "tr": "İngilizce"
+    },
+    {
+      "de": "Französisch",
+      "tr": "Fransızca"
+    },
+    {
+      "de": "Geografie",
+      "tr": "coğrafya"
+    },
+    {
+      "de": "Geschichte",
+      "tr": "tarih"
+    },
+    {
+      "de": "Kunst",
+      "tr": "sanat"
+    },
+    {
+      "de": "Latein",
+      "tr": "Latince"
+    },
+    {
+      "de": "Mathematik",
+      "tr": "matematik"
+    },
+    {
+      "de": "Musik",
+      "tr": "müzik"
+    },
+    {
+      "de": "Physik",
+      "tr": "fizik"
+    },
+    {
+      "de": "Religion",
+      "tr": "din"
+    },
+    {
+      "de": "Sozialkunde",
+      "tr": "sosyal bilgiler"
+    },
+    {
+      "de": "Sport",
+      "tr": "spor"
+    }
+  ],
+  "months": [
+    {
+      "de": "Januar",
+      "tr": "Ocak"
+    },
+    {
+      "de": "Februar",
+      "tr": "Şubat"
+    },
+    {
+      "de": "März",
+      "tr": "Mart"
+    },
+    {
+      "de": "April",
+      "tr": "Nisan"
+    },
+    {
+      "de": "Mai",
+      "tr": "Mayıs"
+    },
+    {
+      "de": "Juni",
+      "tr": "Haziran"
+    },
+    {
+      "de": "Juli",
+      "tr": "Temmuz"
+    },
+    {
+      "de": "August",
+      "tr": "Ağustos"
+    },
+    {
+      "de": "September",
+      "tr": "Eylül"
+    },
+    {
+      "de": "Oktober",
+      "tr": "Ekim"
+    },
+    {
+      "de": "November",
+      "tr": "Kasım"
+    },
+    {
+      "de": "Dezember",
+      "tr": "Aralık"
+    }
+  ],
+  "days": [
+    {
+      "de": "Montag",
+      "tr": "Pazartesi"
+    },
+    {
+      "de": "Dienstag",
+      "tr": "Salı"
+    },
+    {
+      "de": "Mittwoch",
+      "tr": "Çarşamba"
+    },
+    {
+      "de": "Donnerstag",
+      "tr": "Perşembe"
+    },
+    {
+      "de": "Freitag",
+      "tr": "Cuma"
+    },
+    {
+      "de": "Samstag",
+      "tr": "Cumartesi"
+    },
+    {
+      "de": "Sonntag",
+      "tr": "Pazar"
+    },
+    {
+      "de": "Wochenende",
+      "tr": "hafta sonu"
+    },
+    {
+      "de": "Arbeitstag / Werktag",
+      "tr": "iş günü"
+    },
+    {
+      "de": "Feiertag",
+      "tr": "resmi tatil"
+    }
+  ],
+  "seasons": [
+    {
+      "de": "Frühling / Frühjahr",
+      "tr": "ilkbahar"
+    },
+    {
+      "de": "Sommer",
+      "tr": "yaz"
+    },
+    {
+      "de": "Herbst",
+      "tr": "sonbahar"
+    },
+    {
+      "de": "Winter",
+      "tr": "kış"
+    }
+  ],
+  "time": [
+    {
+      "de": "Tag",
+      "tr": "gün"
+    },
+    {
+      "de": "Morgen",
+      "tr": "sabah"
+    },
+    {
+      "de": "Vormittag",
+      "tr": "öğleden önce"
+    },
+    {
+      "de": "Mittag",
+      "tr": "öğle"
+    },
+    {
+      "de": "Nachmittag",
+      "tr": "öğleden sonra"
+    },
+    {
+      "de": "Abend",
+      "tr": "akşam"
+    },
+    {
+      "de": "Nacht",
+      "tr": "gece"
+    },
+    {
+      "de": "Mitternacht",
+      "tr": "gece yarısı"
+    },
+    {
+      "de": "Sekunde",
+      "tr": "saniye"
+    },
+    {
+      "de": "Minute",
+      "tr": "dakika"
+    },
+    {
+      "de": "Stunde",
+      "tr": "saat"
+    },
+    {
+      "de": "Woche",
+      "tr": "hafta"
+    },
+    {
+      "de": "Jahr",
+      "tr": "yıl"
+    }
+  ],
+  "numbers": [
+    {
+      "de": "eins",
+      "tr": "bir"
+    },
+    {
+      "de": "zwei",
+      "tr": "iki"
+    },
+    {
+      "de": "drei",
+      "tr": "üç"
+    },
+    {
+      "de": "vier",
+      "tr": "dört"
+    },
+    {
+      "de": "fünf",
+      "tr": "beş"
+    },
+    {
+      "de": "sechs",
+      "tr": "altı"
+    },
+    {
+      "de": "sieben",
+      "tr": "yedi"
+    },
+    {
+      "de": "acht",
+      "tr": "sekiz"
+    },
+    {
+      "de": "neun",
+      "tr": "dokuz"
+    },
+    {
+      "de": "zehn",
+      "tr": "on"
+    },
+    {
+      "de": "elf",
+      "tr": "on bir"
+    },
+    {
+      "de": "zwölf",
+      "tr": "on iki"
+    },
+    {
+      "de": "dreizehn",
+      "tr": "on üç"
+    },
+    {
+      "de": "vierzehn",
+      "tr": "on dört"
+    },
+    {
+      "de": "fünfzehn",
+      "tr": "on beş"
+    },
+    {
+      "de": "sechzehn",
+      "tr": "on altı"
+    },
+    {
+      "de": "siebzehn",
+      "tr": "on yedi"
+    },
+    {
+      "de": "achtzehn",
+      "tr": "on sekiz"
+    },
+    {
+      "de": "neunzehn",
+      "tr": "on dokuz"
+    },
+    {
+      "de": "zwanzig",
+      "tr": "yirmi"
+    },
+    {
+      "de": "dreißig",
+      "tr": "otuz"
+    },
+    {
+      "de": "vierzig",
+      "tr": "kırk"
+    },
+    {
+      "de": "fünfzig",
+      "tr": "elli"
+    },
+    {
+      "de": "sechzig",
+      "tr": "altmış"
+    },
+    {
+      "de": "siebzig",
+      "tr": "yetmiş"
+    },
+    {
+      "de": "achtzig",
+      "tr": "seksen"
+    },
+    {
+      "de": "neunzig",
+      "tr": "doksan"
+    },
+    {
+      "de": "hundert",
+      "tr": "yüz"
+    },
+    {
+      "de": "tausend",
+      "tr": "bin"
+    },
+    {
+      "de": "eine Million",
+      "tr": "bir milyon"
+    }
+  ]
+}

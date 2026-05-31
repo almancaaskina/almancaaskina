@@ -456,7 +456,8 @@ button {
 .section-panel.is-open {
   opacity: 1;
   transform: translateY(0);
-  max-height: 5000px;
+  max-height: none;
+  overflow: visible;
   pointer-events: auto;
 }
 

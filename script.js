@@ -137,8 +137,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function loadDictionary() {
   const [a1Data, a2Data] = await Promise.all([
-    fetchFirstAvailable(["a1-words.json", "a1-words(1).json"]),
-    fetchFirstAvailable(["a2-words.json", "a2-words(1).json"])
+    fetchFirstAvailable(["data/a1-words.json"]),
+fetchFirstAvailable(["data/a2-words.json"])
   ]);
 
   const a1 = Array.isArray(a1Data) ? a1Data.map(item => ({ ...item, level: item.level || "A1" })) : [];
