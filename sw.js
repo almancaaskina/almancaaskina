@@ -1,4 +1,4 @@
-const CACHE_NAME = "almanca-askina-v6";
+const CACHE_NAME = "almanca-askina-v7";
 const APP_SHELL = [
   "./",
   "./index.html",

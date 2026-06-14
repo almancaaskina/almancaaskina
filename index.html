@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#8A5A44" />
   <meta name="description" content="Ücretsiz, sade ve hızlı Almanca sözlük, okuma, kelime oyunu ve gramer çalışma aracı." />
-  <link rel="manifest" href="manifest.webmanifest?v=6" />
+  <link rel="manifest" href="manifest.webmanifest?v=7" />
   <link rel="apple-touch-icon" href="icon-192.png" />
   <title>Almanca Aşkına - Almanca Çalışma Aracı</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260614-6" />
+  <link rel="stylesheet" href="style.css?v=20260614-7" />
 </head>
 <body>
   <header class="site-header">
@@ -42,6 +42,19 @@
         <span>Gramer Hapları</span>
         <small>Kısa ve net kurallar</small>
       </button>
+    </section>
+
+
+    <section class="daily-study container" id="dailyStudyPanel" aria-labelledby="dailyStudyTitle">
+      <div class="daily-study-head">
+        <div>
+          <div class="section-kicker">Bugünün Çalışması</div>
+          <h2 id="dailyStudyTitle">Küçük adımlar, düzenli ilerleme.</h2>
+        </div>
+        <strong id="dailyStudyPercent">0%</strong>
+      </div>
+      <div class="daily-study-progress" aria-hidden="true"><span id="dailyStudyProgressBar"></span></div>
+      <div class="daily-task-grid" id="dailyTaskGrid"></div>
     </section>
 
     <section class="hero container">
@@ -171,11 +184,25 @@
   </main>
 
   <div class="network-status hidden" id="networkStatus" role="status" aria-live="polite"></div>
+
+    <section class="local-data-tools container" aria-label="Yerel veriler">
+      <div>
+        <strong>Yerel veriler</strong>
+        <span>Kelime defteri, okuma ilerlemesi ve skorlar yalnızca bu cihazda saklanır.</span>
+      </div>
+      <div class="local-data-actions">
+        <button type="button" id="exportLocalDataBtn">Yedeği indir</button>
+        <button type="button" id="importLocalDataBtn">Yedeği yükle</button>
+        <button type="button" id="resetLocalDataBtn">Verileri sıfırla</button>
+        <input type="file" id="importLocalDataInput" accept="application/json,.json" class="hidden">
+      </div>
+    </section>
+
   <footer class="site-footer container">
     <p>Almanca Aşkına — sade, hızlı ve dikkat dağıtmayan Almanca çalışma aracı.</p>
   </footer>
 <script src="data/stories-data.js?v=20260614-6"></script>
 <script src="data/grammar-data.js?v=20260614-6"></script>
-<script src="script.js?v=20260614-6"></script>
+<script src="script.js?v=20260614-7"></script>
 </body>
 </html>
