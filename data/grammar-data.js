@@ -396,5 +396,243 @@ window.GRAMMAR_HAPS = [
       ]
     ],
     "note": "wo genelde Dativ, wohin genelde Akkusativ ile eşleşir."
+  },
+  {
+    "category": "Cümle Yapısı",
+    "title": "Ana Cümlede Fiilin Yeri",
+    "summary": "Çekimli fiil ana cümlede genellikle ikinci pozisyondadır.",
+    "examples": [
+      [
+        "Ich lerne heute Deutsch.",
+        "Bugün Almanca öğreniyorum."
+      ],
+      [
+        "Heute lerne ich Deutsch.",
+        "Bugün Almanca öğreniyorum."
+      ],
+      [
+        "Am Abend liest er ein Buch.",
+        "Akşam bir kitap okuyor."
+      ]
+    ],
+    "note": "İlk sırada zaman veya yer varsa özne fiilden sonra gelir: Heute gehe ich ..."
+  },
+  {
+    "category": "Cümle Yapısı",
+    "title": "weil ve dass ile Yan Cümle",
+    "summary": "weil ve dass sonrasında çekimli fiil yan cümlenin sonuna gider.",
+    "examples": [
+      [
+        "Ich bleibe zu Hause, weil ich krank bin.",
+        "Hasta olduğum için evde kalıyorum."
+      ],
+      [
+        "Ich weiß, dass er heute arbeitet.",
+        "Onun bugün çalıştığını biliyorum."
+      ],
+      [
+        "Sie kommt nicht, weil sie keine Zeit hat.",
+        "Zamanı olmadığı için gelmiyor."
+      ]
+    ],
+    "note": "Yan cümleden sonra ana cümle gelirse: Weil ich krank bin, bleibe ich zu Hause."
+  },
+  {
+    "category": "Fiiller",
+    "title": "Ayrılabilen Fiiller",
+    "summary": "Ana cümlede ön ek çoğu zaman cümlenin sonuna gider.",
+    "chips": [
+      "aufstehen",
+      "anrufen",
+      "einkaufen",
+      "abholen",
+      "mitkommen"
+    ],
+    "examples": [
+      [
+        "Ich stehe um sieben Uhr auf.",
+        "Saat yedide kalkıyorum."
+      ],
+      [
+        "Er ruft seine Mutter an.",
+        "Annesini telefonla arıyor."
+      ],
+      [
+        "Wir kaufen heute ein.",
+        "Bugün alışveriş yapıyoruz."
+      ]
+    ],
+    "note": "Mastar ve yan cümlede fiil yeniden birleşir: Ich muss früh aufstehen. / weil ich früh aufstehe."
+  },
+  {
+    "category": "Fiiller",
+    "title": "Dönüşlü Fiiller",
+    "summary": "Bazı fiiller sich ile kullanılır; zamir kişiye göre değişir.",
+    "table": {
+      "headers": [
+        "Kişi",
+        "Dönüşlü zamir",
+        "Örnek"
+      ],
+      "rows": [
+        [
+          "ich",
+          "mich",
+          "Ich freue mich."
+        ],
+        [
+          "du",
+          "dich",
+          "Du erinnerst dich."
+        ],
+        [
+          "er/sie/es",
+          "sich",
+          "Sie interessiert sich."
+        ],
+        [
+          "wir",
+          "uns",
+          "Wir treffen uns."
+        ],
+        [
+          "ihr",
+          "euch",
+          "Ihr beeilt euch."
+        ],
+        [
+          "sie/Sie",
+          "sich",
+          "Sie setzen sich."
+        ]
+      ]
+    },
+    "note": "Her sich görülen fiil aynı Türkçe yapıyla çevrilmez; fiili kalıp olarak öğrenmek daha güvenlidir."
+  },
+  {
+    "category": "Zamanlar",
+    "title": "Präteritum: sein, haben ve Modal Fiiller",
+    "summary": "Günlük dilde sein, haben ve modal fiiller Präteritum ile sık kullanılır.",
+    "table": {
+      "headers": [
+        "Mastar",
+        "ich / er-sie-es",
+        "wir / sie-Sie"
+      ],
+      "rows": [
+        [
+          "sein",
+          "war",
+          "waren"
+        ],
+        [
+          "haben",
+          "hatte",
+          "hatten"
+        ],
+        [
+          "können",
+          "konnte",
+          "konnten"
+        ],
+        [
+          "müssen",
+          "musste",
+          "mussten"
+        ],
+        [
+          "wollen",
+          "wollte",
+          "wollten"
+        ],
+        [
+          "dürfen",
+          "durfte",
+          "durften"
+        ]
+      ]
+    },
+    "examples": [
+      [
+        "Ich war gestern müde.",
+        "Dün yorgundum."
+      ],
+      [
+        "Wir mussten lange warten.",
+        "Uzun süre beklemek zorundaydık."
+      ]
+    ],
+    "note": "Konuşma dilinde diğer birçok fiilde Perfekt daha yaygındır."
+  },
+  {
+    "category": "İsimler",
+    "title": "Çoğulda Artikel: die",
+    "summary": "Almancada bütün çoğul isimler Nominativ ve Akkusativ'de die alır.",
+    "examples": [
+      [
+        "das Haus → die Häuser",
+        "ev → evler"
+      ],
+      [
+        "der Freund → die Freunde",
+        "arkadaş → arkadaşlar"
+      ],
+      [
+        "die Frau → die Frauen",
+        "kadın → kadınlar"
+      ]
+    ],
+    "note": "Dativ çoğulda çoğu isme ayrıca -n gelir: mit den Freunden."
+  },
+  {
+    "category": "Sıfatlar",
+    "title": "Karşılaştırma: Komparativ ve Superlativ",
+    "summary": "Çoğu sıfatta Komparativ -er, Superlativ am ...-sten ile kurulur.",
+    "examples": [
+      [
+        "klein – kleiner – am kleinsten",
+        "küçük – daha küçük – en küçük"
+      ],
+      [
+        "schnell – schneller – am schnellsten",
+        "hızlı – daha hızlı – en hızlı"
+      ],
+      [
+        "gut – besser – am besten",
+        "iyi – daha iyi – en iyi"
+      ],
+      [
+        "gern – lieber – am liebsten",
+        "severek – daha çok severek – en çok severek"
+      ]
+    ],
+    "note": "Karşılaştırmada als kullanılır: Berlin ist größer als Bonn."
+  },
+  {
+    "category": "Bağlaçlar",
+    "title": "aber, denn, oder, sondern, und",
+    "summary": "Bu bağlaçlardan sonra normal ana cümle söz dizimi korunur.",
+    "chips": [
+      "aber",
+      "denn",
+      "oder",
+      "sondern",
+      "und"
+    ],
+    "examples": [
+      [
+        "Ich komme, aber ich bleibe nicht lange.",
+        "Geliyorum ama uzun kalmıyorum."
+      ],
+      [
+        "Ich gehe nach Hause, denn ich bin müde.",
+        "Eve gidiyorum çünkü yorgunum."
+      ],
+      [
+        "Er trinkt keinen Kaffee, sondern Tee.",
+        "Kahve değil, çay içiyor."
+      ]
+    ],
+    "note": "denn fiili sona göndermez; weil ise gönderir."
   }
 ];

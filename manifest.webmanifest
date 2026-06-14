@@ -1,0 +1,23 @@
+{
+  "name": "Almanca Aşkına",
+  "short_name": "Almanca Aşkına",
+  "description": "Ücretsiz, sade ve hızlı Almanca çalışma aracı.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F7F5F0",
+  "theme_color": "#8A5A44",
+  "lang": "tr",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

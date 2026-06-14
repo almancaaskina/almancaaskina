@@ -3,17 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#8A5A44" />
+  <meta name="description" content="Ücretsiz, sade ve hızlı Almanca sözlük, okuma, kelime oyunu ve gramer çalışma aracı." />
+  <link rel="manifest" href="manifest.webmanifest?v=6" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
   <title>Almanca Aşkına - Almanca Çalışma Aracı</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20260614-6" />
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a href="#" class="logo" aria-label="Almanca Aşkına ana sayfa">Almanca Aşkına</a>
-      <button class="theme-toggle" id="themeToggle" type="button">Gece Modu</button>
+      <div class="header-actions">
+        <button class="install-app-btn hidden" id="installAppBtn" type="button">Uygulamayı Yükle</button>
+        <button class="theme-toggle" id="themeToggle" type="button">Gece Modu</button>
+      </div>
     </div>
   </header>
 
@@ -49,6 +56,12 @@
           <input type="text" id="searchInput" placeholder="Örn: geben, Haus, Tasse..." autocomplete="off" />
           <button type="submit">Ara</button>
         </form>
+        <div class="dictionary-quick-tools">
+          <button type="button" class="quick-tool-btn" id="recentSearchesBtn">Son Aramalar</button>
+          <button type="button" class="quick-tool-btn" id="wordNotebookBtn">Kelime Defteri <span id="favoriteCount">0</span></button>
+        </div>
+        <div id="searchSuggestions" class="search-suggestions hidden" role="listbox" aria-label="Kelime önerileri"></div>
+        <div id="dictionaryDrawer" class="dictionary-drawer hidden"></div>
         <div id="resultPreview" class="result-preview">
           <div class="empty-state">
             <strong>Bir Almanca kelime veya fiil yaz.</strong>
@@ -154,38 +167,15 @@
       </div>
 
       <div class="grammar-grid" id="grammarGrid"></div>
-        <article class="grammar-card">
-          <h3>Dativ Alan Edatlar</h3>
-          <p>aus, bei, mit, nach, seit, von, zu</p>
-          <button type="button" class="copy-btn" data-copy="aus, bei, mit, nach, seit, von, zu">Kopyala</button>
-        </article>
-
-        <article class="grammar-card">
-          <h3>Akkusativ Alan Edatlar</h3>
-          <p>durch, für, gegen, ohne, um</p>
-          <button type="button" class="copy-btn" data-copy="durch, für, gegen, ohne, um">Kopyala</button>
-        </article>
-
-        <article class="grammar-card">
-          <h3>Perfekt Mantığı</h3>
-          <p>haben/sein + Partizip II. Örn: ich habe gemacht, ich bin gegangen.</p>
-          <button type="button" class="copy-btn" data-copy="Perfekt = haben/sein + Partizip II. Örn: ich habe gemacht, ich bin gegangen.">Kopyala</button>
-        </article>
-
-        <article class="grammar-card">
-          <h3>Artikel İpuçları</h3>
-          <p>-ung çoğunlukla die, -chen çoğunlukla das, günler ve aylar çoğunlukla der.</p>
-          <button type="button" class="copy-btn" data-copy="-ung çoğunlukla die, -chen çoğunlukla das, günler ve aylar çoğunlukla der.">Kopyala</button>
-        </article>
-      </div>
     </section>
   </main>
 
+  <div class="network-status hidden" id="networkStatus" role="status" aria-live="polite"></div>
   <footer class="site-footer container">
     <p>Almanca Aşkına — sade, hızlı ve dikkat dağıtmayan Almanca çalışma aracı.</p>
   </footer>
-<script src="data/stories-data.js"></script>
-<script src="data/grammar-data.js"></script>
-<script src="script.js"></script>
+<script src="data/stories-data.js?v=20260614-6"></script>
+<script src="data/grammar-data.js?v=20260614-6"></script>
+<script src="script.js?v=20260614-6"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 let dictionaryData = [];
+let storyWordLookup = new Map();
 let currentStoryLevel = null;
 let currentGameWord = null;
 let currentGameLevel = "A1";
@@ -137,14 +138,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function loadDictionary() {
   const [a1Data, a2Data] = await Promise.all([
-    fetchFirstAvailable(["data/a1-words.json"]),
-fetchFirstAvailable(["data/a2-words.json"])
+    fetchFirstAvailable(["data/a1-words.json?v=20260614-1"]),
+fetchFirstAvailable(["data/a2-words.json?v=20260614-1"])
   ]);
 
   const a1 = Array.isArray(a1Data) ? a1Data.map(item => ({ ...item, level: item.level || "A1" })) : [];
   const a2 = Array.isArray(a2Data) ? a2Data.map(item => ({ ...item, level: item.level || "A2" })) : [];
 
   dictionaryData = mergeDictionaryData(a1, a2);
+  buildStoryWordLookup();
   prepareFirstGameWord();
   console.log("Sözlük yüklendi:", dictionaryData.length);
 }
@@ -416,11 +418,30 @@ function renderSimpleResult(item) {
 function renderExample(item) {
   const example = item.examples && item.examples.length ? item.examples[0] : "";
   if (!example) return "";
-  return `<div class="example-box"><strong>Örnek cümle</strong>${escapeHtml(example)}</div>`;
+  const translation = item.exampleTranslations && item.exampleTranslations.length
+    ? item.exampleTranslations[0]
+    : "";
+  return `
+    <div class="example-box">
+      <strong>Örnek cümle</strong>
+      <span>${escapeHtml(example)}</span>
+      ${translation ? `<small>${escapeHtml(translation)}</small>` : ""}
+    </div>`;
 }
 
 function getPosLabel(pos) {
-  const labels = { noun: "İsim", verb: "Fiil", other: "Kelime / ifade" };
+  const labels = {
+    noun: "İsim",
+    verb: "Fiil",
+    adjective: "Sıfat",
+    adverb: "Zarf",
+    preposition: "Edat",
+    conjunction: "Bağlaç",
+    pronoun: "Zamir",
+    number: "Sayı",
+    abbreviation: "Kısaltma",
+    other: "Kelime / ifade"
+  };
   return labels[pos] || "Kelime";
 }
 
@@ -634,8 +655,13 @@ function initReading() {
   }
 
   document.addEventListener("click", event => {
-    if (!event.target.classList.contains("reader-word") && !event.target.classList.contains("word-tip")) return;
-    event.target.classList.toggle("is-visible");
+    const clickedWord = event.target.closest(".reader-word");
+
+    document.querySelectorAll(".reader-word.is-visible").forEach(word => {
+      if (word !== clickedWord) word.classList.remove("is-visible");
+    });
+
+    if (clickedWord) clickedWord.classList.toggle("is-visible");
   });
 }
 
@@ -678,7 +704,8 @@ function openStory(storyId) {
 
   document.getElementById("readerText").innerHTML = (story.tokens || []).map(token => {
     if (typeof token === "string") return escapeHtml(token);
-    return `<span class="reader-word" data-tr="${escapeHtml(token.tr)}">${escapeHtml(token.de)}</span>`;
+    const tooltipLines = [token.de, token.tr];
+    return createReaderWordMarkup(token.de, tooltipLines, false);
   }).join("");
 }
 
@@ -849,7 +876,19 @@ const STORY_FALLBACK_TR = {
   sehr:'çok', viel:'çok', viele:'birçok', mehr:'daha fazla', wenig:'az', gut:'iyi', besser:'daha iyi', gern:'severek', gerne:'severek', schön:'güzel', klein:'küçük', groß:'büyük', alt:'eski/yaşlı', neu:'yeni', warm:'sıcak', kalt:'soğuk', langsam:'yavaş', schnell:'hızlı', zusammen:'birlikte', allein:'yalnız',
   bin:'-im / olmak', bist:'-sin / olmak', ist:'-dir / olmak', sind:'-iz/-ler / olmak', seid:'-siniz / olmak', war:'idi', waren:'idiler', habe:'sahibim / yaptım', hast:'sahipsin / yaptın', hat:'sahip / yaptı', haben:'sahip olmak', hatte:'sahipti', hatten:'sahiptiler',
   gehe:'gidiyorum', gehst:'gidiyorsun', geht:'gidiyor', gehen:'gitmek', ging:'gitti', gegangen:'gitmiş/gitti', komme:'geliyorum', kommt:'geliyor', kommen:'gelmek', gekommen:'gelmiş/geldi', mache:'yapıyorum', macht:'yapıyor', machen:'yapmak', gemacht:'yapmış/yaptı',
-  möchte:'istiyorum', möchten:'istemek', muss:'zorunda', müssen:'zorunda olmak', kann:'yapabilir', können:'yapabilmek', soll:'-meli', sollen:'-meli/-malı', will:'istiyor', wollen:'istemek'
+  möchte:'istiyorum', möchten:'istemek', muss:'zorunda', müssen:'zorunda olmak', kann:'yapabilir', können:'yapabilmek', soll:'-meli', sollen:'-meli/-malı', will:'istiyor', wollen:'istemek',
+
+  mein:'benim', meine:'benim', meinen:'benim', meinem:'benim', meiner:'benim', meines:'benim',
+  dein:'senin', deine:'senin', deinen:'senin', deinem:'senin', deiner:'senin', deines:'senin',
+  sein:'onun', seine:'onun', seinen:'onun', seinem:'onun', seiner:'onun', seines:'onun',
+  unser:'bizim', unsere:'bizim', unseren:'bizim', unserem:'bizim', unserer:'bizim', unseres:'bizim',
+  dieser:'bu', diese:'bu', dieses:'bu', diesen:'bu', diesem:'bu',
+  jeder:'her', jede:'her', jedes:'her', jeden:'her', jedem:'her',
+  alle:'tümü/hepsi', alles:'her şey', andere:'diğer', anderen:'diğer',
+  darf:'izinli/yapabilir', dürfen:'izinli olmak', mag:'sever', mögen:'sevmek', wird:'olacak/edilir', werden:'olmak',
+  gibt:'verir/var', dazu:'buna ek olarak', darauf:'bunun üzerine', dorthin:'oraya', hause:'ev(e)', vom:'-den/-dan', beim:'-de/-da',
+  ungefähr:'yaklaşık', etwa:'yaklaşık', minuten:'dakika', jahre:'yıl', monaten:'ay',
+
 };
 
 function getStoriesData() {
@@ -860,64 +899,217 @@ function getGrammarData() {
   return Array.isArray(window.GRAMMAR_HAPS) ? window.GRAMMAR_HAPS : [];
 }
 
-function createDictionaryLookup() {
-  const lookup = new Map();
+function buildStoryWordLookup() {
+  storyWordLookup = new Map();
+
   dictionaryData.forEach(item => {
     if (!item || !item.word || !item.tr) return;
-    const forms = [item.word, item.key, item.raw].filter(Boolean);
-    forms.forEach(form => lookup.set(normalizeGerman(form), item.tr));
+
+    const forms = [
+      item.word,
+      item.key,
+      item.id,
+      ...(Array.isArray(item.aliases) ? item.aliases : [])
+    ].filter(Boolean);
+
+    forms.forEach(form => {
+      const normalized = normalizeGerman(String(form));
+      if (normalized && !storyWordLookup.has(normalized)) {
+        storyWordLookup.set(normalized, item);
+      }
+    });
   });
-  return lookup;
 }
 
-function getTokenTranslation(token) {
-  const clean = String(token || '').replace(/[„“”"'’‘()]/g, '').trim();
-  if (!clean) return '';
-  const lower = clean.toLocaleLowerCase('de-DE');
-  const directFallback = STORY_FALLBACK_TR[lower];
-  if (directFallback) return directFallback;
+function findStoryWord(token) {
+  const clean = String(token || "")
+    .replace(/[„“”"'’‘()]/g, "")
+    .trim();
 
-  const lookup = createDictionaryLookup();
+  if (!clean) return null;
+
   const normalized = normalizeGerman(clean);
-  if (lookup.has(normalized)) return lookup.get(normalized);
-
-  const guesses = guessGermanBaseForms(lower).map(normalizeGerman);
-  for (const guess of guesses) {
-    if (lookup.has(guess)) return lookup.get(guess);
+  if (storyWordLookup.has(normalized)) {
+    return storyWordLookup.get(normalized);
   }
 
-  return 'çeviri eklenecek';
+  const guesses = guessGermanBaseForms(clean.toLocaleLowerCase("de-DE"));
+  for (const guess of guesses) {
+    const normalizedGuess = normalizeGerman(guess);
+    if (storyWordLookup.has(normalizedGuess)) {
+      return storyWordLookup.get(normalizedGuess);
+    }
+  }
+
+  return null;
+}
+
+function getStoryWordInfo(token) {
+  const clean = String(token || "").trim();
+  const entry = findStoryWord(clean);
+
+  if (entry) {
+    const lemma = entry.article
+      ? `${entry.article} ${entry.word}`
+      : entry.word;
+
+    const lines = [clean];
+
+    if (normalizeGerman(lemma) !== normalizeGerman(clean)) {
+      lines.push(`→ ${lemma}`);
+    }
+
+    lines.push(entry.tr);
+
+    if (entry.plural) {
+      lines.push(`Çoğul: die ${entry.plural}`);
+    } else if (entry.pluralHint && entry.pos === "noun") {
+      lines.push(`Çoğul ipucu: ${entry.pluralHint}`);
+    }
+
+    const typeLabel = getStoryPosLabel(entry.pos);
+    if (typeLabel || entry.level) {
+      lines.push([typeLabel, entry.level].filter(Boolean).join(" · "));
+    }
+
+    return {
+      tooltip: lines.join("\n"),
+      missing: false
+    };
+  }
+
+  const fallback = STORY_FALLBACK_TR[clean.toLocaleLowerCase("de-DE")];
+  if (fallback) {
+    return {
+      tooltip: `${clean}\n${fallback}`,
+      missing: false
+    };
+  }
+
+  return {
+    tooltip: `${clean}\nSözlükte henüz bulunmuyor`,
+    missing: true
+  };
+}
+
+function getStoryPosLabel(pos) {
+  const labels = {
+    noun: "İsim",
+    verb: "Fiil",
+    adjective: "Sıfat",
+    adverb: "Zarf",
+    preposition: "Edat",
+    conjunction: "Bağlaç",
+    pronoun: "Zamir",
+    phrase: "Kalıp ifade",
+    other: "Kelime"
+  };
+
+  return labels[pos] || "";
 }
 
 function guessGermanBaseForms(word) {
-  const w = word.replace(/[.,!?;:]/g, '');
+  const w = word.replace(/[.,!?;:]/g, "");
   const guesses = new Set([w]);
-  if (w.endsWith('e')) guesses.add(w + 'n');
-  if (w.endsWith('st')) guesses.add(w.slice(0, -2) + 'en');
-  if (w.endsWith('t')) guesses.add(w.slice(0, -1) + 'en');
-  if (w.endsWith('en')) guesses.add(w);
-  if (w.endsWith('n')) guesses.add(w + 'en');
-  if (w.endsWith('te')) guesses.add(w.slice(0, -2) + 'en');
-  if (w.endsWith('ten')) guesses.add(w.slice(0, -3) + 'en');
-  if (w.endsWith('gegangen')) guesses.add('gehen');
-  if (w.endsWith('gekommen')) guesses.add('kommen');
-  if (w.endsWith('gemacht')) guesses.add('machen');
-  if (w.endsWith('gegessen')) guesses.add('essen');
-  if (w.endsWith('getrunken')) guesses.add('trinken');
-  if (w.endsWith('gesehen')) guesses.add('sehen');
-  if (w.endsWith('gefunden')) guesses.add('finden');
-  if (w.endsWith('gekauft')) guesses.add('kaufen');
-  if (w.endsWith('gelernt')) guesses.add('lernen');
-  if (w.endsWith('gespielt')) guesses.add('spielen');
+
+  // Yaygın fiil çekimleri.
+  if (w.endsWith("e")) guesses.add(`${w}n`);
+  if (w.endsWith("st")) guesses.add(`${w.slice(0, -2)}en`);
+  if (w.endsWith("t")) guesses.add(`${w.slice(0, -1)}en`);
+  if (w.endsWith("te")) guesses.add(`${w.slice(0, -2)}en`);
+  if (w.endsWith("ten")) guesses.add(`${w.slice(0, -3)}en`);
+
+  // Sıfat çekimleri: klein, kleine, kleinen, kleiner, kleines, kleinem.
+  ["en", "em", "er", "es", "e"].forEach(ending => {
+    if (w.length > ending.length + 2 && w.endsWith(ending)) {
+      guesses.add(w.slice(0, -ending.length));
+    }
+  });
+
+  // Basit çoğul ve hâl biçimleri. Yalnız sözlükte karşılığı varsa kullanılır.
+  ["en", "er", "e", "n", "s"].forEach(ending => {
+    if (w.length > ending.length + 2 && w.endsWith(ending)) {
+      guesses.add(w.slice(0, -ending.length));
+    }
+  });
+
+  // Umlautlu çoğullarda olası tekil kökü dene.
+  const withoutUmlaut = w.replaceAll("ä", "a").replaceAll("ö", "o").replaceAll("ü", "u");
+  guesses.add(withoutUmlaut);
+  ["en", "er", "e", "n"].forEach(ending => {
+    if (withoutUmlaut.length > ending.length + 2 && withoutUmlaut.endsWith(ending)) {
+      guesses.add(withoutUmlaut.slice(0, -ending.length));
+    }
+  });
+
+  const knownForms = {
+    bin: "sein", bist: "sein", ist: "sein", sind: "sein", seid: "sein",
+    war: "sein", waren: "sein", gewesen: "sein", wird: "werden",
+    habe: "haben", hast: "haben", hat: "haben", hatte: "haben", hatten: "haben", gehabt: "haben",
+    gehe: "gehen", gehst: "gehen", geht: "gehen", ging: "gehen", gingen: "gehen", gegangen: "gehen",
+    komme: "kommen", kommst: "kommen", kommt: "kommen", kam: "kommen", kamen: "kommen", gekommen: "kommen",
+    mache: "machen", machst: "machen", macht: "machen", machte: "machen", gemacht: "machen",
+    gibt: "geben", gebe: "geben", gibst: "geben", gab: "geben", gegeben: "geben",
+    esse: "essen", isst: "essen", frisst: "fressen", aß: "essen", gegessen: "essen",
+    trinke: "trinken", trinkst: "trinken", trinkt: "trinken", trank: "trinken", getrunken: "trinken",
+    sehe: "sehen", siehst: "sehen", sieht: "sehen", sah: "sehen", gesehen: "sehen",
+    finde: "finden", findest: "finden", findet: "finden", fand: "finden", gefunden: "finden",
+    läuft: "laufen", lief: "laufen", gelaufen: "laufen",
+    schläft: "schlafen", schlief: "schlafen", geschlafen: "schlafen",
+    fährt: "fahren", fuhr: "fahren", gefahren: "fahren",
+    spricht: "sprechen", sprach: "sprechen", gesprochen: "sprechen",
+    nimmt: "nehmen", nahm: "nehmen", genommen: "nehmen",
+    trifft: "treffen", traf: "treffen", getroffen: "treffen",
+    lässt: "lassen", ließ: "lassen", gelassen: "lassen",
+    hält: "halten", hielt: "halten", gehalten: "halten",
+    mag: "mögen", mochte: "mögen", gemocht: "mögen",
+    darf: "dürfen", durfte: "dürfen", gedurft: "dürfen",
+    muss: "müssen", musste: "müssen", gemusst: "müssen",
+    kann: "können", konnte: "können", gekonnt: "können",
+    soll: "sollen", sollte: "sollen", gesollt: "sollen",
+    will: "wollen", wollte: "wollen", gewollt: "wollen",
+    gespielt: "spielen", gelernt: "lernen", gekauft: "kaufen", gelacht: "lachen",
+    geübt: "üben", gefrühstückt: "frühstücken", entspannt: "entspannen",
+    aufgestanden: "aufstehen", kennengelernt: "kennenlernen", gesprochen: "sprechen",
+    geschmolzen: "schmelzen", geschnitten: "schneiden", gebacken: "backen",
+    brauche: "brauchen", brauchst: "brauchen", braucht: "brauchen",
+    nehme: "nehmen", wohnst: "wohnen", wohnt: "wohnen", wohne: "wohnen",
+    erkläre: "erklären", erklärt: "erklären", lege: "legen", legt: "legen",
+    schneide: "schneiden", fühlt: "fühlen", fühle: "fühlen",
+    frisst: "fressen", fraß: "fressen", stehe: "stehen", treffe: "treffen",
+    bedeutet: "bedeuten", mischt: "mischen", berührt: "berühren",
+    felder: "feld", figuren: "figur", zutaten: "zutat", punkte: "punkt",
+    möglichkeiten: "möglichkeit", ländern: "land", türme: "turm", bauern: "bauer",
+    bester: "gut", besten: "gut", besser: "gut", liebsten: "gern", schöner: "schön"
+  };
+
+  if (knownForms[w]) guesses.add(knownForms[w]);
   return [...guesses];
 }
 
+function createReaderWordMarkup(surface, lines, missing = false) {
+  const safeLines = (lines || []).filter(Boolean).map((line, index) => {
+    const tag = index === 0 ? "strong" : "span";
+    return `<${tag}>${escapeHtml(String(line))}</${tag}>`;
+  }).join("");
+
+  return `<span class="reader-word${missing ? " is-missing" : ""}" tabindex="0">${escapeHtml(surface)}<span class="reader-tooltip" role="tooltip">${safeLines}</span></span>`;
+}
+
 function annotateStoryText(text) {
-  return escapeHtml(text).replace(/([A-Za-zÄÖÜäöüß]+(?:-[A-Za-zÄÖÜäöüß]+)?)/g, (match) => {
-    const tr = getTokenTranslation(match);
-    const missing = tr === 'çeviri eklenecek' ? ' is-missing' : '';
-    return `<span class="reader-word${missing}" data-tr="${escapeHtml(tr)}">${match}</span>`;
-  }).replace(/\n/g, '<br>');
+  return escapeHtml(text)
+    .replace(/([A-Za-zÄÖÜäöüß]+(?:-[A-Za-zÄÖÜäöüß]+)?)/g, match => {
+      const info = getStoryWordInfo(match);
+      const lines = String(info.tooltip || "")
+        .replace(/<br\s*\/?>/gi, "\n")
+        .replace(/\r\n?/g, "\n")
+        .split("\n")
+        .map(line => line.trim())
+        .filter(Boolean);
+
+      return createReaderWordMarkup(match, lines, info.missing);
+    })
+    .replace(/\n/g, "<br>");
 }
 
 function renderGrammarHaps() {
@@ -991,3 +1183,1039 @@ function initTheme() {
     themeToggle.textContent = next === "dark" ? "Gündüz Modu" : "Gece Modu";
   });
 }
+
+
+/* ==========================================================
+   BIG UPDATE 5
+   - Reading progress stored in localStorage
+   - Completed story controls
+   - Grammar search and category filters
+   ========================================================== */
+
+const READING_PROGRESS_KEY = "almancaAskinaReadingProgressV1";
+
+function getReadingProgress() {
+  try {
+    const value = JSON.parse(localStorage.getItem(READING_PROGRESS_KEY) || "[]");
+    return new Set(Array.isArray(value) ? value : []);
+  } catch (error) {
+    return new Set();
+  }
+}
+
+function saveReadingProgress(progress) {
+  localStorage.setItem(READING_PROGRESS_KEY, JSON.stringify([...progress]));
+}
+
+function isStoryCompleted(storyId) {
+  return getReadingProgress().has(storyId);
+}
+
+function toggleStoryCompleted(storyId) {
+  const progress = getReadingProgress();
+  if (progress.has(storyId)) progress.delete(storyId);
+  else progress.add(storyId);
+  saveReadingProgress(progress);
+  updateReaderCompleteButton(storyId);
+  if (currentStoryLevel) renderStoryList(currentStoryLevel);
+}
+
+function updateReaderCompleteButton(storyId) {
+  const button = document.getElementById("storyCompleteButton");
+  if (!button) return;
+  const completed = isStoryCompleted(storyId);
+  button.classList.toggle("is-completed", completed);
+  button.setAttribute("aria-pressed", String(completed));
+  button.textContent = completed ? "✓ Tamamlandı" : "Okudum, tamamla";
+}
+
+function getLevelProgress(level) {
+  const stories = getStoriesData().filter(story => story.level === level);
+  const progress = getReadingProgress();
+  const completed = stories.filter(story => progress.has(story.id)).length;
+  return { completed, total: stories.length };
+}
+
+function renderStoryList(level) {
+  const storyList = document.getElementById("storyList");
+  const readerCard = document.getElementById("readerCard");
+  if (!storyList || !readerCard) return;
+
+  const stories = getStoriesData().filter(story => story.level === level);
+  const levelProgress = getLevelProgress(level);
+
+  readerCard.classList.add("hidden");
+  storyList.classList.remove("hidden");
+
+  storyList.innerHTML = `
+    <div class="reading-progress-card">
+      <div>
+        <strong>${escapeHtml(level)} okuma ilerlemesi</strong>
+        <span>${levelProgress.completed} / ${levelProgress.total} hikâye tamamlandı</span>
+      </div>
+      <div class="reading-progress-track" aria-hidden="true">
+        <span style="width:${levelProgress.total ? Math.round(levelProgress.completed / levelProgress.total * 100) : 0}%"></span>
+      </div>
+    </div>
+    <div class="story-list-grid">
+      ${stories.map(story => {
+        const completed = isStoryCompleted(story.id);
+        return `
+          <button type="button" class="story-card ${completed ? "is-completed" : ""}" data-story-id="${escapeHtml(story.id)}">
+            <span>${completed ? "✓ " : ""}${escapeHtml(story.title)}</span>
+            <small>${escapeHtml(story.topic || `${story.level} okuma`)}</small>
+            <div class="story-meta">
+              <em>${story.level}</em>
+              <em>${story.minutes} dk</em>
+              <em>${story.words} kelime</em>
+              ${completed ? "<em>Tamamlandı</em>" : ""}
+            </div>
+          </button>
+        `;
+      }).join("")}
+    </div>
+  `;
+
+  storyList.querySelectorAll("[data-story-id]").forEach(button => {
+    button.addEventListener("click", () => openStory(button.dataset.storyId));
+  });
+}
+
+function openStory(storyId) {
+  const story = getStoriesData().find(item => item.id === storyId);
+  if (!story) return;
+
+  document.getElementById("storyList")?.classList.add("hidden");
+  document.getElementById("readerCard")?.classList.remove("hidden");
+
+  const meta = document.getElementById("readerMeta");
+  if (meta) {
+    meta.innerHTML = `
+      <em>${story.level}</em>
+      <em>${escapeHtml(story.topic || `${story.level} okuma`)}</em>
+      <em>${story.minutes} dk</em>
+      <em>${story.words} kelime</em>
+      <button type="button" class="story-complete-btn" id="storyCompleteButton" aria-pressed="false"></button>
+    `;
+  }
+
+  document.getElementById("readerTitle").textContent = story.title;
+  updateReaderCompleteButton(story.id);
+
+  document.getElementById("storyCompleteButton")?.addEventListener("click", () => {
+    toggleStoryCompleted(story.id);
+  });
+
+  if (story.text) {
+    document.getElementById("readerText").innerHTML = annotateStoryText(story.text);
+    return;
+  }
+
+  document.getElementById("readerText").innerHTML = (story.tokens || []).map(token => {
+    if (typeof token === "string") return escapeHtml(token);
+    return createReaderWordMarkup(token.de, [token.de, token.tr], false);
+  }).join("");
+}
+
+let activeGrammarCategory = "Tümü";
+let grammarSearchQuery = "";
+
+function normalizeGrammarSearch(value) {
+  return String(value || "")
+    .toLocaleLowerCase("tr-TR")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+}
+
+function getFilteredGrammarData() {
+  const query = normalizeGrammarSearch(grammarSearchQuery);
+  return getGrammarData().filter(item => {
+    const categoryMatch = activeGrammarCategory === "Tümü" || item.category === activeGrammarCategory;
+    if (!categoryMatch) return false;
+    if (!query) return true;
+    const searchable = normalizeGrammarSearch(JSON.stringify(item));
+    return searchable.includes(query);
+  });
+}
+
+function renderGrammarHaps() {
+  const grid = document.getElementById("grammarGrid");
+  if (!grid) return;
+
+  const allData = getGrammarData();
+  const data = getFilteredGrammarData();
+  const categories = ["Tümü", ...new Set(allData.map(item => item.category).filter(Boolean))];
+
+  grid.className = "grammar-library";
+  grid.innerHTML = `
+    <div class="grammar-tools">
+      <label class="grammar-search-label">
+        <span>Gramer konularında ara</span>
+        <input type="search" id="grammarSearchInput" placeholder="Örn: Perfekt, Dativ, fiilin yeri..." value="${escapeHtml(grammarSearchQuery)}">
+      </label>
+      <div class="grammar-category-row">
+        ${categories.map(category => `
+          <button type="button" class="grammar-category-btn ${category === activeGrammarCategory ? "is-active" : ""}" data-grammar-category="${escapeHtml(category)}">
+            ${escapeHtml(category)}
+          </button>
+        `).join("")}
+      </div>
+      <p class="grammar-result-count">${data.length} konu gösteriliyor</p>
+    </div>
+
+    <div class="grammar-accordion">
+      ${data.length ? data.map((item, index) => `
+        <article class="grammar-accordion-item ${index === 0 ? "is-open" : ""}">
+          <button type="button" class="grammar-accordion-trigger">
+            <div>
+              <span>${escapeHtml(item.category || "Gramer")}</span>
+              <strong>${escapeHtml(item.title)}</strong>
+              <small>${escapeHtml(item.summary || "")}</small>
+            </div>
+            <b class="chevron">⌄</b>
+          </button>
+          <div class="grammar-accordion-content">
+            ${renderGrammarContent(item)}
+          </div>
+        </article>
+      `).join("") : `
+        <div class="grammar-empty">
+          <strong>Bu aramayla eşleşen konu bulunamadı.</strong>
+          <span>Daha kısa bir kelimeyle tekrar deneyebilirsin.</span>
+        </div>
+      `}
+    </div>
+  `;
+
+  document.getElementById("grammarSearchInput")?.addEventListener("input", event => {
+    grammarSearchQuery = event.target.value;
+    renderGrammarHaps();
+    requestAnimationFrame(() => {
+      const input = document.getElementById("grammarSearchInput");
+      if (input) {
+        input.focus();
+        input.setSelectionRange(input.value.length, input.value.length);
+      }
+    });
+  });
+
+  grid.querySelectorAll("[data-grammar-category]").forEach(button => {
+    button.addEventListener("click", () => {
+      activeGrammarCategory = button.dataset.grammarCategory;
+      renderGrammarHaps();
+    });
+  });
+
+  grid.querySelectorAll(".grammar-accordion-trigger").forEach(trigger => {
+    trigger.addEventListener("click", () => {
+      trigger.closest(".grammar-accordion-item").classList.toggle("is-open");
+    });
+  });
+}
+
+
+/* ==========================================================
+   BIG UPDATE 6
+   1) Live dictionary suggestions + recent searches
+   2) Local word notebook / favorites
+   3) 10-question game sessions + wrong-answer review
+   4) Story search, status filter and continue reading
+   5) PWA installation and offline support
+   6) Network/offline status feedback
+   ========================================================== */
+
+const FAVORITES_KEY = "almancaAskinaFavoritesV1";
+const SEARCH_HISTORY_KEY = "almancaAskinaSearchHistoryV1";
+const LAST_STORY_KEY = "almancaAskinaLastStoryV1";
+const GAME_BEST_KEY = "almancaAskinaGameBestV1";
+
+let storySearchQueryV6 = "";
+let storyStatusFilterV6 = "all";
+let deferredInstallPrompt = null;
+let gameSessionV6 = null;
+let gameAnswerLockedV6 = false;
+
+function safeReadStorage(key, fallback) {
+  try {
+    const value = JSON.parse(localStorage.getItem(key));
+    return value ?? fallback;
+  } catch (error) {
+    return fallback;
+  }
+}
+
+function safeWriteStorage(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (error) {
+    console.warn("Tarayıcı verisi kaydedilemedi:", error);
+  }
+}
+
+function getEntryStorageId(item) {
+  return String(item?.id || item?.key || `${item?.word || ""}-${item?.pos || "other"}`);
+}
+
+/* ---------- SEARCH SUGGESTIONS + HISTORY ---------- */
+
+function initSearch() {
+  const form = document.getElementById("searchForm");
+  const input = document.getElementById("searchInput");
+  const suggestions = document.getElementById("searchSuggestions");
+  if (!form || !input) return;
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    const query = input.value.trim();
+    if (query) addSearchHistory(query);
+    hideSearchSuggestions();
+    handleSearch(query);
+  });
+
+  input.addEventListener("input", () => {
+    renderSearchSuggestions(input.value);
+  });
+
+  input.addEventListener("focus", () => {
+    renderSearchSuggestions(input.value);
+  });
+
+  input.addEventListener("keydown", event => {
+    const items = [...document.querySelectorAll("[data-suggestion-value]")];
+    if (!items.length) return;
+
+    const active = document.querySelector(".search-suggestion.is-active");
+    let index = active ? items.indexOf(active) : -1;
+
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      index = (index + 1) % items.length;
+    } else if (event.key === "ArrowUp") {
+      event.preventDefault();
+      index = (index - 1 + items.length) % items.length;
+    } else if (event.key === "Enter" && active) {
+      event.preventDefault();
+      chooseSearchSuggestion(active.dataset.suggestionValue);
+      return;
+    } else if (event.key === "Escape") {
+      hideSearchSuggestions();
+      return;
+    } else {
+      return;
+    }
+
+    items.forEach(item => item.classList.remove("is-active"));
+    items[index]?.classList.add("is-active");
+    items[index]?.scrollIntoView({ block: "nearest" });
+  });
+
+  document.addEventListener("click", event => {
+    if (!event.target.closest(".search-card")) hideSearchSuggestions();
+  });
+
+  document.getElementById("recentSearchesBtn")?.addEventListener("click", renderRecentSearchesDrawer);
+  document.getElementById("wordNotebookBtn")?.addEventListener("click", renderWordNotebook);
+  suggestions?.addEventListener("mousedown", event => event.preventDefault());
+
+  updateFavoriteCount();
+}
+
+function getSearchSuggestions(query) {
+  const germanQuery = normalizeGerman(query);
+  const turkishQuery = normalizeAnswer(query);
+  if (!germanQuery && !turkishQuery) {
+    return getSearchHistory().map(value => ({
+      type: "history",
+      label: value,
+      sublabel: "Son arama",
+      value
+    }));
+  }
+
+  return dictionaryData
+    .filter(item => item?.word && item?.tr)
+    .map(item => {
+      const german = normalizeGerman(item.word);
+      const raw = normalizeGerman(item.raw);
+      const translation = normalizeAnswer(item.tr);
+      let score = 0;
+
+      if (german === germanQuery) score = 120;
+      else if (german.startsWith(germanQuery)) score = 100;
+      else if (raw.startsWith(germanQuery)) score = 85;
+      else if (german.includes(germanQuery)) score = 70;
+
+      if (translation === turkishQuery) score = Math.max(score, 115);
+      else if (turkishQuery && translation.startsWith(turkishQuery)) score = Math.max(score, 90);
+      else if (turkishQuery && translation.includes(turkishQuery)) score = Math.max(score, 65);
+
+      return { item, score };
+    })
+    .filter(result => result.score > 0)
+    .sort((a, b) => b.score - a.score || a.item.word.localeCompare(b.item.word, "de"))
+    .slice(0, 8)
+    .map(result => ({
+      type: "word",
+      label: getGermanDisplay(result.item),
+      sublabel: result.item.tr,
+      meta: `${result.item.level || "A1/A2"} · ${getPosLabel(result.item.pos)}`,
+      value: result.item.word
+    }));
+}
+
+function renderSearchSuggestions(query) {
+  const box = document.getElementById("searchSuggestions");
+  if (!box || !dictionaryData.length) return;
+
+  const suggestions = getSearchSuggestions(query);
+  if (!suggestions.length) {
+    hideSearchSuggestions();
+    return;
+  }
+
+  box.innerHTML = suggestions.map((suggestion, index) => `
+    <button type="button" class="search-suggestion${index === 0 ? " is-active" : ""}" role="option"
+      data-suggestion-value="${escapeHtml(suggestion.value)}">
+      <span>
+        <strong>${escapeHtml(suggestion.label)}</strong>
+        <small>${escapeHtml(suggestion.sublabel || "")}</small>
+      </span>
+      ${suggestion.meta ? `<em>${escapeHtml(suggestion.meta)}</em>` : ""}
+    </button>
+  `).join("");
+
+  box.classList.remove("hidden");
+  box.querySelectorAll("[data-suggestion-value]").forEach(button => {
+    button.addEventListener("click", () => chooseSearchSuggestion(button.dataset.suggestionValue));
+  });
+}
+
+function chooseSearchSuggestion(value) {
+  const input = document.getElementById("searchInput");
+  if (input) input.value = value;
+  addSearchHistory(value);
+  hideSearchSuggestions();
+  handleSearch(value);
+}
+
+function hideSearchSuggestions() {
+  document.getElementById("searchSuggestions")?.classList.add("hidden");
+}
+
+function getSearchHistory() {
+  const history = safeReadStorage(SEARCH_HISTORY_KEY, []);
+  return Array.isArray(history) ? history.slice(0, 8) : [];
+}
+
+function addSearchHistory(query) {
+  const clean = String(query || "").trim();
+  if (!clean) return;
+  const history = getSearchHistory().filter(item => normalizeAnswer(item) !== normalizeAnswer(clean));
+  history.unshift(clean);
+  safeWriteStorage(SEARCH_HISTORY_KEY, history.slice(0, 8));
+}
+
+function renderRecentSearchesDrawer() {
+  const drawer = document.getElementById("dictionaryDrawer");
+  if (!drawer) return;
+
+  if (!drawer.classList.contains("hidden") && drawer.dataset.view === "history") {
+    drawer.classList.add("hidden");
+    return;
+  }
+
+  const history = getSearchHistory();
+  drawer.dataset.view = "history";
+  drawer.innerHTML = `
+    <div class="drawer-head">
+      <div>
+        <strong>Son aramalar</strong>
+        <span>Bu cihazda saklanır.</span>
+      </div>
+      ${history.length ? '<button type="button" class="text-btn" id="clearSearchHistory">Temizle</button>' : ""}
+    </div>
+    ${history.length ? `
+      <div class="history-chip-list">
+        ${history.map(value => `<button type="button" data-history-query="${escapeHtml(value)}">${escapeHtml(value)}</button>`).join("")}
+      </div>
+    ` : '<div class="drawer-empty">Henüz bir arama yapmadın.</div>'}
+  `;
+  drawer.classList.remove("hidden");
+
+  drawer.querySelectorAll("[data-history-query]").forEach(button => {
+    button.addEventListener("click", () => chooseSearchSuggestion(button.dataset.historyQuery));
+  });
+
+  document.getElementById("clearSearchHistory")?.addEventListener("click", () => {
+    safeWriteStorage(SEARCH_HISTORY_KEY, []);
+    renderRecentSearchesDrawer();
+  });
+}
+
+/* ---------- FAVORITES / WORD NOTEBOOK ---------- */
+
+function getFavoriteIds() {
+  const values = safeReadStorage(FAVORITES_KEY, []);
+  return new Set(Array.isArray(values) ? values : []);
+}
+
+function isFavorite(item) {
+  return getFavoriteIds().has(getEntryStorageId(item));
+}
+
+function toggleFavorite(item) {
+  const favorites = getFavoriteIds();
+  const id = getEntryStorageId(item);
+  if (favorites.has(id)) favorites.delete(id);
+  else favorites.add(id);
+  safeWriteStorage(FAVORITES_KEY, [...favorites]);
+  updateFavoriteCount();
+  updateFavoriteButton(item);
+}
+
+function updateFavoriteCount() {
+  const count = getFavoriteIds().size;
+  const element = document.getElementById("favoriteCount");
+  if (element) element.textContent = String(count);
+}
+
+function updateFavoriteButton(item) {
+  const button = document.getElementById("favoriteWordBtn");
+  if (!button) return;
+  const saved = isFavorite(item);
+  button.classList.toggle("is-saved", saved);
+  button.setAttribute("aria-pressed", String(saved));
+  button.textContent = saved ? "★ Defterde" : "☆ Deftere ekle";
+}
+
+function renderResultHeader(item, displayWord) {
+  const article = item.article ? `<span class="article">${escapeHtml(item.article)}</span>` : "";
+  const saved = isFavorite(item);
+  return `
+    <div class="result-top">
+      <div>
+        <div class="result-title">${article}<span class="word">${escapeHtml(displayWord || item.word)}</span></div>
+        <p class="translation">${escapeHtml(item.tr || "Türkçe anlam kontrol edilecek")}</p>
+      </div>
+      <div class="result-actions">
+        <div class="badge-row">
+          <span class="level-badge">${escapeHtml(item.level || "A1/A2")}</span>
+          <span class="pos-badge">${escapeHtml(getPosLabel(item.pos))}</span>
+        </div>
+        <button type="button" class="favorite-word-btn${saved ? " is-saved" : ""}" id="favoriteWordBtn"
+          aria-pressed="${saved}">${saved ? "★ Defterde" : "☆ Deftere ekle"}</button>
+      </div>
+    </div>`;
+}
+
+function renderFoundResult(item) {
+  const resultPreview = document.getElementById("resultPreview");
+
+  if (item.pos === "verb") {
+    resultPreview.innerHTML = renderVerbResult(item);
+    bindVerbTabs();
+  } else if (item.pos === "noun") {
+    resultPreview.innerHTML = renderNounResult(item);
+  } else {
+    resultPreview.innerHTML = renderSimpleResult(item);
+  }
+
+  document.getElementById("favoriteWordBtn")?.addEventListener("click", () => toggleFavorite(item));
+}
+
+function renderWordNotebook() {
+  const drawer = document.getElementById("dictionaryDrawer");
+  if (!drawer) return;
+
+  if (!drawer.classList.contains("hidden") && drawer.dataset.view === "favorites") {
+    drawer.classList.add("hidden");
+    return;
+  }
+
+  const favoriteIds = getFavoriteIds();
+  const words = dictionaryData
+    .filter(item => favoriteIds.has(getEntryStorageId(item)))
+    .sort((a, b) => (a.level || "").localeCompare(b.level || "") || a.word.localeCompare(b.word, "de"));
+
+  drawer.dataset.view = "favorites";
+  drawer.innerHTML = `
+    <div class="drawer-head">
+      <div>
+        <strong>Kelime Defteri</strong>
+        <span>${words.length} kayıt · yalnızca bu cihazda saklanır</span>
+      </div>
+      ${words.length ? '<button type="button" class="text-btn" id="clearFavorites">Tümünü kaldır</button>' : ""}
+    </div>
+    ${words.length ? `
+      <div class="notebook-list">
+        ${words.map(item => `
+          <div class="notebook-item">
+            <button type="button" class="notebook-open" data-notebook-word="${escapeHtml(item.word)}">
+              <strong>${escapeHtml(getGermanDisplay(item))}</strong>
+              <span>${escapeHtml(item.tr)}</span>
+              <small>${escapeHtml(item.level || "A1/A2")} · ${escapeHtml(getPosLabel(item.pos))}</small>
+            </button>
+            <button type="button" class="notebook-remove" aria-label="Kelimeyi defterden kaldır"
+              data-remove-favorite="${escapeHtml(getEntryStorageId(item))}">×</button>
+          </div>
+        `).join("")}
+      </div>
+    ` : '<div class="drawer-empty">Sözlük sonucundaki “Deftere ekle” düğmesiyle kelime biriktirebilirsin.</div>'}
+  `;
+  drawer.classList.remove("hidden");
+
+  drawer.querySelectorAll("[data-notebook-word]").forEach(button => {
+    button.addEventListener("click", () => chooseSearchSuggestion(button.dataset.notebookWord));
+  });
+
+  drawer.querySelectorAll("[data-remove-favorite]").forEach(button => {
+    button.addEventListener("click", () => {
+      const favorites = getFavoriteIds();
+      favorites.delete(button.dataset.removeFavorite);
+      safeWriteStorage(FAVORITES_KEY, [...favorites]);
+      updateFavoriteCount();
+      renderWordNotebook();
+    });
+  });
+
+  document.getElementById("clearFavorites")?.addEventListener("click", () => {
+    safeWriteStorage(FAVORITES_KEY, []);
+    updateFavoriteCount();
+    renderWordNotebook();
+  });
+}
+
+/* ---------- GAME SESSION V6 ---------- */
+
+function initGame() {
+  ensureGameSessionUI();
+
+  document.querySelectorAll("[data-game-level]").forEach(button => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll("[data-game-level]").forEach(btn => btn.classList.remove("is-active"));
+      button.classList.add("is-active");
+      currentGameLevel = button.dataset.gameLevel;
+      startGameSessionV6();
+    });
+  });
+
+  document.querySelectorAll("[data-game-mode]").forEach(button => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll("[data-game-mode]").forEach(btn => btn.classList.remove("is-active"));
+      button.classList.add("is-active");
+      currentGameMode = button.dataset.gameMode;
+      startGameSessionV6();
+    });
+  });
+
+  document.getElementById("randomWordBtn")?.addEventListener("click", () => {
+    if (!gameSessionV6 || gameSessionV6.finished) startGameSessionV6();
+    else setNewGameWord();
+  });
+
+  document.getElementById("guessInput")?.addEventListener("keydown", event => {
+    if (event.key === "Enter") checkGameAnswer();
+  });
+}
+
+function ensureGameSessionUI() {
+  const toolbar = document.querySelector(".game-toolbar");
+  if (toolbar && !document.getElementById("gameSessionStats")) {
+    toolbar.insertAdjacentHTML("afterend", `
+      <div class="game-session-stats" id="gameSessionStats">
+        <span>Soru <strong id="gameQuestionCount">0/10</strong></span>
+        <span>Doğru <strong id="gameCorrectCount">0</strong></span>
+        <span>Yanlış <strong id="gameWrongCount">0</strong></span>
+        <span>En iyi <strong id="gameBestCount">${getGameBestScoreV6()}/10</strong></span>
+      </div>
+    `);
+  }
+}
+
+function getGameBestScoreV6() {
+  const value = Number(safeReadStorage(GAME_BEST_KEY, 0));
+  return Number.isFinite(value) ? value : 0;
+}
+
+function startGameSessionV6(reviewWords = null) {
+  gameSessionV6 = {
+    target: reviewWords?.length || 10,
+    answered: 0,
+    correct: 0,
+    wrong: [],
+    reviewQueue: Array.isArray(reviewWords) ? [...reviewWords] : null,
+    finished: false,
+    seen: new Set()
+  };
+  gameAnswerLockedV6 = false;
+  resetStreak();
+  updateGameSessionStatsV6();
+  setNewGameWord();
+}
+
+function prepareFirstGameWord() {
+  if (dictionaryData.length && !gameSessionV6) startGameSessionV6();
+}
+
+function setNewGameWord() {
+  if (!dictionaryData.length) return;
+  if (!gameSessionV6 || gameSessionV6.finished) {
+    startGameSessionV6();
+    return;
+  }
+
+  let candidate = null;
+  if (gameSessionV6.reviewQueue?.length) {
+    candidate = gameSessionV6.reviewQueue.shift();
+  } else {
+    const effectiveMode = currentGameMode === "mixed"
+      ? (Math.random() > 0.5 ? "meaning" : "article")
+      : currentGameMode;
+    const pool = getGamePool(effectiveMode);
+    const unseen = pool.filter(item => !gameSessionV6.seen.has(getEntryStorageId(item)));
+    const source = unseen.length ? unseen : pool;
+    if (!source.length) return;
+    const item = source[Math.floor(Math.random() * source.length)];
+    candidate = { ...item, gameMode: effectiveMode };
+  }
+
+  currentGameWord = { ...candidate };
+  if (!currentGameWord.gameMode) {
+    currentGameWord.gameMode = currentGameMode === "mixed" ? "meaning" : currentGameMode;
+  }
+
+  gameSessionV6.seen.add(getEntryStorageId(currentGameWord));
+  activeArticleChoice = null;
+  gameAnswerLockedV6 = false;
+  renderGameQuestion();
+  updateGameSessionStatsV6();
+  focusGameInput();
+}
+
+function checkGameAnswer() {
+  if (!currentGameWord || gameAnswerLockedV6 || !gameSessionV6 || gameSessionV6.finished) return;
+
+  let correct = false;
+  let message = "";
+
+  if (currentGameWord.gameMode === "article") {
+    if (!activeArticleChoice) return;
+    correct = activeArticleChoice === currentGameWord.article;
+    const correctText = `${currentGameWord.article} ${currentGameWord.word}`;
+    const meaningText = currentGameWord.tr ? ` — ${currentGameWord.tr}` : "";
+    message = correct ? `Doğru: ${correctText}${meaningText}` : `Yanlış. Doğrusu: ${correctText}${meaningText}`;
+  } else {
+    const input = document.getElementById("guessInput");
+    const guess = normalizeAnswer(input?.value || "");
+    if (!guess) return;
+    const answers = getAcceptedAnswers(currentGameWord.tr);
+    correct = answers.some(answer => {
+      const cleanAnswer = normalizeAnswer(answer);
+      return guess === cleanAnswer || (guess.length >= 3 && cleanAnswer.includes(guess));
+    });
+    message = correct ? `Doğru: ${currentGameWord.tr}` : `Yanlış. Doğrusu: ${currentGameWord.tr}`;
+  }
+
+  gameAnswerLockedV6 = true;
+  showGameResult(correct, message);
+}
+
+function showGameResult(correct, message) {
+  const result = document.getElementById("gameResult");
+  if (!result || !gameSessionV6) return;
+
+  gameSessionV6.answered += 1;
+  if (correct) {
+    streak += 1;
+    gameSessionV6.correct += 1;
+    result.className = "game-feedback success";
+  } else {
+    streak = 0;
+    gameSessionV6.wrong.push({ ...currentGameWord });
+    result.className = "game-feedback error";
+  }
+
+  result.textContent = message;
+  document.getElementById("streakCount").textContent = String(streak);
+  updateGameSessionStatsV6();
+
+  if (gameSessionV6.answered >= gameSessionV6.target) {
+    setTimeout(finishGameSessionV6, 650);
+  } else {
+    setTimeout(setNewGameWord, 850);
+  }
+}
+
+function updateGameSessionStatsV6() {
+  if (!gameSessionV6) return;
+  const values = {
+    gameQuestionCount: `${Math.min(gameSessionV6.answered + (gameSessionV6.finished ? 0 : 1), gameSessionV6.target)}/${gameSessionV6.target}`,
+    gameCorrectCount: gameSessionV6.correct,
+    gameWrongCount: gameSessionV6.wrong.length,
+    gameBestCount: `${getGameBestScoreV6()}/10`
+  };
+  Object.entries(values).forEach(([id, value]) => {
+    const element = document.getElementById(id);
+    if (element) element.textContent = String(value);
+  });
+}
+
+function finishGameSessionV6() {
+  if (!gameSessionV6) return;
+  gameSessionV6.finished = true;
+
+  if (gameSessionV6.target === 10 && gameSessionV6.correct > getGameBestScoreV6()) {
+    safeWriteStorage(GAME_BEST_KEY, gameSessionV6.correct);
+  }
+
+  const answerArea = document.getElementById("answerArea");
+  const result = document.getElementById("gameResult");
+  const percentage = Math.round((gameSessionV6.correct / gameSessionV6.target) * 100);
+
+  document.getElementById("gameDirection").textContent = "Oturum tamamlandı";
+  document.getElementById("gameWord").textContent = `${gameSessionV6.correct} / ${gameSessionV6.target}`;
+  document.getElementById("gameHint").textContent = `%${percentage} başarı`;
+  if (result) {
+    result.textContent = gameSessionV6.wrong.length
+      ? `${gameSessionV6.wrong.length} kelimeyi tekrar edebilirsin.`
+      : "Mükemmel, bu oturumda yanlışın yok.";
+    result.className = gameSessionV6.wrong.length ? "game-feedback" : "game-feedback success";
+  }
+
+  if (answerArea) {
+    answerArea.innerHTML = `
+      <div class="game-summary-actions">
+        ${gameSessionV6.wrong.length ? '<button type="button" class="primary-mini-btn" id="reviewWrongBtn">Yanlışları tekrar et</button>' : ""}
+        <button type="button" class="secondary-mini-btn" id="newSessionBtn">Yeni 10 soru</button>
+      </div>
+    `;
+  }
+
+  document.getElementById("reviewWrongBtn")?.addEventListener("click", () => {
+    const wrong = gameSessionV6.wrong.map(item => ({ ...item }));
+    startGameSessionV6(wrong);
+  });
+  document.getElementById("newSessionBtn")?.addEventListener("click", () => startGameSessionV6());
+  updateGameSessionStatsV6();
+}
+
+/* ---------- STORY SEARCH + CONTINUE ---------- */
+
+function getLastStoryDataV6() {
+  const value = safeReadStorage(LAST_STORY_KEY, null);
+  return value && typeof value === "object" ? value : null;
+}
+
+function renderStoryList(level) {
+  const storyList = document.getElementById("storyList");
+  const readerCard = document.getElementById("readerCard");
+  if (!storyList || !readerCard) return;
+
+  currentStoryLevel = level;
+  const allStories = getStoriesData().filter(story => story.level === level);
+  const progress = getReadingProgress();
+  const levelProgress = getLevelProgress(level);
+  const query = normalizeGrammarSearch(storySearchQueryV6);
+
+  const stories = allStories.filter(story => {
+    const searchMatch = !query || normalizeGrammarSearch(`${story.title} ${story.topic || ""} ${story.text || ""}`).includes(query);
+    const completed = progress.has(story.id);
+    const statusMatch =
+      storyStatusFilterV6 === "all" ||
+      (storyStatusFilterV6 === "completed" && completed) ||
+      (storyStatusFilterV6 === "unread" && !completed);
+    return searchMatch && statusMatch;
+  });
+
+  const last = getLastStoryDataV6();
+  const lastStory = last?.level === level ? allStories.find(story => story.id === last.id) : null;
+
+  readerCard.classList.add("hidden");
+  storyList.classList.remove("hidden");
+
+  storyList.innerHTML = `
+    <div class="reading-progress-card">
+      <div>
+        <strong>${escapeHtml(level)} okuma ilerlemesi</strong>
+        <span>${levelProgress.completed} / ${levelProgress.total} hikâye tamamlandı</span>
+      </div>
+      <div class="reading-progress-track" aria-hidden="true">
+        <span style="width:${levelProgress.total ? Math.round(levelProgress.completed / levelProgress.total * 100) : 0}%"></span>
+      </div>
+    </div>
+
+    ${lastStory ? `
+      <button type="button" class="continue-story-card" data-continue-story="${escapeHtml(lastStory.id)}">
+        <span>Kaldığın yerden devam et</span>
+        <strong>${escapeHtml(lastStory.title)}</strong>
+        <small>${lastStory.minutes} dk · ${lastStory.words} kelime</small>
+      </button>
+    ` : ""}
+
+    <div class="story-tools">
+      <label>
+        <span class="sr-only">Hikâye ara</span>
+        <input type="search" id="storySearchInput" placeholder="Başlık veya konu ara..." value="${escapeHtml(storySearchQueryV6)}">
+      </label>
+      <div class="story-filter-row">
+        ${[
+          ["all", "Tümü"],
+          ["unread", "Okunmadı"],
+          ["completed", "Tamamlandı"]
+        ].map(([value, label]) => `
+          <button type="button" class="${storyStatusFilterV6 === value ? "is-active" : ""}" data-story-filter="${value}">${label}</button>
+        `).join("")}
+      </div>
+    </div>
+
+    <p class="story-result-count">${stories.length} hikâye gösteriliyor</p>
+
+    <div class="story-list-grid">
+      ${stories.length ? stories.map(story => {
+        const completed = progress.has(story.id);
+        return `
+          <button type="button" class="story-card ${completed ? "is-completed" : ""}" data-story-id="${escapeHtml(story.id)}">
+            <span>${completed ? "✓ " : ""}${escapeHtml(story.title)}</span>
+            <small>${escapeHtml(story.topic || `${story.level} okuma`)}</small>
+            <div class="story-meta">
+              <em>${story.level}</em>
+              <em>${story.minutes} dk</em>
+              <em>${story.words} kelime</em>
+              ${completed ? "<em>Tamamlandı</em>" : ""}
+            </div>
+          </button>
+        `;
+      }).join("") : `
+        <div class="story-empty-state">
+          <strong>Eşleşen hikâye bulunamadı.</strong>
+          <span>Aramayı veya filtreyi değiştirebilirsin.</span>
+        </div>
+      `}
+    </div>
+  `;
+
+  document.getElementById("storySearchInput")?.addEventListener("input", event => {
+    storySearchQueryV6 = event.target.value;
+    renderStoryList(level);
+    requestAnimationFrame(() => {
+      const input = document.getElementById("storySearchInput");
+      if (input) {
+        input.focus();
+        input.setSelectionRange(input.value.length, input.value.length);
+      }
+    });
+  });
+
+  storyList.querySelectorAll("[data-story-filter]").forEach(button => {
+    button.addEventListener("click", () => {
+      storyStatusFilterV6 = button.dataset.storyFilter;
+      renderStoryList(level);
+    });
+  });
+
+  storyList.querySelectorAll("[data-story-id]").forEach(button => {
+    button.addEventListener("click", () => openStory(button.dataset.storyId));
+  });
+
+  document.querySelector("[data-continue-story]")?.addEventListener("click", event => {
+    openStory(event.currentTarget.dataset.continueStory);
+  });
+}
+
+function openStory(storyId) {
+  const story = getStoriesData().find(item => item.id === storyId);
+  if (!story) return;
+
+  safeWriteStorage(LAST_STORY_KEY, {
+    id: story.id,
+    level: story.level,
+    title: story.title,
+    openedAt: Date.now()
+  });
+
+  document.getElementById("storyList")?.classList.add("hidden");
+  document.getElementById("readerCard")?.classList.remove("hidden");
+
+  const meta = document.getElementById("readerMeta");
+  if (meta) {
+    meta.innerHTML = `
+      <em>${story.level}</em>
+      <em>${escapeHtml(story.topic || `${story.level} okuma`)}</em>
+      <em>${story.minutes} dk</em>
+      <em>${story.words} kelime</em>
+      <button type="button" class="story-complete-btn" id="storyCompleteButton" aria-pressed="false"></button>
+    `;
+  }
+
+  document.getElementById("readerTitle").textContent = story.title;
+  updateReaderCompleteButton(story.id);
+
+  document.getElementById("storyCompleteButton")?.addEventListener("click", () => {
+    toggleStoryCompleted(story.id);
+  });
+
+  const readerText = document.getElementById("readerText");
+  if (story.text) {
+    readerText.innerHTML = annotateStoryText(story.text);
+  } else {
+    readerText.innerHTML = (story.tokens || []).map(token => {
+      if (typeof token === "string") return escapeHtml(token);
+      return createReaderWordMarkup(token.de, [token.de, token.tr], false);
+    }).join("");
+  }
+}
+
+/* ---------- PWA + NETWORK ---------- */
+
+function initPwaV6() {
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js?v=6").catch(error => {
+        console.warn("Çevrimdışı destek başlatılamadı:", error);
+      });
+    });
+  }
+
+  const installButton = document.getElementById("installAppBtn");
+
+  window.addEventListener("beforeinstallprompt", event => {
+    event.preventDefault();
+    deferredInstallPrompt = event;
+    installButton?.classList.remove("hidden");
+  });
+
+  installButton?.addEventListener("click", async () => {
+    if (!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+    installButton.classList.add("hidden");
+  });
+
+  window.addEventListener("appinstalled", () => {
+    deferredInstallPrompt = null;
+    installButton?.classList.add("hidden");
+  });
+}
+
+function updateNetworkStatusV6() {
+  const status = document.getElementById("networkStatus");
+  if (!status) return;
+
+  if (navigator.onLine) {
+    status.textContent = "Bağlantı yeniden kuruldu.";
+    status.className = "network-status is-online";
+    setTimeout(() => status.classList.add("hidden"), 2200);
+  } else {
+    status.textContent = "Çevrimdışısın. Daha önce açılan içerikler çalışmaya devam eder.";
+    status.className = "network-status is-offline";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initPwaV6();
+  updateNetworkStatusV6();
+  window.addEventListener("online", updateNetworkStatusV6);
+  window.addEventListener("offline", updateNetworkStatusV6);
+});
