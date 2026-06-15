@@ -1,0 +1,575 @@
+/* ==========================================================
+   BIG UPDATE 9
+   ========================================================== */
+
+.daily-study-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.daily-study-actions strong {
+  color: var(--accent);
+  font-size: 28px;
+}
+
+.daily-study-actions button {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  padding: 8px 11px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.daily-study-actions button:hover {
+  border-color: var(--accent);
+  background: var(--soft);
+}
+
+.home-study-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.word-of-day-card,
+.focus-timer-card {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+}
+
+.word-of-day-head,
+.focus-timer-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.word-of-day-card span,
+.focus-timer-card span {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.word-of-day-card em,
+.focus-timer-card small {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+}
+
+.word-of-day-card > strong {
+  display: block;
+  margin-top: 12px;
+  font-size: clamp(27px, 3vw, 38px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.word-of-day-card p {
+  margin-top: 7px;
+  font-size: 17px;
+}
+
+.word-of-day-card > small {
+  display: block;
+  margin-top: 9px;
+  color: var(--muted);
+}
+
+.word-of-day-actions,
+.focus-action-row,
+.focus-preset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 15px;
+}
+
+.word-of-day-actions button,
+.focus-action-row button,
+.focus-preset-row button {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--text);
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.word-of-day-actions button:hover,
+.word-of-day-actions button.is-saved,
+.focus-preset-row button:hover,
+.focus-preset-row button.is-active {
+  border-color: var(--accent);
+  background: var(--soft);
+}
+
+.focus-timer-head strong {
+  display: block;
+  margin-top: 5px;
+  font-size: clamp(38px, 5vw, 58px);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  font-variant-numeric: tabular-nums;
+}
+
+.focus-primary-btn {
+  border-color: var(--accent) !important;
+  background: var(--accent) !important;
+  color: white !important;
+}
+
+.daily-goals-dialog {
+  width: min(620px, calc(100% - 30px));
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--card);
+  color: var(--text);
+  box-shadow: 0 28px 100px rgba(0, 0, 0, .25);
+}
+
+.daily-goals-dialog::backdrop {
+  background: rgba(0, 0, 0, .45);
+  backdrop-filter: blur(4px);
+}
+
+.daily-goals-dialog form {
+  padding: 22px;
+}
+
+.dialog-head,
+.dialog-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.dialog-head span,
+.dialog-head strong {
+  display: block;
+}
+
+.dialog-head span {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.dialog-head strong {
+  margin-top: 4px;
+  font-size: 22px;
+}
+
+.dialog-head > button {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  font-size: 22px;
+}
+
+.daily-goal-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+  margin: 20px 0;
+}
+
+.daily-goal-fields label {
+  display: grid;
+  gap: 7px;
+}
+
+.daily-goal-fields label > span {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.daily-goal-fields select {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text);
+  padding: 10px 12px;
+}
+
+.daily-goal-fields .goal-checkbox {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.dialog-actions button {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text);
+  padding: 10px 13px;
+  font-weight: 700;
+}
+
+.dialog-primary-btn {
+  border-color: var(--accent) !important;
+  background: var(--accent) !important;
+  color: white !important;
+}
+
+.explorer-filter-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.explorer-filter-row label {
+  display: grid;
+  gap: 6px;
+}
+
+.explorer-filter-row span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.explorer-filter-row select {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  color: var(--text);
+  padding: 9px 11px;
+}
+
+.explorer-word-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.explorer-word-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 7px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card);
+}
+
+.explorer-word-open {
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+}
+
+.explorer-word-open span,
+.explorer-word-open strong,
+.explorer-word-open small {
+  display: block;
+}
+
+.explorer-word-open span {
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.explorer-word-open strong {
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+
+.explorer-word-open small {
+  margin-top: 3px;
+  color: var(--muted);
+}
+
+.explorer-word-card > div {
+  display: grid;
+  align-content: start;
+  gap: 5px;
+}
+
+.explorer-word-card > div button {
+  width: 31px;
+  height: 31px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+}
+
+.explorer-word-card > div button.is-saved {
+  border-color: var(--accent);
+  background: var(--soft);
+}
+
+.grammar-practice-card {
+  margin-bottom: 16px;
+  padding: 19px;
+  border: 1px solid color-mix(in srgb, var(--accent) 50%, var(--border));
+  border-radius: var(--radius-lg);
+  background: var(--soft);
+}
+
+.grammar-practice-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.grammar-practice-head span,
+.grammar-practice-head strong,
+.grammar-practice-head small {
+  display: block;
+}
+
+.grammar-practice-head span {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.grammar-practice-head strong {
+  margin-top: 4px;
+  font-size: 19px;
+}
+
+.grammar-practice-head small {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.grammar-practice-head button,
+.grammar-quiz-result button {
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: white;
+  padding: 10px 14px;
+  font-weight: 800;
+}
+
+.grammar-quiz-progress {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.grammar-quiz-mount > small {
+  display: block;
+  margin-top: 15px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.grammar-quiz-mount h3 {
+  margin: 7px 0 14px;
+  font-size: 21px;
+}
+
+.grammar-quiz-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.grammar-quiz-options button {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  color: var(--text);
+  padding: 12px;
+  text-align: left;
+}
+
+.grammar-quiz-options button.is-correct {
+  border-color: var(--success);
+  background: color-mix(in srgb, var(--card) 86%, var(--success));
+}
+
+.grammar-quiz-options button.is-wrong {
+  border-color: var(--error);
+  background: color-mix(in srgb, var(--card) 88%, var(--error));
+}
+
+#grammarQuizFeedbackV9 {
+  min-height: 24px;
+  margin-top: 9px;
+  color: var(--muted);
+}
+
+.grammar-quiz-result {
+  text-align: center;
+}
+
+.grammar-quiz-result span,
+.grammar-quiz-result strong {
+  display: block;
+}
+
+.grammar-quiz-result span {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.grammar-quiz-result strong {
+  margin: 8px 0;
+  font-size: 42px;
+}
+
+.grammar-quiz-result p {
+  color: var(--muted);
+}
+
+.reader-position-panel {
+  display: grid;
+  grid-template-columns: auto minmax(120px, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 18px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+}
+
+.reader-position-panel > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.reader-position-panel span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.reader-position-panel strong {
+  font-size: 12px;
+}
+
+.reader-position-track {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--soft);
+}
+
+.reader-position-track span {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+}
+
+.reader-position-panel button {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  padding: 6px 9px;
+  font-size: 11px;
+}
+
+.app-update-banner {
+  position: fixed;
+  z-index: 130;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  max-width: min(420px, calc(100% - 40px));
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--text);
+  color: var(--bg);
+  box-shadow: var(--shadow);
+}
+
+.app-update-banner button {
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: white;
+  padding: 8px 11px;
+  font-weight: 800;
+}
+
+.progress-stat-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 980px) {
+  .explorer-word-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .progress-stat-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .daily-study-head,
+  .grammar-practice-head {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .daily-study-actions {
+    justify-content: space-between;
+  }
+
+  .home-study-grid,
+  .daily-goal-fields,
+  .explorer-filter-row,
+  .grammar-quiz-options {
+    grid-template-columns: 1fr;
+  }
+
+  .explorer-word-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reader-position-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-stat-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .app-update-banner {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    max-width: none;
+  }
+}

@@ -1,16 +1,34 @@
-const CACHE_NAME = "almanca-askina-v7";
+const CACHE_NAME = "almanca-askina-v10";
 const APP_SHELL = [
   "./",
   "./index.html",
   "./style.css",
-  "./script.js",
   "./manifest.webmanifest",
   "./icon-192.png",
   "./icon-512.png",
+  "./css/base.css",
+  "./css/reading-grammar.css",
+  "./css/tools-pwa.css",
+  "./css/daily-reader.css",
+  "./css/learning.css",
+  "./css/personalization.css",
+  "./css/final.css",
+  "./js/core.js",
+  "./js/reading-grammar.js",
+  "./js/tools-pwa.js",
+  "./js/daily-reader.js",
+  "./js/learning.js",
+  "./js/personalization.js",
+  "./js/phrases.js",
+  "./js/listening.js",
+  "./js/sentence-builder.js",
+  "./js/trust.js",
+  "./js/final-init.js",
   "./data/a1-words.json",
   "./data/a2-words.json",
   "./data/stories-data.js",
-  "./data/grammar-data.js"
+  "./data/grammar-data.js",
+  "./data/phrases-data.js"
 ];
 
 self.addEventListener("install", event => {
@@ -29,9 +47,12 @@ self.addEventListener("activate", event => {
   );
 });
 
+self.addEventListener("message", event => {
+  if (event.data?.type === "SKIP_WAITING") self.skipWaiting();
+});
+
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
-
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
 
@@ -48,16 +69,31 @@ self.addEventListener("fetch", event => {
     return;
   }
 
+  const networkFirst = /\.(?:js|css|json|webmanifest)$/i.test(url.pathname);
+  if (networkFirst) {
+    event.respondWith(
+      fetch(event.request)
+        .then(response => {
+          if (response?.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match(event.request, { ignoreSearch: true }))
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request, { ignoreSearch: true }).then(cached => {
       const network = fetch(event.request).then(response => {
-        if (response && response.ok) {
+        if (response?.ok) {
           const copy = response.clone();
           caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
         }
         return response;
       }).catch(() => cached);
-
       return cached || network;
     })
   );

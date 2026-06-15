@@ -1,0 +1,173 @@
+/* ==========================================================
+   BIG UPDATE 5
+   ========================================================== */
+
+.story-list-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.reading-progress-card {
+  grid-column: 1 / -1;
+  margin-bottom: 18px;
+  padding: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.reading-progress-card > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.reading-progress-card strong,
+.reading-progress-card span {
+  display: block;
+}
+
+.reading-progress-card span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.reading-progress-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--soft);
+}
+
+.reading-progress-track span {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width .25s ease;
+}
+
+.story-card.is-completed {
+  border-color: color-mix(in srgb, var(--success) 55%, var(--border));
+  background: color-mix(in srgb, var(--card) 90%, var(--success));
+}
+
+.story-complete-btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.story-complete-btn:hover,
+.story-complete-btn.is-completed {
+  border-color: var(--success);
+  background: color-mix(in srgb, var(--card) 88%, var(--success));
+  color: var(--success);
+}
+
+.grammar-library {
+  display: block;
+}
+
+.grammar-tools {
+  margin-bottom: 20px;
+  padding: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.grammar-search-label {
+  display: block;
+}
+
+.grammar-search-label span {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.grammar-search-label input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text);
+  padding: 12px 14px;
+  outline: none;
+}
+
+.grammar-search-label input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--soft);
+}
+
+.grammar-category-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.grammar-category-btn {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text);
+  padding: 7px 11px;
+  font-size: 12px;
+}
+
+.grammar-category-btn.is-active,
+.grammar-category-btn:hover {
+  border-color: var(--accent);
+  background: var(--soft);
+}
+
+.grammar-result-count {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.grammar-empty {
+  padding: 28px;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.grammar-empty strong,
+.grammar-empty span {
+  display: block;
+}
+
+.grammar-empty span {
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+@media (max-width: 760px) {
+  .story-list-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reading-progress-card > div:first-child {
+    display: block;
+  }
+
+  .reading-progress-card > div:first-child span {
+    margin-top: 4px;
+  }
+
+  .story-complete-btn {
+    width: 100%;
+    margin-top: 6px;
+  }
+}

@@ -4,19 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#8A5A44" />
-  <meta name="description" content="Ücretsiz, sade ve hızlı Almanca sözlük, okuma, kelime oyunu ve gramer çalışma aracı." />
-  <link rel="manifest" href="manifest.webmanifest?v=7" />
+  <meta name="description" content="Ücretsiz ve reklamsız Almanca sözlük, okuma, dinleme, cümle kurma, kelime oyunu ve gramer çalışma kütüphanesi." />
+  <link rel="manifest" href="manifest.webmanifest?v=10" />
   <link rel="apple-touch-icon" href="icon-192.png" />
-  <title>Almanca Aşkına - Almanca Çalışma Aracı</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260614-7" />
+  <title>Almanca Aşkına — Ücretsiz Almanca Çalışma Kütüphanesi</title>
+<link rel="stylesheet" href="style.css?v=10" />
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#" class="logo" aria-label="Almanca Aşkına ana sayfa">Almanca Aşkına</a>
+      <a href="#" class="logo" aria-label="Almanca Aşkına ana sayfa">Almanca Aşkına <small>v10</small></a>
       <div class="header-actions">
         <button class="install-app-btn hidden" id="installAppBtn" type="button">Uygulamayı Yükle</button>
         <button class="theme-toggle" id="themeToggle" type="button">Gece Modu</button>
@@ -34,6 +31,14 @@
         <span>Okuma Pratiği</span>
         <small>Seviye seç, hikaye oku</small>
       </button>
+      <button class="category-card" type="button" data-section-target="listening">
+        <span>Dinleme Laboratuvarı</span>
+        <small>Dinle, yaz ve doğru anlamı seç</small>
+      </button>
+      <button class="category-card" type="button" data-section-target="sentence">
+        <span>Cümle Kurma</span>
+        <small>Sırala, boşluğu doldur, hâli seç</small>
+      </button>
       <button class="category-card" type="button" data-section-target="game">
         <span>Kelime Oyunu</span>
         <small>A1/A2 kelime tekrarları</small>
@@ -41,6 +46,14 @@
       <button class="category-card" type="button" data-section-target="grammar">
         <span>Gramer Hapları</span>
         <small>Kısa ve net kurallar</small>
+      </button>
+      <button class="category-card" type="button" data-section-target="progress">
+        <span>İlerlemem</span>
+        <small>Tekrarlar, seri ve çalışma özeti</small>
+      </button>
+      <button class="category-card" type="button" data-section-target="about">
+        <span>Hakkında &amp; İletişim</span>
+        <small>Kaynaklar, gizlilik ve hata bildirimi</small>
       </button>
     </section>
 
@@ -51,10 +64,41 @@
           <div class="section-kicker">Bugünün Çalışması</div>
           <h2 id="dailyStudyTitle">Küçük adımlar, düzenli ilerleme.</h2>
         </div>
-        <strong id="dailyStudyPercent">0%</strong>
+        <div class="daily-study-actions">
+          <strong id="dailyStudyPercent">0%</strong>
+          <button type="button" id="dailyGoalsBtn">Hedefleri düzenle</button>
+        </div>
       </div>
       <div class="daily-study-progress" aria-hidden="true"><span id="dailyStudyProgressBar"></span></div>
       <div class="daily-task-grid" id="dailyTaskGrid"></div>
+
+      <div class="home-study-grid">
+        <article class="word-of-day-card" id="wordOfDayCard">
+          <span>Günün Kelimesi</span>
+          <strong>Yükleniyor…</strong>
+          <small>Sözlük hazırlanıyor.</small>
+        </article>
+
+        <article class="focus-timer-card" id="focusTimerCard">
+          <div class="focus-timer-head">
+            <div>
+              <span>Odak Zamanlayıcısı</span>
+              <strong id="focusTimerDisplay">10:00</strong>
+            </div>
+            <small id="focusTimerStatus">Hazır</small>
+          </div>
+          <div class="focus-preset-row" aria-label="Odak süresi">
+            <button type="button" data-focus-minutes="5">5 dk</button>
+            <button type="button" class="is-active" data-focus-minutes="10">10 dk</button>
+            <button type="button" data-focus-minutes="15">15 dk</button>
+            <button type="button" data-focus-minutes="25">25 dk</button>
+          </div>
+          <div class="focus-action-row">
+            <button type="button" class="focus-primary-btn" id="focusStartPauseBtn">Başlat</button>
+            <button type="button" id="focusResetBtn">Sıfırla</button>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section class="hero container">
@@ -72,6 +116,8 @@
         <div class="dictionary-quick-tools">
           <button type="button" class="quick-tool-btn" id="recentSearchesBtn">Son Aramalar</button>
           <button type="button" class="quick-tool-btn" id="wordNotebookBtn">Kelime Defteri <span id="favoriteCount">0</span></button>
+          <button type="button" class="quick-tool-btn" id="wordExploreBtn">Kelime Keşfet</button>
+          <button type="button" class="quick-tool-btn" id="phraseLibraryBtn">Kalıp Kütüphanesi <span id="phraseCount">213</span></button>
         </div>
         <div id="searchSuggestions" class="search-suggestions hidden" role="listbox" aria-label="Kelime önerileri"></div>
         <div id="dictionaryDrawer" class="dictionary-drawer hidden"></div>
@@ -111,7 +157,68 @@
         <div class="reader-meta" id="readerMeta"></div>
         <h3 id="readerTitle"></h3>
         <div class="reader-text" id="readerText"></div>
+        <div id="storyQuizMount"></div>
       </article>
+    </section>
+
+    <section id="listening" class="section-panel container" aria-labelledby="listeningTitle">
+      <div class="panel-head">
+        <div>
+          <div class="section-kicker">Dinleme Laboratuvarı</div>
+          <h2 id="listeningTitle">Kelimeyi veya cümleyi dinle, cevabını kendin bul.</h2>
+        </div>
+        <p>Tarayıcının Almanca ses motorunu kullanır; API anahtarı veya kullanım ücreti yoktur.</p>
+      </div>
+
+      <div class="practice-shell listening-shell">
+        <div class="practice-toolbar">
+          <div class="practice-control-group" aria-label="Dinleme seviyesi">
+            <span>Seviye</span>
+            <button type="button" class="is-active" data-listening-level="A1">A1</button>
+            <button type="button" data-listening-level="A2">A2</button>
+            <button type="button" data-listening-level="ALL">Karışık</button>
+          </div>
+          <div class="practice-control-group" aria-label="Dinleme modu">
+            <span>Mod</span>
+            <button type="button" class="is-active" data-listening-mode="word">Kelimeyi yaz</button>
+            <button type="button" data-listening-mode="sentence">Cümleyi seç</button>
+          </div>
+          <div class="practice-control-group" aria-label="Konuşma hızı">
+            <span>Hız</span>
+            <button type="button" data-listening-rate="0.72">Yavaş</button>
+            <button type="button" class="is-active" data-listening-rate="0.92">Normal</button>
+          </div>
+        </div>
+        <div id="listeningMount" class="practice-mount"></div>
+      </div>
+    </section>
+
+    <section id="sentence" class="section-panel container" aria-labelledby="sentenceTitle">
+      <div class="panel-head">
+        <div>
+          <div class="section-kicker">Cümle Kurma Atölyesi</div>
+          <h2 id="sentenceTitle">Kelimeyi bilmekten cümleyi kurmaya geç.</h2>
+        </div>
+        <p>Günlük ifadeler ve fiil-edat kalıplarıyla tamamen çevrimdışı çalışır.</p>
+      </div>
+
+      <div class="practice-shell sentence-shell">
+        <div class="practice-toolbar">
+          <div class="practice-control-group" aria-label="Cümle seviyesi">
+            <span>Seviye</span>
+            <button type="button" class="is-active" data-sentence-level="A1">A1</button>
+            <button type="button" data-sentence-level="A2">A2</button>
+            <button type="button" data-sentence-level="ALL">Karışık</button>
+          </div>
+          <div class="practice-control-group" aria-label="Cümle modu">
+            <span>Mod</span>
+            <button type="button" class="is-active" data-sentence-mode="order">Kelimeleri sırala</button>
+            <button type="button" data-sentence-mode="blank">Edatı tamamla</button>
+            <button type="button" data-sentence-mode="case">Hâli seç</button>
+          </div>
+        </div>
+        <div id="sentenceMount" class="practice-mount"></div>
+      </div>
     </section>
 
     <section id="game" class="section-panel container" aria-labelledby="gameTitle">
@@ -181,9 +288,178 @@
 
       <div class="grammar-grid" id="grammarGrid"></div>
     </section>
+
+    <section id="progress" class="section-panel container" aria-labelledby="progressTitle">
+      <div class="panel-head">
+        <div>
+          <div class="section-kicker">İlerlemem</div>
+          <h2 id="progressTitle">Çalışmalarını tek yerde gör, sıradaki adımı seç.</h2>
+        </div>
+        <p>İstatistikler yalnızca bu cihazda saklanır; hesap veya sunucu gerekmez.</p>
+      </div>
+      <div id="progressDashboard"></div>
+    </section>
+
+    <section id="about" class="section-panel container about-section" aria-labelledby="aboutTitle">
+      <div class="panel-head">
+        <div>
+          <div class="section-kicker">Hakkında &amp; İletişim</div>
+          <h2 id="aboutTitle">Ücretsiz, sade ve güvenilir bir Almanca çalışma kütüphanesi.</h2>
+        </div>
+        <p>Projenin amacı ücretli üyelik veya reklam baskısı olmadan işe yarayan bir öğrenme alanı sunmaktır.</p>
+      </div>
+
+      <div class="trust-grid">
+        <article class="trust-card">
+          <span>Proje İlkeleri</span>
+          <h3>Less is more.</h3>
+          <ul>
+            <li>Üyelik zorunluluğu yok</li>
+            <li>Reklam ve ücretli plan yok</li>
+            <li>Öğrenme ilerlemesi cihazında saklanır</li>
+            <li>A1–A2 düzeyine odaklı sade içerik</li>
+          </ul>
+        </article>
+
+        <article class="trust-card">
+          <span>Veri Kaynakları</span>
+          <h3>Kaynak ve editörlük yaklaşımı</h3>
+          <p>Temel A1–A2 kapsamı resmi sınav kelime listeleri referans alınarak hazırlanmış; Türkçe anlamlar, örnekler, hikâyeler ve kalıplar proje içinde düzenlenip genişletilmiştir.</p>
+          <div class="trust-links">
+            <a href="https://www.goethe.de/pro/relaunch/prf/de/A1_SD1_Wortliste_02.pdf" target="_blank" rel="noopener noreferrer">Goethe A1 kelime listesi ↗</a>
+            <a href="https://www.goethe.de/pro/relaunch/prf/de/Goethe-Zertifikat_A2_Wortliste.pdf" target="_blank" rel="noopener noreferrer">Goethe A2 kelime listesi ↗</a>
+          </div>
+          <small>Almanca Aşkına, Goethe-Institut ile bağlantılı veya onun tarafından onaylanmış bir proje değildir.</small>
+        </article>
+
+        <article class="trust-card">
+          <span>Gizlilik</span>
+          <h3>Verilerin sende kalır.</h3>
+          <p>Kelime defteri, skorlar, okuma ilerlemesi ve ayarlar tarayıcının yerel depolama alanında tutulur. Hesap açılmaz; reklam veya üçüncü taraf analiz çerezi kullanılmaz.</p>
+          <p>Siteyi barındıran hizmet, güvenlik ve işletim amacıyla standart bağlantı kayıtları işleyebilir. Sesli telaffuz tarayıcı/işletim sistemi altyapısını kullanır.</p>
+        </article>
+
+        <article class="trust-card contact-card">
+          <span>İletişim</span>
+          <h3>Bir hata mı gördün?</h3>
+          <p>Yanlış anlam, artikel, çekim, örnek cümle veya teknik sorunları doğrudan bildirebilirsin.</p>
+          <a class="contact-mail" href="mailto:akkayanbusiness@gmail.com">akkayanbusiness@gmail.com</a>
+          <button type="button" id="copyContactEmailBtn">E-posta adresini kopyala</button>
+        </article>
+      </div>
+
+      <form class="feedback-form" id="feedbackForm">
+        <div class="feedback-head">
+          <div>
+            <span>Hata Bildir / Öneri Gönder</span>
+            <h3>E-posta taslağını birkaç saniyede hazırla.</h3>
+          </div>
+          <small>Form gönderildiğinde e-posta uygulaman açılır; site form verisini bir sunucuya kaydetmez.</small>
+        </div>
+        <div class="feedback-fields">
+          <label>
+            <span>Konu</span>
+            <select id="feedbackType">
+              <option value="Kelime veya çeviri hatası">Kelime veya çeviri hatası</option>
+              <option value="Hikâye veya gramer hatası">Hikâye veya gramer hatası</option>
+              <option value="Teknik sorun">Teknik sorun</option>
+              <option value="Yeni özellik önerisi">Yeni özellik önerisi</option>
+              <option value="Diğer">Diğer</option>
+            </select>
+          </label>
+          <label>
+            <span>İlgili kelime / bölüm</span>
+            <input type="text" id="feedbackContext" placeholder="Örn: Haus, A1 hikâyesi, Dinleme Laboratuvarı">
+          </label>
+          <label class="feedback-message-field">
+            <span>Açıklama</span>
+            <textarea id="feedbackMessage" rows="5" placeholder="Ne gördüğünü ve doğru olması gerektiğini düşündüğün biçimi yazabilirsin."></textarea>
+          </label>
+        </div>
+        <button type="submit" class="feedback-submit-btn">E-posta taslağını aç</button>
+      </form>
+
+      <div class="version-strip">
+        <div><strong>Sürüm 10.0</strong><span>Final büyük güncelleme · Haziran 2026</span></div>
+        <div><strong>İçerik</strong><span>A1–A2 sözlük, 34 hikâye, 213 kalıp ve günlük ifade</span></div>
+        <div><strong>Maliyet</strong><span>Kullanıcı için ücretsiz; temel özelliklerde ücretli API yok</span></div>
+      </div>
+    </section>
+
   </main>
 
+  <button type="button" class="feedback-fab" id="feedbackFab">Hata bildir</button>
   <div class="network-status hidden" id="networkStatus" role="status" aria-live="polite"></div>
+
+  <dialog class="daily-goals-dialog" id="dailyGoalsDialog">
+    <form method="dialog" id="dailyGoalsForm">
+      <div class="dialog-head">
+        <div>
+          <span>Günlük Plan</span>
+          <strong>Hedeflerini kendine göre ayarla</strong>
+        </div>
+        <button type="button" id="closeDailyGoalsBtn" aria-label="Pencereyi kapat">×</button>
+      </div>
+
+      <div class="daily-goal-fields">
+        <label>
+          <span>Kelime araması</span>
+          <select id="goalSearches">
+            <option value="3">3 kelime</option>
+            <option value="5">5 kelime</option>
+            <option value="10">10 kelime</option>
+          </select>
+        </label>
+        <label>
+          <span>Tamamlanan hikâye</span>
+          <select id="goalStories">
+            <option value="1">1 hikâye</option>
+            <option value="2">2 hikâye</option>
+            <option value="3">3 hikâye</option>
+          </select>
+        </label>
+        <label>
+          <span>Oyun oturumu</span>
+          <select id="goalGames">
+            <option value="1">1 oturum</option>
+            <option value="2">2 oturum</option>
+            <option value="3">3 oturum</option>
+          </select>
+        </label>
+        <label>
+          <span>Gramer mini testi</span>
+          <select id="goalGrammar">
+            <option value="0">Hedefe ekleme</option>
+            <option value="1">1 test</option>
+            <option value="2">2 test</option>
+          </select>
+        </label>
+        <label>
+          <span>Odak oturumu</span>
+          <select id="goalFocus">
+            <option value="0">Hedefe ekleme</option>
+            <option value="1">1 oturum</option>
+            <option value="2">2 oturum</option>
+          </select>
+        </label>
+        <label class="goal-checkbox">
+          <input type="checkbox" id="goalReviews" checked>
+          <span>Günlük kelime tekrarlarını hedefe ekle</span>
+        </label>
+      </div>
+
+      <div class="dialog-actions">
+        <button type="button" id="resetDailyGoalsBtn">Varsayılana dön</button>
+        <button type="submit" class="dialog-primary-btn">Kaydet</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="app-update-banner hidden" id="appUpdateBanner" role="status">
+    <span>Almanca Aşkına için yeni bir sürüm hazır.</span>
+    <button type="button" id="applyAppUpdateBtn">Şimdi yenile</button>
+  </div>
+
 
     <section class="local-data-tools container" aria-label="Yerel veriler">
       <div>
@@ -199,10 +475,21 @@
     </section>
 
   <footer class="site-footer container">
-    <p>Almanca Aşkına — sade, hızlı ve dikkat dağıtmayan Almanca çalışma aracı.</p>
+    <p>Almanca Aşkına — ücretsiz, sade ve dikkat dağıtmayan Almanca çalışma kütüphanesi. · <a href="mailto:akkayanbusiness@gmail.com">İletişim</a> · Sürüm 10.0</p>
   </footer>
-<script src="data/stories-data.js?v=20260614-6"></script>
-<script src="data/grammar-data.js?v=20260614-6"></script>
-<script src="script.js?v=20260614-7"></script>
+<script src="data/stories-data.js?v=10"></script>
+<script src="data/grammar-data.js?v=10"></script>
+<script src="data/phrases-data.js?v=10"></script>
+<script src="js/core.js?v=10"></script>
+<script src="js/reading-grammar.js?v=10"></script>
+<script src="js/tools-pwa.js?v=10"></script>
+<script src="js/daily-reader.js?v=10"></script>
+<script src="js/learning.js?v=10"></script>
+<script src="js/personalization.js?v=10"></script>
+<script src="js/phrases.js?v=10"></script>
+<script src="js/listening.js?v=10"></script>
+<script src="js/sentence-builder.js?v=10"></script>
+<script src="js/trust.js?v=10"></script>
+<script src="js/final-init.js?v=10"></script>
 </body>
 </html>
