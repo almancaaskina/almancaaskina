@@ -11,6 +11,9 @@
   const heroVisual = doc.getElementById('heroVisual');
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // v11 hotfix: this redesign uses one continuous page, not closed accordion panels.
+  doc.querySelectorAll('main > .section-panel').forEach(panel => panel.classList.add('is-open'));
+
   function closeMenu() {
     nav?.classList.remove('is-open');
     toggle?.classList.remove('is-open');

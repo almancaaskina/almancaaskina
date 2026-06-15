@@ -138,6 +138,14 @@ html[data-theme="dark"] .brand-v11 {
 /* common section surfaces */
 .brand-v11 .daily-study,.brand-v11 .dictionary-section,.brand-v11 .section-panel,.brand-v11 .local-data-tools { position:relative; margin-top:36px; margin-bottom:86px; }
 .brand-v11 .daily-study,.brand-v11 .section-panel { padding:clamp(28px,4vw,56px); border:1px solid var(--border); border-radius:36px; background:color-mix(in srgb,var(--card) 96%,transparent); box-shadow:var(--shadow); }
+/* v11 hotfix: legacy accordion styles were collapsing every main section to max-height:0.
+   The new design is a continuous page, so all content panels must stay expanded. */
+.brand-v11 main > .section-panel {
+  max-height:none;
+  height:auto;
+  overflow:visible;
+  pointer-events:auto;
+}
 .brand-v11 .daily-study::before,.brand-v11 .section-panel::before,.brand-v11 .dictionary-section::before { content:attr(data-index); position:absolute; top:26px; right:32px; color:color-mix(in srgb,var(--muted) 48%,transparent); font-size:11px; font-weight:900; letter-spacing:.18em; }
 .brand-v11 .daily-study { overflow:hidden; }
 .brand-v11 .daily-study::after { content:""; position:absolute; width:320px; height:320px; border-radius:50%; background:radial-gradient(circle,rgba(30,64,255,.15),transparent 66%); right:-120px; top:-140px; pointer-events:none; }
