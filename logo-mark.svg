@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Almanca Aşkına açık kitap simgesi">
+  <rect width="128" height="128" rx="32" fill="#1E40FF"/>
+  <path d="M22 32c14-3 27-1 38 7v57c-11-8-24-11-38-8V32Z" fill="#fff"/>
+  <path d="M106 32c-14-3-27-1-38 7v57c11-8 24-11 38-8V32Z" fill="#fff"/>
+  <path d="M64 39v57" stroke="#1E40FF" stroke-width="6" stroke-linecap="round"/>
+  <path d="M22 88c14-3 27 0 38 8M106 88c-14-3-27 0-38 8" fill="none" stroke="#DDE5FF" stroke-width="5" stroke-linecap="round"/>
+</svg>
