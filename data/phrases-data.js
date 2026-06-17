@@ -3379,5 +3379,1697 @@ window.PHRASES_DATA = [
       "günlük-ifade"
     ],
     "source": "editorial"
+  },
+  {
+    "id": "praxis-housing-eine-wohnung-besichtigen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Wohnung besichtigen",
+    "tr": "bir evi görmeye gitmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wir besichtigen morgen eine Wohnung.",
+    "exampleTr": "Yarın bir evi görmeye gidiyoruz.",
+    "tags": [
+      "günlük-pratik",
+      "housing",
+      "ev-kiralama"
+    ],
+    "topic": "housing",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-housing-einen-mietvertrag-unterschreiben",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "einen Mietvertrag unterschreiben",
+    "tr": "kira sözleşmesi imzalamak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wir unterschreiben heute den Mietvertrag.",
+    "exampleTr": "Bugün kira sözleşmesini imzalıyoruz.",
+    "tags": [
+      "günlük-pratik",
+      "housing",
+      "ev-kiralama"
+    ],
+    "topic": "housing",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-housing-die-kaution-ueberweisen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "die Kaution überweisen",
+    "tr": "depozitoyu havale etmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich überweise die Kaution am Montag.",
+    "exampleTr": "Depozitoyu pazartesi havale ediyorum.",
+    "tags": [
+      "günlük-pratik",
+      "housing",
+      "ev-kiralama"
+    ],
+    "topic": "housing",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-housing-nebenkosten-bezahlen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "Nebenkosten bezahlen",
+    "tr": "yan giderleri ödemek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wir bezahlen die Nebenkosten jeden Monat.",
+    "exampleTr": "Yan giderleri her ay ödüyoruz.",
+    "tags": [
+      "günlük-pratik",
+      "housing",
+      "ev-kiralama"
+    ],
+    "topic": "housing",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-housing-einen-schaden-melden",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "einen Schaden melden",
+    "tr": "bir hasarı bildirmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich melde den Wasserschaden sofort.",
+    "exampleTr": "Su hasarını hemen bildiriyorum.",
+    "tags": [
+      "günlük-pratik",
+      "housing",
+      "ev-kiralama"
+    ],
+    "topic": "housing",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-housing-den-schluessel-uebergeben",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "den Schlüssel übergeben",
+    "tr": "anahtarı teslim etmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Der Vermieter übergibt den Schlüssel.",
+    "exampleTr": "Ev sahibi anahtarı teslim ediyor.",
+    "tags": [
+      "günlük-pratik",
+      "housing",
+      "ev-kiralama"
+    ],
+    "topic": "housing",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-housing-in-eine-wohnung-einziehen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "in eine Wohnung einziehen",
+    "tr": "bir eve taşınmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wir ziehen im Juli in die Wohnung ein.",
+    "exampleTr": "Temmuzda eve taşınıyoruz.",
+    "tags": [
+      "günlük-pratik",
+      "housing",
+      "ev-kiralama"
+    ],
+    "topic": "housing",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-housing-aus-einer-wohnung-ausziehen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "aus einer Wohnung ausziehen",
+    "tr": "bir evden taşınmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Sie zieht Ende Mai aus der Wohnung aus.",
+    "exampleTr": "Mayıs sonunda evden taşınıyor.",
+    "tags": [
+      "günlük-pratik",
+      "housing",
+      "ev-kiralama"
+    ],
+    "topic": "housing",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-health-einen-termin-vereinbaren",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "einen Termin vereinbaren",
+    "tr": "randevu ayarlamak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich vereinbare einen Termin beim Arzt.",
+    "exampleTr": "Doktordan randevu ayarlıyorum.",
+    "tags": [
+      "günlük-pratik",
+      "health",
+      "sagl-k-doktor"
+    ],
+    "topic": "health",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-health-beschwerden-beschreiben",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "Beschwerden beschreiben",
+    "tr": "şikâyetleri anlatmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Bitte beschreiben Sie Ihre Beschwerden.",
+    "exampleTr": "Lütfen şikâyetlerinizi anlatın.",
+    "tags": [
+      "günlük-pratik",
+      "health",
+      "sagl-k-doktor"
+    ],
+    "topic": "health",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-health-ein-rezept-abholen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "ein Rezept abholen",
+    "tr": "reçeteyi teslim almak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich hole das Rezept in der Praxis ab.",
+    "exampleTr": "Reçeteyi muayenehaneden alıyorum.",
+    "tags": [
+      "günlük-pratik",
+      "health",
+      "sagl-k-doktor"
+    ],
+    "topic": "health",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-health-medikamente-einnehmen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "Medikamente einnehmen",
+    "tr": "ilaç kullanmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Nehmen Sie das Medikament morgens ein.",
+    "exampleTr": "İlacı sabah kullanın.",
+    "tags": [
+      "günlük-pratik",
+      "health",
+      "sagl-k-doktor"
+    ],
+    "topic": "health",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-health-krankgeschrieben-werden",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "krankgeschrieben werden",
+    "tr": "rapor verilmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Er wird für drei Tage krankgeschrieben.",
+    "exampleTr": "Kendisine üç günlük rapor veriliyor.",
+    "tags": [
+      "günlük-pratik",
+      "health",
+      "sagl-k-doktor"
+    ],
+    "topic": "health",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-health-den-blutdruck-messen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "den Blutdruck messen",
+    "tr": "tansiyonu ölçmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Die Ärztin misst meinen Blutdruck.",
+    "exampleTr": "Doktor tansiyonumu ölçüyor.",
+    "tags": [
+      "günlük-pratik",
+      "health",
+      "sagl-k-doktor"
+    ],
+    "topic": "health",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-health-nebenwirkungen-haben",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "Nebenwirkungen haben",
+    "tr": "yan etkileri olmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Das Medikament kann Nebenwirkungen haben.",
+    "exampleTr": "İlacın yan etkileri olabilir.",
+    "tags": [
+      "günlük-pratik",
+      "health",
+      "sagl-k-doktor"
+    ],
+    "topic": "health",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-health-in-die-notaufnahme-fahren",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "in die Notaufnahme fahren",
+    "tr": "acil servise gitmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wir fahren sofort in die Notaufnahme.",
+    "exampleTr": "Hemen acil servise gidiyoruz.",
+    "tags": [
+      "günlük-pratik",
+      "health",
+      "sagl-k-doktor"
+    ],
+    "topic": "health",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-work-den-lebenslauf-schicken",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "den Lebenslauf schicken",
+    "tr": "özgeçmişi göndermek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Bitte schicken Sie uns Ihren Lebenslauf.",
+    "exampleTr": "Lütfen bize özgeçmişinizi gönderin.",
+    "tags": [
+      "günlük-pratik",
+      "work",
+      "is-kariyer"
+    ],
+    "topic": "work",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-work-ein-vorstellungsgespraech-fuehren",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "ein Vorstellungsgespräch führen",
+    "tr": "iş görüşmesi yapmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Morgen führe ich ein Vorstellungsgespräch.",
+    "exampleTr": "Yarın bir iş görüşmesi yapıyorum.",
+    "tags": [
+      "günlük-pratik",
+      "work",
+      "is-kariyer"
+    ],
+    "topic": "work",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-work-den-arbeitsvertrag-unterschreiben",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "den Arbeitsvertrag unterschreiben",
+    "tr": "iş sözleşmesini imzalamak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Sie unterschreibt den Arbeitsvertrag.",
+    "exampleTr": "İş sözleşmesini imzalıyor.",
+    "tags": [
+      "günlük-pratik",
+      "work",
+      "is-kariyer"
+    ],
+    "topic": "work",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-work-ueberstunden-machen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "Überstunden machen",
+    "tr": "fazla mesai yapmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Diese Woche muss ich Überstunden machen.",
+    "exampleTr": "Bu hafta fazla mesai yapmam gerekiyor.",
+    "tags": [
+      "günlük-pratik",
+      "work",
+      "is-kariyer"
+    ],
+    "topic": "work",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-work-urlaub-beantragen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "Urlaub beantragen",
+    "tr": "izin başvurusu yapmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich beantrage zwei Urlaubstage.",
+    "exampleTr": "İki günlük izin başvurusu yapıyorum.",
+    "tags": [
+      "günlük-pratik",
+      "work",
+      "is-kariyer"
+    ],
+    "topic": "work",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-work-sich-krankmelden",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "sich krankmelden",
+    "tr": "hastalık nedeniyle işe gelemeyeceğini bildirmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich muss mich heute krankmelden.",
+    "exampleTr": "Bugün hasta olduğumu bildirmem gerekiyor.",
+    "tags": [
+      "günlük-pratik",
+      "work",
+      "is-kariyer"
+    ],
+    "topic": "work",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-work-eine-frist-einhalten",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "eine Frist einhalten",
+    "tr": "son tarihe uymak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wir müssen die Frist einhalten.",
+    "exampleTr": "Son tarihe uymamız gerekiyor.",
+    "tags": [
+      "günlük-pratik",
+      "work",
+      "is-kariyer"
+    ],
+    "topic": "work",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-authorities-einen-antrag-stellen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "einen Antrag stellen",
+    "tr": "başvuru yapmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich stelle einen Antrag auf Aufenthaltserlaubnis.",
+    "exampleTr": "Oturma izni için başvuru yapıyorum.",
+    "tags": [
+      "günlük-pratik",
+      "authorities",
+      "resmi-islemler"
+    ],
+    "topic": "authorities",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-authorities-ein-formular-ausfuellen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "ein Formular ausfüllen",
+    "tr": "form doldurmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Bitte füllen Sie dieses Formular aus.",
+    "exampleTr": "Lütfen bu formu doldurun.",
+    "tags": [
+      "günlük-pratik",
+      "authorities",
+      "resmi-islemler"
+    ],
+    "topic": "authorities",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-authorities-unterlagen-einreichen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "Unterlagen einreichen",
+    "tr": "belgeleri teslim etmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Die Unterlagen müssen online eingereicht werden.",
+    "exampleTr": "Belgelerin çevrim içi teslim edilmesi gerekiyor.",
+    "tags": [
+      "günlük-pratik",
+      "authorities",
+      "resmi-islemler"
+    ],
+    "topic": "authorities",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-authorities-einen-termin-bestaetigen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "einen Termin bestätigen",
+    "tr": "randevuyu onaylamak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich bestätige den Termin per E-Mail.",
+    "exampleTr": "Randevuyu e-postayla onaylıyorum.",
+    "tags": [
+      "günlük-pratik",
+      "authorities",
+      "resmi-islemler"
+    ],
+    "topic": "authorities",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-authorities-eine-gebuehr-bezahlen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "eine Gebühr bezahlen",
+    "tr": "harç ödemek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Für den Antrag müssen Sie eine Gebühr bezahlen.",
+    "exampleTr": "Başvuru için harç ödemeniz gerekiyor.",
+    "tags": [
+      "günlük-pratik",
+      "authorities",
+      "resmi-islemler"
+    ],
+    "topic": "authorities",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-authorities-einen-ausweis-beantragen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "einen Ausweis beantragen",
+    "tr": "kimlik başvurusu yapmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Sie beantragt einen neuen Ausweis.",
+    "exampleTr": "Yeni kimlik için başvuru yapıyor.",
+    "tags": [
+      "günlük-pratik",
+      "authorities",
+      "resmi-islemler"
+    ],
+    "topic": "authorities",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-authorities-eine-vollmacht-erteilen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "eine Vollmacht erteilen",
+    "tr": "vekalet vermek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich erteile meiner Schwester eine Vollmacht.",
+    "exampleTr": "Kız kardeşime vekalet veriyorum.",
+    "tags": [
+      "günlük-pratik",
+      "authorities",
+      "resmi-islemler"
+    ],
+    "topic": "authorities",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-authorities-bei-der-behoerde-nachfragen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "bei der Behörde nachfragen",
+    "tr": "resmî kuruma danışmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich frage morgen bei der Behörde nach.",
+    "exampleTr": "Yarın resmî kuruma danışacağım.",
+    "tags": [
+      "günlük-pratik",
+      "authorities",
+      "resmi-islemler"
+    ],
+    "topic": "authorities",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-transport-den-anschluss-verpassen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "den Anschluss verpassen",
+    "tr": "aktarmayı kaçırmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wir haben den Anschlusszug verpasst.",
+    "exampleTr": "Aktarma trenini kaçırdık.",
+    "tags": [
+      "günlük-pratik",
+      "transport",
+      "ulas-m"
+    ],
+    "topic": "transport",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-transport-am-bahnsteig-warten",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "am Bahnsteig warten",
+    "tr": "peronda beklemek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Die Fahrgäste warten am Bahnsteig.",
+    "exampleTr": "Yolcular peronda bekliyor.",
+    "tags": [
+      "günlük-pratik",
+      "transport",
+      "ulas-m"
+    ],
+    "topic": "transport",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-transport-in-den-zug-einsteigen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "in den Zug einsteigen",
+    "tr": "trene binmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Bitte steigen Sie in den Zug ein.",
+    "exampleTr": "Lütfen trene binin.",
+    "tags": [
+      "günlük-pratik",
+      "transport",
+      "ulas-m"
+    ],
+    "topic": "transport",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-transport-aus-dem-bus-aussteigen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "aus dem Bus aussteigen",
+    "tr": "otobüsten inmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wir steigen an der nächsten Haltestelle aus.",
+    "exampleTr": "Bir sonraki durakta iniyoruz.",
+    "tags": [
+      "günlük-pratik",
+      "transport",
+      "ulas-m"
+    ],
+    "topic": "transport",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-transport-eine-fahrkarte-entwerten",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Fahrkarte entwerten",
+    "tr": "bileti damgalamak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Sie müssen die Fahrkarte entwerten.",
+    "exampleTr": "Bileti damgalamanız gerekiyor.",
+    "tags": [
+      "günlük-pratik",
+      "transport",
+      "ulas-m"
+    ],
+    "topic": "transport",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-transport-einen-sitzplatz-reservieren",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "einen Sitzplatz reservieren",
+    "tr": "koltuk ayırtmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich reserviere einen Sitzplatz am Fenster.",
+    "exampleTr": "Pencere kenarında koltuk ayırtıyorum.",
+    "tags": [
+      "günlük-pratik",
+      "transport",
+      "ulas-m"
+    ],
+    "topic": "transport",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-transport-mit-verspaetung-ankommen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "mit Verspätung ankommen",
+    "tr": "gecikmeli varmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Der Zug kommt mit Verspätung an.",
+    "exampleTr": "Tren gecikmeli varıyor.",
+    "tags": [
+      "günlük-pratik",
+      "transport",
+      "ulas-m"
+    ],
+    "topic": "transport",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-transport-eine-umleitung-nehmen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Umleitung nehmen",
+    "tr": "alternatif yolu kullanmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wegen der Baustelle nehmen wir eine Umleitung.",
+    "exampleTr": "İnşaat nedeniyle alternatif yolu kullanıyoruz.",
+    "tags": [
+      "günlük-pratik",
+      "transport",
+      "ulas-m"
+    ],
+    "topic": "transport",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-shopping-den-kassenzettel-aufbewahren",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "den Kassenzettel aufbewahren",
+    "tr": "fişi saklamak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Bewahren Sie den Kassenzettel auf.",
+    "exampleTr": "Fişi saklayın.",
+    "tags": [
+      "günlük-pratik",
+      "shopping",
+      "al-sveris-para"
+    ],
+    "topic": "shopping",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-shopping-eine-ware-umtauschen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Ware umtauschen",
+    "tr": "bir ürünü değiştirmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich möchte diese Ware umtauschen.",
+    "exampleTr": "Bu ürünü değiştirmek istiyorum.",
+    "tags": [
+      "günlük-pratik",
+      "shopping",
+      "al-sveris-para"
+    ],
+    "topic": "shopping",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-shopping-geld-zurueckbekommen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "Geld zurückbekommen",
+    "tr": "parasını geri almak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wann bekomme ich mein Geld zurück?",
+    "exampleTr": "Paramı ne zaman geri alacağım?",
+    "tags": [
+      "günlük-pratik",
+      "shopping",
+      "al-sveris-para"
+    ],
+    "topic": "shopping",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-shopping-mit-karte-bezahlen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "mit Karte bezahlen",
+    "tr": "kartla ödemek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Kann ich mit Karte bezahlen?",
+    "exampleTr": "Kartla ödeyebilir miyim?",
+    "tags": [
+      "günlük-pratik",
+      "shopping",
+      "al-sveris-para"
+    ],
+    "topic": "shopping",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-shopping-einen-dauerauftrag-einrichten",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "einen Dauerauftrag einrichten",
+    "tr": "otomatik ödeme talimatı vermek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich richte einen Dauerauftrag ein.",
+    "exampleTr": "Otomatik ödeme talimatı veriyorum.",
+    "tags": [
+      "günlük-pratik",
+      "shopping",
+      "al-sveris-para"
+    ],
+    "topic": "shopping",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-shopping-eine-rechnung-ueberweisen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Rechnung überweisen",
+    "tr": "faturayı havale etmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Bitte überweisen Sie die Rechnung bis Freitag.",
+    "exampleTr": "Lütfen faturayı cumaya kadar havale edin.",
+    "tags": [
+      "günlük-pratik",
+      "shopping",
+      "al-sveris-para"
+    ],
+    "topic": "shopping",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-shopping-einen-rabatt-bekommen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "einen Rabatt bekommen",
+    "tr": "indirim almak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Mit der Kundenkarte bekommen Sie Rabatt.",
+    "exampleTr": "Müşteri kartıyla indirim alırsınız.",
+    "tags": [
+      "günlük-pratik",
+      "shopping",
+      "al-sveris-para"
+    ],
+    "topic": "shopping",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-shopping-eine-mahnung-erhalten",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Mahnung erhalten",
+    "tr": "ödeme uyarısı almak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich habe eine Mahnung erhalten.",
+    "exampleTr": "Bir ödeme uyarısı aldım.",
+    "tags": [
+      "günlük-pratik",
+      "shopping",
+      "al-sveris-para"
+    ],
+    "topic": "shopping",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-restaurant-einen-tisch-reservieren",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "einen Tisch reservieren",
+    "tr": "masa ayırtmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich möchte einen Tisch für zwei reservieren.",
+    "exampleTr": "İki kişilik masa ayırtmak istiyorum.",
+    "tags": [
+      "günlük-pratik",
+      "restaurant",
+      "restoran-kafe"
+    ],
+    "topic": "restaurant",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-restaurant-eine-bestellung-aufnehmen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Bestellung aufnehmen",
+    "tr": "siparişi almak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Die Bedienung nimmt unsere Bestellung auf.",
+    "exampleTr": "Servis görevlisi siparişimizi alıyor.",
+    "tags": [
+      "günlük-pratik",
+      "restaurant",
+      "restoran-kafe"
+    ],
+    "topic": "restaurant",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-restaurant-die-rechnung-bringen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "die Rechnung bringen",
+    "tr": "hesabı getirmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Können Sie bitte die Rechnung bringen?",
+    "exampleTr": "Hesabı getirebilir misiniz?",
+    "tags": [
+      "günlük-pratik",
+      "restaurant",
+      "restoran-kafe"
+    ],
+    "topic": "restaurant",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-restaurant-trinkgeld-geben",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "Trinkgeld geben",
+    "tr": "bahşiş vermek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wir geben zehn Prozent Trinkgeld.",
+    "exampleTr": "Yüzde on bahşiş veriyoruz.",
+    "tags": [
+      "günlük-pratik",
+      "restaurant",
+      "restoran-kafe"
+    ],
+    "topic": "restaurant",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-restaurant-ohne-zwiebeln-bestellen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "ohne Zwiebeln bestellen",
+    "tr": "soğansız sipariş vermek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich bestelle den Salat ohne Zwiebeln.",
+    "exampleTr": "Salatayı soğansız sipariş ediyorum.",
+    "tags": [
+      "günlük-pratik",
+      "restaurant",
+      "restoran-kafe"
+    ],
+    "topic": "restaurant",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-restaurant-eine-allergie-angeben",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Allergie angeben",
+    "tr": "alerjiyi belirtmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Bitte geben Sie Ihre Allergie an.",
+    "exampleTr": "Lütfen alerjinizi belirtin.",
+    "tags": [
+      "günlük-pratik",
+      "restaurant",
+      "restoran-kafe"
+    ],
+    "topic": "restaurant",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-restaurant-essen-zum-mitnehmen-bestellen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "Essen zum Mitnehmen bestellen",
+    "tr": "paket yemek sipariş etmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wir bestellen das Essen zum Mitnehmen.",
+    "exampleTr": "Yemeği paket sipariş ediyoruz.",
+    "tags": [
+      "günlük-pratik",
+      "restaurant",
+      "restoran-kafe"
+    ],
+    "topic": "restaurant",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-restaurant-eine-reservierung-stornieren",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Reservierung stornieren",
+    "tr": "rezervasyonu iptal etmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich muss die Reservierung stornieren.",
+    "exampleTr": "Rezervasyonu iptal etmem gerekiyor.",
+    "tags": [
+      "günlük-pratik",
+      "restaurant",
+      "restoran-kafe"
+    ],
+    "topic": "restaurant",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-digital-eine-sprachnachricht-senden",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Sprachnachricht senden",
+    "tr": "sesli mesaj göndermek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich sende dir eine Sprachnachricht.",
+    "exampleTr": "Sana bir sesli mesaj gönderiyorum.",
+    "tags": [
+      "günlük-pratik",
+      "digital",
+      "telefon-internet"
+    ],
+    "topic": "digital",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-digital-eine-datei-anhaengen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Datei anhängen",
+    "tr": "dosya eklemek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Bitte hängen Sie die Datei an.",
+    "exampleTr": "Lütfen dosyayı ekleyin.",
+    "tags": [
+      "günlük-pratik",
+      "digital",
+      "telefon-internet"
+    ],
+    "topic": "digital",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-digital-das-passwort-zuruecksetzen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "das Passwort zurücksetzen",
+    "tr": "şifreyi sıfırlamak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich muss mein Passwort zurücksetzen.",
+    "exampleTr": "Şifremi sıfırlamam gerekiyor.",
+    "tags": [
+      "günlük-pratik",
+      "digital",
+      "telefon-internet"
+    ],
+    "topic": "digital",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-digital-den-bildschirm-teilen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "den Bildschirm teilen",
+    "tr": "ekranı paylaşmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Kannst du deinen Bildschirm teilen?",
+    "exampleTr": "Ekranını paylaşabilir misin?",
+    "tags": [
+      "günlük-pratik",
+      "digital",
+      "telefon-internet"
+    ],
+    "topic": "digital",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-digital-eine-app-aktualisieren",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine App aktualisieren",
+    "tr": "uygulamayı güncellemek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Bitte aktualisieren Sie die App.",
+    "exampleTr": "Lütfen uygulamayı güncelleyin.",
+    "tags": [
+      "günlük-pratik",
+      "digital",
+      "telefon-internet"
+    ],
+    "topic": "digital",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-digital-sich-mit-dem-wlan-verbinden",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "sich mit dem WLAN verbinden",
+    "tr": "Wi-Fi ağına bağlanmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich verbinde mich mit dem WLAN.",
+    "exampleTr": "Wi-Fi ağına bağlanıyorum.",
+    "tags": [
+      "günlük-pratik",
+      "digital",
+      "telefon-internet"
+    ],
+    "topic": "digital",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-digital-eine-nachricht-weiterleiten",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Nachricht weiterleiten",
+    "tr": "mesajı yönlendirmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Leite mir die Nachricht bitte weiter.",
+    "exampleTr": "Lütfen mesajı bana yönlendir.",
+    "tags": [
+      "günlük-pratik",
+      "digital",
+      "telefon-internet"
+    ],
+    "topic": "digital",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-digital-speicherplatz-freigeben",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "Speicherplatz freigeben",
+    "tr": "depolama alanı boşaltmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich muss Speicherplatz freigeben.",
+    "exampleTr": "Depolama alanı boşaltmam gerekiyor.",
+    "tags": [
+      "günlük-pratik",
+      "digital",
+      "telefon-internet"
+    ],
+    "topic": "digital",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-social-sich-mit-jemandem-verabreden",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "sich mit jemandem verabreden",
+    "tr": "biriyle buluşmak için sözleşmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich verabrede mich mit meinen Freunden.",
+    "exampleTr": "Arkadaşlarımla buluşmak için sözleşiyorum.",
+    "tags": [
+      "günlük-pratik",
+      "social",
+      "sosyal-hayat"
+    ],
+    "topic": "social",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-social-eine-einladung-annehmen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Einladung annehmen",
+    "tr": "daveti kabul etmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Sie nimmt die Einladung gern an.",
+    "exampleTr": "Daveti memnuniyetle kabul ediyor.",
+    "tags": [
+      "günlük-pratik",
+      "social",
+      "sosyal-hayat"
+    ],
+    "topic": "social",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-social-eine-einladung-absagen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Einladung absagen",
+    "tr": "daveti reddetmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich muss die Einladung leider absagen.",
+    "exampleTr": "Ne yazık ki daveti reddetmem gerekiyor.",
+    "tags": [
+      "günlük-pratik",
+      "social",
+      "sosyal-hayat"
+    ],
+    "topic": "social",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-social-ruecksicht-auf-jemanden-nehmen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "Rücksicht auf jemanden nehmen",
+    "tr": "birini düşünmek, gözetmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Bitte nimm Rücksicht auf die Nachbarn.",
+    "exampleTr": "Lütfen komşuları düşün.",
+    "tags": [
+      "günlük-pratik",
+      "social",
+      "sosyal-hayat"
+    ],
+    "topic": "social",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-social-einen-streit-klaeren",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "einen Streit klären",
+    "tr": "tartışmayı çözmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wir möchten den Streit ruhig klären.",
+    "exampleTr": "Tartışmayı sakin biçimde çözmek istiyoruz.",
+    "tags": [
+      "günlük-pratik",
+      "social",
+      "sosyal-hayat"
+    ],
+    "topic": "social",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-social-vertrauen-aufbauen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "Vertrauen aufbauen",
+    "tr": "güven oluşturmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Gute Gespräche bauen Vertrauen auf.",
+    "exampleTr": "İyi konuşmalar güven oluşturur.",
+    "tags": [
+      "günlük-pratik",
+      "social",
+      "sosyal-hayat"
+    ],
+    "topic": "social",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-social-einen-guten-eindruck-machen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "einen guten Eindruck machen",
+    "tr": "iyi izlenim bırakmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Sie macht einen guten Eindruck.",
+    "exampleTr": "İyi bir izlenim bırakıyor.",
+    "tags": [
+      "günlük-pratik",
+      "social",
+      "sosyal-hayat"
+    ],
+    "topic": "social",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-school-an-einem-kurs-teilnehmen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "an einem Kurs teilnehmen",
+    "tr": "bir kursa katılmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich nehme an einem Deutschkurs teil.",
+    "exampleTr": "Bir Almanca kursuna katılıyorum.",
+    "tags": [
+      "günlük-pratik",
+      "school",
+      "okul-egitim"
+    ],
+    "topic": "school",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-school-ein-referat-halten",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "ein Referat halten",
+    "tr": "sunum yapmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Morgen halte ich ein Referat.",
+    "exampleTr": "Yarın sunum yapıyorum.",
+    "tags": [
+      "günlük-pratik",
+      "school",
+      "okul-egitim"
+    ],
+    "topic": "school",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-school-hausaufgaben-abgeben",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "Hausaufgaben abgeben",
+    "tr": "ödevleri teslim etmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wir geben die Hausaufgaben am Freitag ab.",
+    "exampleTr": "Ödevleri cuma günü teslim ediyoruz.",
+    "tags": [
+      "günlük-pratik",
+      "school",
+      "okul-egitim"
+    ],
+    "topic": "school",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-school-eine-pruefung-bestehen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Prüfung bestehen",
+    "tr": "sınavı geçmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Sie hat die Prüfung bestanden.",
+    "exampleTr": "Sınavı geçti.",
+    "tags": [
+      "günlük-pratik",
+      "school",
+      "okul-egitim"
+    ],
+    "topic": "school",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-school-durch-eine-pruefung-fallen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "durch eine Prüfung fallen",
+    "tr": "sınavdan kalmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Er ist durch die Prüfung gefallen.",
+    "exampleTr": "Sınavdan kaldı.",
+    "tags": [
+      "günlük-pratik",
+      "school",
+      "okul-egitim"
+    ],
+    "topic": "school",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-school-sich-auf-eine-pruefung-vorbereiten",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "sich auf eine Prüfung vorbereiten",
+    "tr": "sınava hazırlanmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wir bereiten uns auf die Prüfung vor.",
+    "exampleTr": "Sınava hazırlanıyoruz.",
+    "tags": [
+      "günlük-pratik",
+      "school",
+      "okul-egitim"
+    ],
+    "topic": "school",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-school-nachhilfe-nehmen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "Nachhilfe nehmen",
+    "tr": "özel ders almak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich nehme zweimal pro Woche Nachhilfe.",
+    "exampleTr": "Haftada iki kez özel ders alıyorum.",
+    "tags": [
+      "günlük-pratik",
+      "school",
+      "okul-egitim"
+    ],
+    "topic": "school",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-school-eine-fehlzeit-entschuldigen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Fehlzeit entschuldigen",
+    "tr": "devamsızlığı mazeretlendirmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Die Eltern entschuldigen die Fehlzeit.",
+    "exampleTr": "Veliler devamsızlığı mazeretli gösteriyor.",
+    "tags": [
+      "günlük-pratik",
+      "school",
+      "okul-egitim"
+    ],
+    "topic": "school",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-emergency-den-notruf-waehlen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "den Notruf wählen",
+    "tr": "acil numarayı aramak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wählen Sie sofort den Notruf.",
+    "exampleTr": "Hemen acil numarayı arayın.",
+    "tags": [
+      "günlük-pratik",
+      "emergency",
+      "acil-durumlar"
+    ],
+    "topic": "emergency",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-emergency-erste-hilfe-leisten",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "Erste Hilfe leisten",
+    "tr": "ilk yardım yapmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Eine Passantin leistet Erste Hilfe.",
+    "exampleTr": "Yoldan geçen bir kadın ilk yardım yapıyor.",
+    "tags": [
+      "günlük-pratik",
+      "emergency",
+      "acil-durumlar"
+    ],
+    "topic": "emergency",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-emergency-eine-verletzung-versorgen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "eine Verletzung versorgen",
+    "tr": "yaralanmaya müdahale etmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Der Rettungsdienst versorgt die Verletzung.",
+    "exampleTr": "Acil sağlık ekibi yaralanmaya müdahale ediyor.",
+    "tags": [
+      "günlük-pratik",
+      "emergency",
+      "acil-durumlar"
+    ],
+    "topic": "emergency",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-emergency-die-polizei-rufen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "die Polizei rufen",
+    "tr": "polisi aramak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Bitte rufen Sie die Polizei.",
+    "exampleTr": "Lütfen polisi arayın.",
+    "tags": [
+      "günlük-pratik",
+      "emergency",
+      "acil-durumlar"
+    ],
+    "topic": "emergency",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-emergency-einen-feuerloescher-benutzen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "einen Feuerlöscher benutzen",
+    "tr": "yangın söndürücü kullanmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Benutzen Sie den Feuerlöscher nur im Notfall.",
+    "exampleTr": "Yangın söndürücüyü yalnız acil durumda kullanın.",
+    "tags": [
+      "günlük-pratik",
+      "emergency",
+      "acil-durumlar"
+    ],
+    "topic": "emergency",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-emergency-einen-unfall-melden",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "einen Unfall melden",
+    "tr": "kazayı bildirmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wir melden den Unfall der Polizei.",
+    "exampleTr": "Kazayı polise bildiriyoruz.",
+    "tags": [
+      "günlük-pratik",
+      "emergency",
+      "acil-durumlar"
+    ],
+    "topic": "emergency",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-emergency-zeuge-eines-unfalls-sein",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "Zeuge eines Unfalls sein",
+    "tr": "bir kazaya tanık olmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Er war Zeuge des Unfalls.",
+    "exampleTr": "Kazaya tanık oldu.",
+    "tags": [
+      "günlük-pratik",
+      "emergency",
+      "acil-durumlar"
+    ],
+    "topic": "emergency",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-emergency-den-sicherheitsgurt-anlegen",
+    "level": "A2",
+    "type": "practical-expression",
+    "expression": "den Sicherheitsgurt anlegen",
+    "tr": "emniyet kemerini takmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Legen Sie bitte den Sicherheitsgurt an.",
+    "exampleTr": "Lütfen emniyet kemerini takın.",
+    "tags": [
+      "günlük-pratik",
+      "emergency",
+      "acil-durumlar"
+    ],
+    "topic": "emergency",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-travel-ein-zimmer-buchen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "ein Zimmer buchen",
+    "tr": "oda ayırtmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich buche ein Doppelzimmer.",
+    "exampleTr": "Çift kişilik oda ayırtıyorum.",
+    "tags": [
+      "günlük-pratik",
+      "travel",
+      "seyahat"
+    ],
+    "topic": "travel",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-travel-am-flughafen-einchecken",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "am Flughafen einchecken",
+    "tr": "havaalanında check-in yapmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wir checken zwei Stunden vor dem Abflug ein.",
+    "exampleTr": "Kalkıştan iki saat önce check-in yapıyoruz.",
+    "tags": [
+      "günlük-pratik",
+      "travel",
+      "seyahat"
+    ],
+    "topic": "travel",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-travel-gepaeck-aufgeben",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "Gepäck aufgeben",
+    "tr": "bagaj teslim etmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wo kann ich mein Gepäck aufgeben?",
+    "exampleTr": "Bagajımı nerede teslim edebilirim?",
+    "tags": [
+      "günlük-pratik",
+      "travel",
+      "seyahat"
+    ],
+    "topic": "travel",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-travel-die-bordkarte-zeigen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "die Bordkarte zeigen",
+    "tr": "biniş kartını göstermek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Bitte zeigen Sie Ihre Bordkarte.",
+    "exampleTr": "Lütfen biniş kartınızı gösterin.",
+    "tags": [
+      "günlük-pratik",
+      "travel",
+      "seyahat"
+    ],
+    "topic": "travel",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-travel-die-sicherheitskontrolle-passieren",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "die Sicherheitskontrolle passieren",
+    "tr": "güvenlik kontrolünden geçmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wir passieren die Sicherheitskontrolle.",
+    "exampleTr": "Güvenlik kontrolünden geçiyoruz.",
+    "tags": [
+      "günlük-pratik",
+      "travel",
+      "seyahat"
+    ],
+    "topic": "travel",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-travel-eine-stadtfuehrung-machen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Stadtführung machen",
+    "tr": "şehir turuna katılmak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Morgen machen wir eine Stadtführung.",
+    "exampleTr": "Yarın şehir turuna katılıyoruz.",
+    "tags": [
+      "günlük-pratik",
+      "travel",
+      "seyahat"
+    ],
+    "topic": "travel",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-travel-einen-mietwagen-abholen",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "einen Mietwagen abholen",
+    "tr": "kiralık arabayı teslim almak",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Ich hole den Mietwagen am Flughafen ab.",
+    "exampleTr": "Kiralık arabayı havaalanından teslim alıyorum.",
+    "tags": [
+      "günlük-pratik",
+      "travel",
+      "seyahat"
+    ],
+    "topic": "travel",
+    "source": "editorial-reviewed"
+  },
+  {
+    "id": "praxis-travel-eine-buchung-stornieren",
+    "level": "A1/A2",
+    "type": "practical-expression",
+    "expression": "eine Buchung stornieren",
+    "tr": "rezervasyonu iptal etmek",
+    "preposition": null,
+    "case": null,
+    "exampleDe": "Wir müssen die Buchung stornieren.",
+    "exampleTr": "Rezervasyonu iptal etmemiz gerekiyor.",
+    "tags": [
+      "günlük-pratik",
+      "travel",
+      "seyahat"
+    ],
+    "topic": "travel",
+    "source": "editorial-reviewed"
   }
 ];

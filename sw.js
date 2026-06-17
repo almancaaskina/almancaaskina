@@ -1,4 +1,4 @@
-const CACHE_NAME = "almanca-askina-v11-hotfix1";
+const CACHE_NAME = "almanca-askina-v13-gece-finali";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -31,7 +31,14 @@ const APP_SHELL = [
   "./data/a2-words.json",
   "./data/stories-data.js",
   "./data/grammar-data.js",
-  "./data/phrases-data.js"
+  "./data/phrases-data.js",
+  "./css/content-expansion.css",
+  "./css/retention.css",
+  "./js/content-expansion.js",
+  "./js/retention.js",
+  "./data/practical-words.json",
+  "./data/topic-packs-data.js",
+  "./data/word-families-data.js",
 ];
 
 self.addEventListener("install", event => {

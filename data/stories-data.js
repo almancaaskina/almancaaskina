@@ -304,5 +304,113 @@ window.STORIES_DATA = [
     "minutes": 2,
     "words": 115,
     "text": "Die Mutter von Clara hat am Sonntag Geburtstag. Clara überlegt lange, was sie ihr schenken kann. Sie möchte etwas Schönes und Besonderes. Zuerst denkt sie an Blumen, aber das ist ihr zu einfach. Dann hat sie eine Idee: Sie backt einen Kuchen und schreibt dazu eine Karte. Am Samstag geht sie einkaufen und besorgt alle Zutaten. Sie arbeitet stundenlang in der Küche. Der Kuchen sieht toll aus und schmeckt auch sehr gut. Am Sonntag geht sie zu ihrer Mutter und überreicht ihr das Geschenk. Ihre Mutter freut sich riesig über den Kuchen und die liebe Karte. Sie umarmt Clara und bedankt sich herzlich. Clara ist sehr froh, dass sie ihrer Mutter eine Freude gemacht hat."
+  },
+  {
+    "id": "a1-13",
+    "level": "A1",
+    "title": "Eine neue Wohnung",
+    "topic": "Ev & Kiralama",
+    "minutes": 1,
+    "words": 142,
+    "text": "Mila und Jonas suchen eine neue Wohnung. Am Samstag haben sie eine Wohnungsbesichtigung. Die Wohnung liegt in einem ruhigen Wohnblock. Sie hat zwei Zimmer, eine kleine Küche und einen Balkon. Die Warmmiete ist für die beiden noch bezahlbar. Der Vermieter zeigt ihnen auch den Keller und den Briefkasten. Mila fragt nach den Nebenkosten und nach der Kaution. Jonas möchte wissen, ob Haustiere erlaubt sind. Am Ende bekommen sie den Mietvertrag zum Lesen. Sie unterschreiben noch nicht sofort, sondern nehmen den Vertrag mit nach Hause. Zwei Tage später rufen sie den Vermieter an. Sie möchten die Wohnung mieten. Der Einzug ist am ersten August. Vorher kaufen sie Umzugskartons und organisieren einen kleinen Transporter. Am Tag der Schlüsselübergabe prüfen sie den Stromzähler und machen Fotos von allen Zimmern. Danach tragen sie die ersten Kartons in die neue Wohnung. Beide sind müde, aber sehr glücklich."
+  },
+  {
+    "id": "a1-14",
+    "level": "A1",
+    "title": "Ein Termin beim Hausarzt",
+    "topic": "Sağlık & Doktor",
+    "minutes": 1,
+    "words": 125,
+    "text": "Emre fühlt sich seit drei Tagen nicht gut. Er hat Husten, Halsschmerzen und ein wenig Fieber. Am Morgen ruft er in der Hausarztpraxis an und vereinbart einen Termin. In der Praxis zeigt er zuerst seine Gesundheitskarte. Danach wartet er im Wartezimmer. Die Ärztin fragt nach seinen Beschwerden und misst den Blutdruck. Dann untersucht sie seinen Hals und hört seine Lunge ab. Emre hat eine starke Erkältung, aber keine gefährliche Infektion. Die Ärztin schreibt ihn für drei Tage krank und gibt ihm ein Rezept. Er soll viel Wasser trinken und sich ausruhen. In der Apotheke bekommt er Tabletten und Hustensaft. Die Apothekerin erklärt ihm die Dosierung und zeigt ihm die Packungsbeilage. Zu Hause legt sich Emre ins Bett. Am Abend geht es ihm schon etwas besser."
+  },
+  {
+    "id": "a1-15",
+    "level": "A1",
+    "title": "Der verpasste Anschluss",
+    "topic": "Ulaşım",
+    "minutes": 1,
+    "words": 115,
+    "text": "Nora fährt morgens mit dem Zug zur Arbeit. Heute hat ihr erster Zug zwanzig Minuten Verspätung. Auf dem Bahnsteig schaut sie immer wieder auf den Fahrplan. Als der Zug endlich kommt, steigt sie schnell ein. Im Zug hört sie eine Durchsage: Der Anschlusszug wartet nicht. Nora steigt am Hauptbahnhof aus, aber der nächste Zug ist schon weg. Sie geht zum Fahrkartenautomaten und sucht eine neue Verbindung. Ein Kontrolleur hilft ihr. Sie muss am nächsten Bahnhof umsteigen und kommt vierzig Minuten später an. Nora schreibt ihrer Kollegin eine Nachricht und erklärt die Verspätung. Zum Glück beginnt die Besprechung erst um zehn Uhr. Am Abend reserviert Nora für den nächsten Tag einen Sitzplatz in einem früheren Zug."
+  },
+  {
+    "id": "a1-16",
+    "level": "A1",
+    "title": "Umtausch im Geschäft",
+    "topic": "Alışveriş & Para",
+    "minutes": 1,
+    "words": 119,
+    "text": "Lena kauft am Montag eine neue Lampe. Zu Hause merkt sie, dass die Lampe nicht funktioniert. Sie bewahrt den Kassenzettel auf und bringt die Lampe am nächsten Tag zurück ins Geschäft. An der Information erklärt sie das Problem. Die Mitarbeiterin prüft die Lampe und fragt nach dem Kassenzettel. Lena möchte zuerst einen Umtausch. Leider ist das gleiche Modell nicht mehr da. Deshalb bekommt sie eine Gutschrift. Mit der Gutschrift sucht sie eine andere Lampe aus. Das neue Modell ist zehn Euro teurer, aber heute gibt es zwanzig Prozent Rabatt. Lena bezahlt den Rest mit Karte. Die Mitarbeiterin erklärt auch die Garantie. Lena nimmt den neuen Kassenzettel mit und testet die Lampe noch am selben Abend. Dieses Mal funktioniert alles."
+  },
+  {
+    "id": "a1-17",
+    "level": "A1",
+    "title": "Ein Abend im kleinen Restaurant",
+    "topic": "Restoran & Kafe",
+    "minutes": 1,
+    "words": 116,
+    "text": "Aylin und Marco möchten am Freitag in einem kleinen Restaurant essen. Am Nachmittag reserviert Marco einen Tisch für zwei Personen. Im Restaurant bringt die Bedienung die Speisekarte. Aylin bestellt eine Suppe als Vorspeise und ein vegetarisches Tagesgericht. Marco nimmt das Hauptgericht mit Reis und Salat. Er fragt, ob das Essen scharf ist. Die Bedienung sagt, dass es nur leicht scharf ist. Aylin hat eine Allergie gegen Nüsse und gibt sie bei der Bestellung an. Nach dem Essen bestellen beide einen Nachtisch und zwei Gläser Mineralwasser. Alles schmeckt sehr gut. Am Ende bitten sie um die Rechnung. Sie bezahlen mit Karte und geben etwas Trinkgeld. Bevor sie gehen, reservieren sie schon einen Tisch für den nächsten Monat."
+  },
+  {
+    "id": "a1-18",
+    "level": "A1",
+    "title": "Mein neues Handy",
+    "topic": "Telefon & İnternet",
+    "minutes": 1,
+    "words": 110,
+    "text": "Sami hat ein neues Handy. Zuerst verbindet er es mit dem WLAN und gibt das Passwort ein. Danach richtet er seinen Benutzernamen ein und lädt seine wichtigsten Apps herunter. Eine App braucht sehr viel Speicherplatz. Deshalb löscht Sami einige alte Dateien und Fotos. Dann aktualisiert er das Betriebssystem. Während der Aktualisierung darf er das Ladegerät nicht entfernen. Später schickt er seiner Schwester eine Sprachnachricht. Sie antwortet sofort und bittet ihn um einen Rückruf. Sami ruft sie an, aber der Empfang ist schlecht. Er geht näher ans Fenster und die Verbindung wird besser. Am Abend aktiviert er den Flugmodus und lädt den Akku vollständig auf. Jetzt ist sein neues Handy bereit."
+  },
+  {
+    "id": "a2-23",
+    "level": "A2",
+    "title": "Das Vorstellungsgespräch",
+    "topic": "İş & Kariyer",
+    "minutes": 1,
+    "words": 146,
+    "text": "Derya hat eine interessante Stellenanzeige gefunden und sich sofort beworben. Eine Woche später erhält sie eine Einladung zu einem Vorstellungsgespräch. Sie bereitet sich gründlich vor, liest noch einmal ihren Lebenslauf und informiert sich über das Unternehmen. Am Tag des Gesprächs kommt sie zehn Minuten früher an. Eine Mitarbeiterin aus der Personalabteilung begrüßt sie und erklärt den Ablauf. Zuerst erzählt Derya von ihrer Ausbildung und ihrer Berufserfahrung. Danach spricht sie über ihre Aufgaben im letzten Arbeitsplatz. Der Abteilungsleiter fragt, warum sie die Stelle wechseln möchte und welche Gehaltsvorstellung sie hat. Derya antwortet ruhig und stellt auch eigene Fragen zur Arbeitszeit, zur Probezeit und zu möglichen Fortbildungen. Das Gespräch dauert fast eine Stunde. Zwei Tage später bekommt sie einen Anruf: Das Unternehmen möchte ihr einen Arbeitsvertrag anbieten. Derya bittet um zwei Tage Bedenkzeit, liest den Vertrag sorgfältig und unterschreibt ihn schließlich. Im nächsten Monat beginnt ihre neue Arbeit."
+  },
+  {
+    "id": "a2-24",
+    "level": "A2",
+    "title": "Ein Termin beim Bürgeramt",
+    "topic": "Resmî İşlemler",
+    "minutes": 1,
+    "words": 139,
+    "text": "Kerem ist vor Kurzem umgezogen und muss seine neue Adresse beim Bürgeramt anmelden. Den Termin hat er schon vor drei Wochen online gebucht. Am Vorabend prüft er alle Unterlagen: den Personalausweis, den Mietvertrag und die Wohnungsgeberbestätigung. Im Bürgeramt zieht er eine Wartenummer und setzt sich in den Wartebereich. Nach zwanzig Minuten erscheint seine Nummer auf dem Bildschirm. Die Sachbearbeiterin kontrolliert seine Dokumente und bittet ihn, ein Formular zu unterschreiben. Kerem merkt, dass auf einer Kopie eine Seite fehlt. Zum Glück kann er sie direkt im Gebäude kopieren. Danach wird der Antrag bearbeitet. Kerem erhält eine Meldebescheinigung und fragt, wie lange die Änderung im System dauert. Die Sachbearbeiterin erklärt ihm die Bearbeitungszeit und nennt ihm auch das Aktenzeichen. Für die Anmeldung muss er keine Gebühr bezahlen. Nach dem Termin fotografiert Kerem die Bescheinigung und speichert sie sicher auf seinem Computer."
+  },
+  {
+    "id": "a2-25",
+    "level": "A2",
+    "title": "Ein Missverständnis unter Freunden",
+    "topic": "Sosyal Hayat",
+    "minutes": 1,
+    "words": 142,
+    "text": "Lea und Samir kennen sich seit mehreren Jahren. Normalerweise verstehen sie sich sehr gut, doch letzte Woche entstand ein Missverständnis. Lea hatte Samir zu ihrer Geburtstagsfeier eingeladen. Samir antwortete nur kurz, dass er wahrscheinlich keine Zeit habe. Lea dachte, dass er kein Interesse an der Feier hätte, und war enttäuscht. Tatsächlich musste Samir an diesem Abend arbeiten und wollte später noch genauer antworten. Als er schließlich zusagte, reagierte Lea kühl. Samir bemerkte die schlechte Stimmung und fragte nach. Zuerst entstand ein kleiner Streit, weil beide glaubten, die andere Person nehme keine Rücksicht. Dann beschlossen sie, ruhig miteinander zu sprechen. Samir erklärte seine Arbeitssituation und entschuldigte sich für die unklare Nachricht. Lea erzählte, warum sie sich verletzt gefühlt hatte. Am Ende konnten sie das Missverständnis klären. Die Versöhnung war für beide eine Erleichterung, und Samir kam sogar mit einer kleinen Überraschung zur Feier."
+  },
+  {
+    "id": "a2-26",
+    "level": "A2",
+    "title": "Gemeinsam für die Prüfung",
+    "topic": "Okul & Eğitim",
+    "minutes": 1,
+    "words": 142,
+    "text": "Mara und ihre Lerngruppe bereiten sich auf eine wichtige Deutschprüfung vor. Die Prüfung findet in drei Wochen statt und besteht aus Lesen, Hören, Schreiben und Sprechen. Zuerst erstellen sie einen gemeinsamen Stundenplan. Jede Person übernimmt ein Thema und bereitet ein kurzes Referat vor. Mara erklärt die Satzstellung in Nebensätzen, während Jonas Übungen zu Akkusativ und Dativ sammelt. Zweimal pro Woche treffen sie sich in der Bibliothek. Dort bearbeiten sie Arbeitsblätter, vergleichen ihre Antworten und sprechen über typische Fehler. Eine Mitschülerin hat Schwierigkeiten beim Hören und nimmt zusätzlich Nachhilfe. Kurz vor dem Abgabetermin schicken alle ihre Materialien in die gemeinsame Gruppe. Am letzten Wochenende simulieren sie die gesamte Prüfung. Das Ergebnis ist noch nicht perfekt, aber alle sehen deutliche Fortschritte. Die Gruppe beschließt, in den letzten Tagen nicht bis spät in die Nacht zu lernen. Sie möchten ausgeruht und konzentriert zur Prüfung kommen."
+  },
+  {
+    "id": "a2-27",
+    "level": "A2",
+    "title": "Ein Unfall auf dem Fahrradweg",
+    "topic": "Acil Durumlar",
+    "minutes": 1,
+    "words": 138,
+    "text": "Am frühen Abend fährt David mit dem Fahrrad nach Hause. Auf einem nassen Fahrradweg rutscht das Vorderrad plötzlich weg. David fällt und verletzt sich am Arm. Eine Passantin sieht den Unfall und kommt sofort zu ihm. David ist bei Bewusstsein, aber die Wunde blutet stark. Die Frau ruft den Notruf und beschreibt die Unfallstelle. Danach leistet sie Erste Hilfe und drückt ein sauberes Tuch auf die Wunde. Wenige Minuten später trifft der Rettungsdienst ein. Die Sanitäter untersuchen David, versorgen die Verletzung und bringen ihn mit dem Krankenwagen in die Notaufnahme. Ein Polizist nimmt die Daten der Zeugin auf, weil ein beschädigter Kanaldeckel den Sturz verursacht haben könnte. Im Krankenhaus wird Davids Arm geröntgt. Zum Glück ist nichts gebrochen. Er bekommt einen Verband und darf am selben Abend nach Hause. Am nächsten Tag meldet er den Unfall seiner Versicherung."
+  },
+  {
+    "id": "a2-28",
+    "level": "A2",
+    "title": "Der verlorene Koffer",
+    "topic": "Seyahat",
+    "minutes": 1,
+    "words": 134,
+    "text": "Nach einem langen Flug landet Selin am Abend in Hamburg. Sie geht zur Gepäckausgabe und wartet auf ihren Reisekoffer. Fast alle Fahrgäste nehmen ihr Gepäck, doch Selins Koffer erscheint nicht. Sie prüft noch einmal die Nummer auf ihrer Bordkarte und geht anschließend zum Schalter für verlorenes Gepäck. Dort zeigt sie ihre Buchungsnummer und beschreibt den Koffer: Er ist dunkelblau und hat ein rotes Band am Griff. Die Mitarbeiterin erstellt eine Verlustanzeige und gibt Selin ein Aktenzeichen. Da Selin nur wenig im Handgepäck hat, kauft sie einige notwendige Dinge. Ihre Reiseversicherung erklärt ihr telefonisch, welche Belege sie aufbewahren muss. Am nächsten Morgen erhält Selin eine Nachricht. Der Koffer ist versehentlich mit einem anderen Flug angekommen. Ein Lieferdienst bringt ihn am Nachmittag zu ihrer Unterkunft. Selin ist erleichtert und kann endlich mit ihrer geplanten Stadtführung beginnen."
   }
 ];

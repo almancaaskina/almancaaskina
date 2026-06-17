@@ -6,10 +6,10 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="#1E40FF" name="theme-color"/>
 <meta content="Almancayı sade öğrenmek için ücretsiz A1–A2 sözlük, okuma, dinleme, gramer ve tekrar platformu." name="description"/>
-<link href="manifest.webmanifest?v=11" rel="manifest"/>
-<link href="icon-192.png?v=11" rel="apple-touch-icon"/>
+<link href="manifest.webmanifest?v=13" rel="manifest"/>
+<link href="icon-192.png?v=13" rel="apple-touch-icon"/>
 <title>Almanca Aşkına — Ücretsiz Almanca Çalışma Kütüphanesi</title>
-<link href="logo-mark.svg" rel="icon" type="image/svg+xml"/><link href="style.css?v=11.1" rel="stylesheet"/>
+<link href="logo-mark.svg" rel="icon" type="image/svg+xml"/><link href="style.css?v=13" rel="stylesheet"/><link href="css/content-expansion.css?v=13" rel="stylesheet"/><link href="css/retention.css?v=13" rel="stylesheet"/>
 </head>
 <body class="brand-v11">
 <header class="site-header" id="siteHeader">
@@ -42,9 +42,9 @@
 <button class="category-card hero-secondary" data-section-target="reading" type="button">Çalışmaya başla</button>
 </div>
 <div aria-label="Platform özeti" class="hero-stats">
-<div><strong>1.500+</strong><span>kelime</span></div>
-<div><strong>34</strong><span>hikâye</span></div>
-<div><strong>213</strong><span>kalıp</span></div>
+<div><strong id="heroWordCount">2.300+</strong><span>kelime</span></div>
+<div><strong id="heroStoryCount">46</strong><span>hikâye</span></div>
+<div><strong id="heroPhraseCount">300+</strong><span>kalıp</span></div>
 <div><strong>₺0</strong><span>ücret</span></div>
 </div>
 </div>
@@ -117,6 +117,15 @@
 </section>
 
 
+
+
+<section class="topic-packs-section container" id="topicPacks" data-index="02" data-section-name="Konu Paketleri">
+  <div class="panel-head topic-packs-head">
+    <div><div class="section-kicker">Gerçek hayat Almancası</div><h2>Konu seç. Kelimeyi bağlamıyla öğren.</h2></div>
+    <p>Her pakette kelimeler, günlük kalıplar, bir hikâye ve doğrudan başlayabileceğin mini tekrar bulunur.</p>
+  </div>
+  <div class="topic-pack-grid" id="topicPackGrid"></div>
+</section>
 
 <section class="dictionary-section container" data-index="02" data-section-name="Sözlük" id="dictionary">
 <div class="search-card">
@@ -364,14 +373,17 @@
 <button class="feedback-submit-btn" type="submit">E-posta taslağını aç</button>
 </form>
 <div class="version-strip">
-<div><strong>Sürüm 11.0</strong><span>Tasarım Devrimi · Haziran 2026</span></div>
-<div><strong>İçerik</strong><span>A1–A2 sözlük, 34 hikâye, 213 kalıp ve günlük ifade</span></div>
+<div><strong>Sürüm 13.0</strong><span>Geri Dönme Sebebi · Haziran 2026</span></div>
+<div><strong>İçerik</strong><span>A1–A2+ sözlük, 46 hikâye, 307 kalıp ve 12 konu paketi</span></div>
 <div><strong>Maliyet</strong><span>Kullanıcı için ücretsiz; temel özelliklerde ücretli API yok</span></div>
 </div>
 </section>
 </main>
 <button class="feedback-fab" id="feedbackFab" type="button">Hata bildir</button><button aria-label="Sayfanın başına dön" class="back-to-top" id="backToTop" type="button">↑</button>
 <div aria-live="polite" class="network-status hidden" id="networkStatus" role="status"></div>
+<dialog class="topic-pack-dialog" id="topicPackDialog" aria-labelledby="topicPackDialogTitle">
+<div class="topic-pack-dialog-inner" id="topicPackDialogInner"></div>
+</dialog>
 <dialog class="daily-goals-dialog" id="dailyGoalsDialog">
 <form id="dailyGoalsForm" method="dialog">
 <div class="dialog-head">
@@ -450,21 +462,24 @@
 </div>
 </section>
 <footer class="site-footer container">
-<p>Almanca Aşkına — ücretsiz, sade ve dikkat dağıtmayan Almanca çalışma kütüphanesi. · <a href="mailto:akkayanbusiness@gmail.com">İletişim</a> · Sürüm 11.0</p>
+<p>Almanca Aşkına — ücretsiz, sade ve dikkat dağıtmayan Almanca çalışma kütüphanesi. · <a href="mailto:akkayanbusiness@gmail.com">İletişim</a> · Sürüm 13.0</p>
 </footer>
-<script src="data/stories-data.js?v=11"></script>
-<script src="data/grammar-data.js?v=11"></script>
-<script src="data/phrases-data.js?v=11"></script>
-<script src="js/core.js?v=11"></script>
-<script src="js/reading-grammar.js?v=11"></script>
-<script src="js/tools-pwa.js?v=11"></script>
-<script src="js/daily-reader.js?v=11"></script>
-<script src="js/learning.js?v=11"></script>
-<script src="js/personalization.js?v=11"></script>
-<script src="js/phrases.js?v=11"></script>
-<script src="js/listening.js?v=11"></script>
-<script src="js/sentence-builder.js?v=11"></script>
-<script src="js/trust.js?v=11"></script>
-<script src="js/final-init.js?v=11"></script>
-<div class="nav-backdrop" id="navBackdrop"></div><script src="js/revolution.js?v=11.1"></script></body>
+<script src="data/stories-data.js?v=13"></script>
+<script src="data/grammar-data.js?v=13"></script>
+<script src="data/phrases-data.js?v=13"></script>
+<script src="data/topic-packs-data.js?v=13"></script>
+<script src="data/word-families-data.js?v=13"></script>
+<script src="js/core.js?v=13"></script>
+<script src="js/reading-grammar.js?v=13"></script>
+<script src="js/tools-pwa.js?v=13"></script>
+<script src="js/daily-reader.js?v=13"></script>
+<script src="js/learning.js?v=13"></script>
+<script src="js/personalization.js?v=13"></script>
+<script src="js/phrases.js?v=13"></script>
+<script src="js/listening.js?v=13"></script>
+<script src="js/sentence-builder.js?v=13"></script>
+<script src="js/trust.js?v=13"></script>
+<script src="js/final-init.js?v=13"></script>
+<div class="nav-backdrop" id="navBackdrop"></div><script src="js/revolution.js?v=13"></script>
+<script src="js/content-expansion.js?v=13"></script><script src="js/retention.js?v=13"></script></body>
 </html>
