@@ -684,7 +684,7 @@ function renderStoryList(level) {
     requestAnimationFrame(() => {
       const input = document.getElementById("storySearchInput");
       if (input) {
-        input.focus();
+        input.focus({ preventScroll: true });
         input.setSelectionRange(input.value.length, input.value.length);
       }
     });

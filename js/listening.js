@@ -138,7 +138,7 @@ function renderListeningQuestionV10() {
 
   if (listeningModeV10 === "word") {
     const input = document.getElementById("listeningAnswerInput");
-    input?.focus();
+    input?.focus({ preventScroll: true });
     input?.addEventListener("keydown", event => {
       if (event.key === "Enter") checkListeningWordV10();
     });

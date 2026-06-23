@@ -10,7 +10,7 @@ function openFeedbackV10(context = "", type = "Kelime veya çeviri hatası") {
   if (contextInput) contextInput.value = context;
   section?.classList.add("is-open");
   section?.scrollIntoView({ behavior: "smooth", block: "start" });
-  setTimeout(() => contextInput?.focus(), 450);
+  setTimeout(() => contextInput?.focus({ preventScroll: true }), 450);
 }
 
 function buildFeedbackMailtoV10() {

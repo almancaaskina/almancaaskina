@@ -207,7 +207,7 @@ function renderGrammarHaps() {
     requestAnimationFrame(() => {
       const input = document.getElementById("grammarSearchInput");
       if (input) {
-        input.focus();
+        input.focus({ preventScroll: true });
         input.setSelectionRange(input.value.length, input.value.length);
       }
     });

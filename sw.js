@@ -1,4 +1,4 @@
-const CACHE_NAME = "almanca-askina-v13-gece-finali";
+const CACHE_NAME = "almanca-askina-v14-mobile-ux";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -6,6 +6,7 @@ const APP_SHELL = [
   "./manifest.webmanifest",
   "./icon-192.png",
   "./icon-512.png",
+  "./logo-mark.svg",
   "./css/base.css",
   "./css/reading-grammar.css",
   "./css/tools-pwa.css",
@@ -14,6 +15,9 @@ const APP_SHELL = [
   "./css/personalization.css",
   "./css/final.css",
   "./css/revolution.css",
+  "./css/content-expansion.css",
+  "./css/retention.css",
+  "./css/less-is-more.css",
   "./js/core.js",
   "./js/reading-grammar.js",
   "./js/tools-pwa.js",
@@ -26,19 +30,17 @@ const APP_SHELL = [
   "./js/trust.js",
   "./js/final-init.js",
   "./js/revolution.js",
-  "./logo-mark.svg",
+  "./js/content-expansion.js",
+  "./js/retention.js",
+  "./js/less-is-more.js",
   "./data/a1-words.json",
   "./data/a2-words.json",
   "./data/stories-data.js",
   "./data/grammar-data.js",
   "./data/phrases-data.js",
-  "./css/content-expansion.css",
-  "./css/retention.css",
-  "./js/content-expansion.js",
-  "./js/retention.js",
   "./data/practical-words.json",
   "./data/topic-packs-data.js",
-  "./data/word-families-data.js",
+  "./data/word-families-data.js"
 ];
 
 self.addEventListener("install", event => {

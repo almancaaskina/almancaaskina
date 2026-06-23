@@ -1,0 +1,490 @@
+/* Almanca Aşkına — v14.1 Mobile UX polish
+   Amaç: zengin içeriği mobilde daha sakin, dokunması kolay ve taşmasız göstermek. */
+
+:root {
+  --aa-mobile-bottom: 78px;
+}
+
+/* Genel taşma koruması */
+html, body {
+  max-width: 100%;
+  overflow-x: clip;
+  scroll-padding-top: 86px;
+}
+* { box-sizing: border-box; }
+img, svg, canvas, video { max-width: 100%; height: auto; }
+button, input, select, textarea { font: inherit; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: rgba(30,64,255,.16); }
+[id] { scroll-margin-top: 92px; }
+
+.brand-v11.lim14 {
+  overflow-x: clip;
+}
+.brand-v11.lim14 .container {
+  width: min(1120px, calc(100% - 40px));
+}
+
+/* Büyük veri sonrasında uzun Almanca kelimeler taşmasın */
+.brand-v11.lim14 h1,
+.brand-v11.lim14 h2,
+.brand-v11.lim14 h3,
+.brand-v11.lim14 p,
+.brand-v11.lim14 button,
+.brand-v11.lim14 .word-title,
+.brand-v11.lim14 .story-title,
+.brand-v11.lim14 .topic-pack-card,
+.brand-v11.lim14 .dictionary-result-card {
+  overflow-wrap: anywhere;
+}
+
+/* Dokunma hedefleri */
+.brand-v11.lim14 button,
+.brand-v11.lim14 .nav-link,
+.brand-v11.lim14 .quick-tool-btn,
+.brand-v11.lim14 input,
+.brand-v11.lim14 select {
+  min-height: 44px;
+}
+
+/* Mobilde sabit alt navigasyon */
+@media (max-width: 760px) {
+  html { scroll-padding-top: 76px; }
+  body.brand-v11.lim14,
+  .brand-v11.lim14 {
+    padding-bottom: calc(var(--aa-mobile-bottom) + env(safe-area-inset-bottom, 0px));
+  }
+
+  .brand-v11.lim14 .container {
+    width: min(100% - 24px, 1120px);
+  }
+
+  .brand-v11.lim14 .site-header {
+    position: sticky;
+    top: 0;
+    height: 68px;
+    z-index: 60;
+    backdrop-filter: blur(18px) saturate(140%);
+  }
+
+  .brand-v11.lim14 .header-inner {
+    min-height: 68px;
+    gap: 8px;
+  }
+
+  .brand-v11.lim14 .brand-lockup {
+    min-width: 0;
+    gap: 9px;
+  }
+
+  .brand-v11.lim14 .brand-lockup img {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 auto;
+  }
+
+  .brand-v11.lim14 .brand-lockup strong {
+    font-size: 15px;
+    letter-spacing: -.02em;
+    white-space: nowrap;
+  }
+
+  .brand-v11.lim14 .brand-lockup small {
+    display: none;
+  }
+
+  .brand-v11.lim14 .header-actions {
+    gap: 6px;
+    margin-left: auto;
+  }
+
+  .brand-v11.lim14 .install-app-btn {
+    display: none !important;
+  }
+
+  .brand-v11.lim14 .theme-toggle {
+    min-height: 38px;
+    padding: 0 12px;
+    font-size: 12px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .brand-v11.lim14 .menu-toggle {
+    display: none !important;
+  }
+
+  .brand-v11.lim14 .primary-nav {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    z-index: 80;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 6px;
+    padding: 7px;
+    border: 1px solid rgba(11,15,25,.10);
+    border-radius: 24px;
+    background: rgba(255,255,255,.88);
+    box-shadow: 0 16px 55px rgba(7,16,31,.18);
+    backdrop-filter: blur(22px) saturate(150%);
+  }
+
+  [data-theme="dark"] .brand-v11.lim14 .primary-nav,
+  html[data-theme="dark"] .brand-v11.lim14 .primary-nav {
+    background: rgba(10,17,31,.88);
+    border-color: rgba(255,255,255,.12);
+  }
+
+  .brand-v11.lim14 .primary-nav .nav-link {
+    min-height: 44px;
+    padding: 8px 4px;
+    border-radius: 18px;
+    font-size: 11px;
+    line-height: 1.1;
+    white-space: nowrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Hero: ilk ekranı hafiflet */
+  .brand-v11.lim14 .revolution-hero {
+    min-height: auto;
+    padding: 34px 0 18px;
+  }
+
+  .brand-v11.lim14 .hero-copy {
+    text-align: left;
+  }
+
+  .brand-v11.lim14 .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: .08em;
+  }
+
+  .brand-v11.lim14 .revolution-hero h1 {
+    margin: 16px 0 14px;
+    font-size: clamp(38px, 12.5vw, 54px);
+    line-height: .98;
+    letter-spacing: -.065em;
+  }
+
+  .brand-v11.lim14 .revolution-hero p {
+    font-size: 15.5px;
+    line-height: 1.58;
+  }
+
+  .brand-v11.lim14 .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .brand-v11.lim14 .hero-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .brand-v11.lim14 .hero-visual {
+    display: none !important;
+  }
+
+  /* Başlangıç paneli */
+  .lim-start-panel {
+    margin: 16px auto 26px;
+    padding: 10px;
+    border-radius: 26px;
+  }
+
+  .lim-start-top {
+    padding: 12px 10px 16px;
+    gap: 8px;
+  }
+
+  .lim-start-top h2 {
+    font-size: clamp(27px, 8.6vw, 38px);
+    letter-spacing: -.05em;
+  }
+
+  .lim-start-top p {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .lim-path-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+
+  .lim-path-card {
+    min-height: auto;
+    padding: 18px;
+    border-radius: 22px;
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    grid-template-areas: "icon title" "icon text";
+    align-items: center;
+    gap: 4px 12px;
+  }
+
+  .lim-path-card i {
+    grid-area: icon;
+    width: 46px;
+    height: 46px;
+    font-size: 15px;
+  }
+
+  .lim-path-card strong {
+    grid-area: title;
+    font-size: 20px;
+  }
+
+  .lim-path-card span {
+    grid-area: text;
+    font-size: 13px;
+    line-height: 1.42;
+  }
+
+  .lim-mini-guide {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+
+  .lim-mini-guide div {
+    padding: 15px;
+    border-radius: 18px;
+  }
+
+  .lim-level-row {
+    gap: 7px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+  .lim-level-row::-webkit-scrollbar { display: none; }
+
+  .lim-level-btn {
+    flex: 0 0 auto;
+    padding: 10px 13px;
+  }
+
+  /* Geri dönüş / günlük kartlar */
+  .brand-v11.lim14 .return-hub-v13 {
+    margin-top: 22px;
+  }
+
+  .brand-v11.lim14 .return-hub-grid-v13,
+  .brand-v11.lim14 .daily-grid,
+  .brand-v11.lim14 .topic-pack-grid,
+  .brand-v11.lim14 .grammar-grid,
+  .brand-v11.lim14 .story-grid,
+  .brand-v11.lim14 .cards-grid,
+  .brand-v11.lim14 .result-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .brand-v11.lim14 .return-hub-grid-v13 article,
+  .brand-v11.lim14 .daily-card,
+  .brand-v11.lim14 .topic-pack-card,
+  .brand-v11.lim14 .story-card,
+  .brand-v11.lim14 .grammar-card {
+    border-radius: 22px;
+  }
+
+  /* Konu paketleri daha sakin */
+  .brand-v11.lim14 .topic-packs-section,
+  .brand-v11.lim14 .dictionary-section,
+  .brand-v11.lim14 .section-panel,
+  .brand-v11.lim14 .daily-study {
+    border-radius: 26px;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .brand-v11.lim14 .topic-packs-head,
+  .brand-v11.lim14 .panel-head,
+  .brand-v11.lim14 .daily-study-head,
+  .brand-v11.lim14 .return-hub-head-v13 {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .brand-v11.lim14 .topic-pack-card {
+    min-height: 142px;
+    padding: 18px;
+  }
+
+  .brand-v11.lim14 .topic-pack-card header {
+    gap: 12px;
+  }
+
+  .brand-v11.lim14 .topic-pack-card h3 {
+    font-size: 18px;
+  }
+
+  .brand-v11.lim14 .topic-pack-card p {
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .brand-v11.lim14 .topic-pack-card footer {
+    flex-wrap: wrap;
+  }
+
+  /* Sözlük mobil akışı */
+  .brand-v11.lim14 .dictionary-shell,
+  .brand-v11.lim14 .dictionary-form,
+  .brand-v11.lim14 .search-row,
+  .brand-v11.lim14 .lookup-row {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+
+  .brand-v11.lim14 input[type="search"],
+  .brand-v11.lim14 input[type="text"],
+  .brand-v11.lim14 .dictionary-input,
+  .brand-v11.lim14 .search-input {
+    width: 100%;
+    min-width: 0;
+    font-size: 16px; /* iOS zoom engeli */
+  }
+
+  .brand-v11.lim14 .dictionary-quick-tools {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 8px;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .brand-v11.lim14 .dictionary-quick-tools::-webkit-scrollbar { display: none; }
+
+  .brand-v11.lim14 .quick-tool-btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .brand-v11.lim14 .word-detail-grid,
+  .brand-v11.lim14 .word-meta-grid,
+  .brand-v11.lim14 .word-family-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Okuma ekranı mobilde geniş nefes alsın */
+  .brand-v11.lim14 .reader-card,
+  .brand-v11.lim14 .story-reader,
+  .brand-v11.lim14 .story-detail-card {
+    border-radius: 24px;
+    padding: 18px !important;
+  }
+
+  .brand-v11.lim14 .story-content,
+  .brand-v11.lim14 .story-text {
+    font-size: 18px;
+    line-height: 1.88;
+  }
+
+  .brand-v11.lim14 .story-toolbar,
+  .brand-v11.lim14 .reader-actions,
+  .brand-v11.lim14 .game-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Oyunlar ve testler */
+  .brand-v11.lim14 .option-grid,
+  .brand-v11.lim14 .quiz-options,
+  .brand-v11.lim14 .choice-grid {
+    grid-template-columns: 1fr !important;
+    gap: 9px;
+  }
+
+  .brand-v11.lim14 .option-btn,
+  .brand-v11.lim14 .answer-option {
+    width: 100%;
+    min-height: 48px;
+    text-align: left;
+  }
+
+  /* Modal/popup taşma düzeltmeleri */
+  .brand-v11.lim14 dialog,
+  .brand-v11.lim14 .modal,
+  .brand-v11.lim14 .dialog,
+  .brand-v11.lim14 .topic-pack-dialog,
+  .brand-v11.lim14 .drawer-panel {
+    width: calc(100vw - 20px) !important;
+    max-width: calc(100vw - 20px) !important;
+    max-height: min(86vh, 820px) !important;
+    overflow: auto !important;
+    border-radius: 24px !important;
+  }
+
+  .brand-v11.lim14 .modal-content,
+  .brand-v11.lim14 .dialog-content,
+  .brand-v11.lim14 .topic-pack-dialog-content {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .brand-v11.lim14 .modal-actions,
+  .brand-v11.lim14 .dialog-actions {
+    position: sticky;
+    bottom: 0;
+    background: color-mix(in srgb, var(--card) 92%, transparent);
+    backdrop-filter: blur(12px);
+    padding-top: 10px;
+  }
+
+  /* Sabit butonlar alt navigasyonla çakışmasın */
+  .brand-v11.lim14 .back-to-top,
+  .brand-v11.lim14 #backToTop,
+  .brand-v11.lim14 .floating-top {
+    bottom: calc(var(--aa-mobile-bottom) + 18px + env(safe-area-inset-bottom, 0px)) !important;
+    right: 12px !important;
+  }
+
+  .brand-v11.lim14 .feedback-btn,
+  .brand-v11.lim14 #feedbackBtn,
+  .brand-v11.lim14 .report-error-button {
+    bottom: calc(var(--aa-mobile-bottom) + 18px + env(safe-area-inset-bottom, 0px)) !important;
+    left: 12px !important;
+    right: auto !important;
+    max-width: 46vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Footer mobilde rahat */
+  .brand-v11.lim14 footer,
+  .brand-v11.lim14 .footer-inner {
+    text-align: left;
+    padding-bottom: 24px;
+  }
+}
+
+/* Çok küçük telefonlar */
+@media (max-width: 390px) {
+  .brand-v11.lim14 .container { width: calc(100% - 18px); }
+  .brand-v11.lim14 .brand-lockup strong { font-size: 14px; }
+  .brand-v11.lim14 .theme-toggle { padding: 0 10px; font-size: 11px; }
+  .brand-v11.lim14 .primary-nav { left: 8px; right: 8px; border-radius: 22px; }
+  .brand-v11.lim14 .primary-nav .nav-link { font-size: 10.5px; }
+  .brand-v11.lim14 .revolution-hero h1 { font-size: clamp(34px, 12.5vw, 46px); }
+  .lim-path-card strong { font-size: 18px; }
+  .lim-path-card span { font-size: 12.5px; }
+}
+
+/* Tablet: iki sütun sınırı */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .brand-v11.lim14 .topic-pack-grid,
+  .brand-v11.lim14 .story-grid,
+  .brand-v11.lim14 .grammar-grid,
+  .brand-v11.lim14 .return-hub-grid-v13 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}

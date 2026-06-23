@@ -764,7 +764,7 @@ function focusGameInput() {
   setTimeout(() => {
     const input = document.getElementById("guessInput");
     if (input) {
-      input.focus();
+      input.focus({ preventScroll: true });
       input.select();
     }
   }, 50);
