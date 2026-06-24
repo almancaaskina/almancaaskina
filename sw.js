@@ -1,4 +1,4 @@
-const CACHE_NAME = "almanca-askina-v14-mobile-ux";
+const CACHE_NAME = "almanca-askina-v15-classic-refresh";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -18,6 +18,7 @@ const APP_SHELL = [
   "./css/content-expansion.css",
   "./css/retention.css",
   "./css/less-is-more.css",
+  "./css/classic-refresh.css",
   "./js/core.js",
   "./js/reading-grammar.js",
   "./js/tools-pwa.js",
@@ -33,6 +34,7 @@ const APP_SHELL = [
   "./js/content-expansion.js",
   "./js/retention.js",
   "./js/less-is-more.js",
+  "./js/classic-refresh.js",
   "./data/a1-words.json",
   "./data/a2-words.json",
   "./data/stories-data.js",
