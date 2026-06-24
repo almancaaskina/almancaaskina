@@ -754,7 +754,7 @@ function openStory(storyId) {
 function initPwaV6() {
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./sw.js?v=13").catch(error => {
+      navigator.serviceWorker.register("./sw.js?v=15.7").catch(error => {
         console.warn("Çevrimdışı destek başlatılamadı:", error);
       });
     });

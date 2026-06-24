@@ -1,36 +1,15 @@
 /* Almanca Aşkına — Hotfix 15.5
-   Okuma ekranı güvenli düz metin + küçük UI düzeltmeleri */
-
-/* Okuma metninde eski tooltip markup kalırsa akışı bozmasın */
-.reader-text .reader-tooltip,
-.reader-tooltip {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-.reader-text .reader-word,
-.reader-word {
-  display: inline !important;
-  position: static !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  border: 0 !important;
-  background: none !important;
-  color: inherit !important;
-  line-height: inherit !important;
-  white-space: normal !important;
-}
+   Not: 15.7 ile okuma tooltipleri geri getirildi.
+   Bu dosya artık .reader-word veya .reader-tooltip yapısını kapatmaz. */
 
 .reader-text {
   white-space: normal !important;
   word-spacing: normal !important;
   letter-spacing: normal !important;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
 }
 
-/* Okuma kartı nefes alsın, metin satırları doğal aksın */
 .reader-card {
   overflow: visible !important;
 }

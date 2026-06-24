@@ -1,4 +1,6 @@
-/* Almanca Aşkına — Hotfix 15.5 */
+/* Almanca Aşkına — Hotfix 15.5
+   15.7 notu: Önceki sürüm okuma kelimelerini düz metne çeviriyordu.
+   Bu davranış kapatıldı; hover/touch Türkçe anlam kartları korunuyor. */
 (function(){
   function removeUpdateBanner(){
     const banner = document.getElementById("appUpdateBanner");
@@ -9,21 +11,15 @@
     }
   }
 
-  function unwrapReaderWords(){
+  function repairReaderSpacing(){
     const reader = document.getElementById("readerText");
     if (!reader) return;
 
-    // Eğer eski tooltipli markup ekranda duruyorsa, metni anında sadeleştir.
-    if (reader.querySelector(".reader-word")) {
-      reader.querySelectorAll(".reader-word").forEach(node => {
-        const textNode = document.createTextNode(node.childNodes[0]?.textContent || node.textContent || "");
-        node.replaceWith(textNode);
-      });
-      reader.innerHTML = reader.innerHTML
-        .replace(/(\d):\s+(\d{2})/g, "$1:$2")
-        .replace(/\s+([.,!?;:])/g, "$1")
-        .replace(/([.,!?;:])([^\s<])/g, "$1 $2");
-    }
+    // Tooltipli kelime yapısını asla kaldırma. Sadece saat biçimi gibi güvenli metin düzeltmeleri yap.
+    reader.querySelectorAll(".reader-word").forEach(word => {
+      if (!word.querySelector(".reader-tooltip")) return;
+      word.setAttribute("tabindex", word.getAttribute("tabindex") || "0");
+    });
   }
 
   function fixAdvancedTools(){
@@ -42,7 +38,7 @@
 
   function run(){
     removeUpdateBanner();
-    unwrapReaderWords();
+    repairReaderSpacing();
     fixAdvancedTools();
   }
 
@@ -52,7 +48,4 @@
     run();
   }
   window.addEventListener("load", run);
-
-  const observer = new MutationObserver(run);
-  if (document.body) observer.observe(document.body, { childList: true, subtree: true });
 })();

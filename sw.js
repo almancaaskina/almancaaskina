@@ -1,4 +1,4 @@
-const CACHE_NAME = "almanca-askina-hotfix-15-6";
+const CACHE_NAME = "almanca-askina-hotfix-15-7";
 const APP_SHELL = [
   "./",
   "./index.html",

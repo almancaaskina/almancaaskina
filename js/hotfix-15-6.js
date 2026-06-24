@@ -1,6 +1,8 @@
-/* Almanca Aşkına — Hotfix 15.6
+/* Almanca Aşkına — Hotfix 15.6 / 15.7
    Okuma bilgi kartlarını geri getirir, metin akışını korur. */
 (function(){
+  const WORD_RE = /([A-Za-zÄÖÜäöüß]+(?:-[A-Za-zÄÖÜäöüß]+)?)/g;
+
   function escapeHtmlV156(value){
     return String(value ?? "")
       .replaceAll("&","&amp;")
@@ -21,7 +23,7 @@
       .replace(/\r\n?/g, "\n");
 
     const lines = raw.split("\n").map(line => line.trim()).filter(Boolean);
-    if (!lines.length) return { lines: [match], missing: true };
+    if (!lines.length) return { lines: [match, "Sözlükte henüz bulunmuyor"], missing: true };
     return { lines, missing: !!info?.missing };
   }
 
@@ -31,7 +33,17 @@
       return `<${tag}>${escapeHtmlV156(line)}</${tag}>`;
     }).join("");
 
-    return `<span class="reader-word${missing ? " is-missing" : ""}" tabindex="0">${escapeHtmlV156(surface)}<span class="reader-tooltip" role="tooltip">${safeLines}</span></span>`;
+    return `<span class="reader-word${missing ? " is-missing" : ""}" tabindex="0" data-reader-word="${escapeHtmlV156(surface)}">${escapeHtmlV156(surface)}<span class="reader-tooltip" role="tooltip">${safeLines}</span></span>`;
+  }
+
+  function annotateTextV156(text){
+    return escapeHtmlV156(String(text || ""))
+      .replace(WORD_RE, function(match){
+        const info = linesForWordV156(match);
+        return createMarkupV156(match, info.lines, info.missing);
+      })
+      .replace(/(\d):\s+(\d{2})/g, "$1:$2")
+      .replace(/\n/g, "<br>");
   }
 
   window.createReaderWordMarkup = function(surface, lines, missing){
@@ -39,36 +51,76 @@
   };
 
   window.annotateStoryText = function(text){
-    return escapeHtmlV156(String(text || ""))
-      .replace(/([A-Za-zÄÖÜäöüß]+(?:-[A-Za-zÄÖÜäöüß]+)?)/g, function(match){
-        const info = linesForWordV156(match);
-        return createMarkupV156(match, info.lines, info.missing);
-      })
-      .replace(/(\d):\s+(\d{2})/g, "$1:$2")
-      .replace(/\n/g, "<br>");
+    return annotateTextV156(text);
   };
 
-  // Eski açık sayfada metin düzleştirilmişse, kullanıcı hikâyeye yeniden basmadan da geri yüklemeye çalış.
-  function rerenderOpenStoryIfPossible(){
+  function getStoryByIdV156(storyId){
+    try {
+      const stories = typeof getStoriesData === "function" ? getStoriesData() : [];
+      return stories.find(item => item.id === storyId) || null;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function getOpenStoryV156(){
     const readerCard = document.getElementById("readerCard");
-    const readerText = document.getElementById("readerText");
     const titleEl = document.getElementById("readerTitle");
-    if (!readerCard || !readerText || !titleEl) return;
-    if (readerCard.classList.contains("hidden")) return;
+    if (!readerCard || !titleEl || readerCard.classList.contains("hidden")) return null;
+
+    const activeId = readerCard.dataset.activeStoryId || window.__aaActiveStoryIdV156;
+    if (activeId) {
+      const byId = getStoryByIdV156(activeId);
+      if (byId) return byId;
+    }
 
     const title = titleEl.textContent?.trim();
-    if (!title) return;
+    if (!title) return null;
 
     try {
       const stories = typeof getStoriesData === "function" ? getStoriesData() : [];
-      const story = stories.find(item => item.title === title);
-      if (story?.text) readerText.innerHTML = window.annotateStoryText(story.text);
-    } catch (_) {}
+      return stories.find(item => item.title === title) || null;
+    } catch (_) {
+      return null;
+    }
   }
 
-  function bindReaderClickV156(){
-    if (window.__aaReaderClickV156) return;
-    window.__aaReaderClickV156 = true;
+  function renderStoryWithTooltipsV156(story){
+    const readerText = document.getElementById("readerText");
+    const readerCard = document.getElementById("readerCard");
+    if (!readerText || !story) return;
+
+    if (readerCard) {
+      readerCard.dataset.activeStoryId = story.id || "";
+      window.__aaActiveStoryIdV156 = story.id || "";
+    }
+
+    if (story.text) {
+      readerText.innerHTML = annotateTextV156(story.text);
+      return;
+    }
+
+    readerText.innerHTML = (story.tokens || []).map(token => {
+      if (typeof token === "string") return escapeHtmlV156(token);
+      return createMarkupV156(token.de, [token.de, token.tr], false);
+    }).join("");
+  }
+
+  function rerenderOpenStoryIfPossible(){
+    const story = getOpenStoryV156();
+    const readerText = document.getElementById("readerText");
+    if (!story || !readerText) return;
+
+    // Eğer kelimeler düz metne çevrilmişse veya tooltip sayısı yoksa güvenli biçimde tekrar kur.
+    if (!readerText.querySelector(".reader-word") || !readerText.querySelector(".reader-tooltip")) {
+      renderStoryWithTooltipsV156(story);
+    }
+  }
+
+  function bindReaderInteractionV156(){
+    if (window.__aaReaderInteractionV156) return;
+    window.__aaReaderInteractionV156 = true;
+
     document.addEventListener("click", function(event){
       const clickedWord = event.target.closest(".reader-word");
       document.querySelectorAll(".reader-word.is-visible").forEach(word => {
@@ -76,10 +128,48 @@
       });
       if (clickedWord) clickedWord.classList.toggle("is-visible");
     });
+
+    document.addEventListener("keydown", function(event){
+      const word = event.target.closest?.(".reader-word");
+      if (!word) return;
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      word.classList.toggle("is-visible");
+    });
+  }
+
+  function wrapOpenStoryV156(){
+    if (window.__aaOpenStoryWrappedV156 || typeof openStory !== "function") return;
+    window.__aaOpenStoryWrappedV156 = true;
+    const previousOpenStory = openStory;
+
+    openStory = function(storyId){
+      previousOpenStory.apply(this, arguments);
+      const story = getStoryByIdV156(storyId);
+      if (story) {
+        renderStoryWithTooltipsV156(story);
+        setTimeout(() => renderStoryWithTooltipsV156(story), 30);
+      }
+    };
+  }
+
+  function observeReaderV156(){
+    if (window.__aaReaderObserverV156) return;
+    const readerText = document.getElementById("readerText");
+    if (!readerText) return;
+    window.__aaReaderObserverV156 = true;
+
+    const observer = new MutationObserver(() => {
+      window.clearTimeout(window.__aaReaderRepairTimerV156);
+      window.__aaReaderRepairTimerV156 = window.setTimeout(rerenderOpenStoryIfPossible, 80);
+    });
+    observer.observe(readerText, { childList: true, subtree: true });
   }
 
   function run(){
-    bindReaderClickV156();
+    bindReaderInteractionV156();
+    wrapOpenStoryV156();
+    observeReaderV156();
     rerenderOpenStoryIfPossible();
   }
 
