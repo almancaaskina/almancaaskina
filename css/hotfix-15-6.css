@@ -1,0 +1,130 @@
+/* Almanca Aşkına — Hotfix 15.6
+   Okuma bilgi kartlarını geri getirir. Metin akışını bozmaz. */
+
+/* 15.5'te güvenlik için kapatılan tooltipleri kontrollü biçimde geri açıyoruz. */
+.reader-text {
+  display: block !important;
+  white-space: normal !important;
+  word-spacing: normal !important;
+  letter-spacing: normal !important;
+  line-height: 1.9 !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+.reader-text .reader-word,
+.reader-word {
+  position: relative !important;
+  display: inline !important;
+  white-space: normal !important;
+  line-height: inherit !important;
+  padding: 0 1px !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 3px !important;
+  color: inherit !important;
+  cursor: help !important;
+  background: linear-gradient(to right, rgba(30,64,255,.35), rgba(30,64,255,.35)) 0 100% / 100% 1px no-repeat !important;
+}
+
+.reader-text .reader-word.is-missing,
+.reader-word.is-missing {
+  background: linear-gradient(to right, rgba(239,68,68,.38), rgba(239,68,68,.38)) 0 100% / 100% 1px no-repeat !important;
+}
+
+.reader-text .reader-word:hover,
+.reader-text .reader-word:focus-visible,
+.reader-text .reader-word.is-visible,
+.reader-word:hover,
+.reader-word:focus-visible,
+.reader-word.is-visible {
+  background-color: rgba(30,64,255,.08) !important;
+}
+
+/* Tooltip yeniden aktif. 15.5'teki display:none override edilir. */
+.reader-text .reader-tooltip,
+.reader-tooltip {
+  position: absolute !important;
+  left: 50% !important;
+  bottom: calc(100% + 10px) !important;
+  z-index: 1000 !important;
+  display: grid !important;
+  gap: 3px !important;
+  min-width: 180px !important;
+  max-width: min(320px, 82vw) !important;
+  padding: 11px 13px !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  border-radius: 10px !important;
+  background: #111827 !important;
+  color: #ffffff !important;
+  box-shadow: 0 18px 55px rgba(15,23,42,.22) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+  text-align: left !important;
+  overflow-wrap: anywhere !important;
+  white-space: normal !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translate(-50%, 5px) !important;
+  transition: opacity .16s ease, transform .16s ease, visibility .16s ease !important;
+}
+
+.reader-tooltip strong {
+  color: #fff !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+}
+
+.reader-tooltip span {
+  display: block !important;
+  color: rgba(255,255,255,.82) !important;
+}
+
+.reader-word:hover > .reader-tooltip,
+.reader-word:focus-visible > .reader-tooltip,
+.reader-word.is-visible > .reader-tooltip {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translate(-50%, 0) !important;
+}
+
+/* Gece modunda da aynı okunaklı tooltip. */
+html[data-theme="dark"] .reader-tooltip,
+[data-theme="dark"] .reader-tooltip {
+  background: #f8fafc !important;
+  color: #111827 !important;
+  border-color: rgba(255,255,255,.18) !important;
+}
+
+html[data-theme="dark"] .reader-tooltip strong,
+[data-theme="dark"] .reader-tooltip strong {
+  color: #111827 !important;
+}
+
+html[data-theme="dark"] .reader-tooltip span,
+[data-theme="dark"] .reader-tooltip span {
+  color: #475467 !important;
+}
+
+/* Mobilde tooltip ekranın altından güvenli kart olarak çıkar. */
+@media (max-width: 700px) {
+  .reader-text .reader-tooltip,
+  .reader-tooltip {
+    position: fixed !important;
+    left: 14px !important;
+    right: 14px !important;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    transform: translateY(8px) !important;
+  }
+
+  .reader-word:hover > .reader-tooltip,
+  .reader-word:focus-visible > .reader-tooltip,
+  .reader-word.is-visible > .reader-tooltip {
+    transform: translateY(0) !important;
+  }
+}
