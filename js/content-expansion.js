@@ -215,20 +215,96 @@ function wrapCanvasTextV12(ctx,text,maxWidth) {
   if(line) lines.push(line); return lines;
 }
 
+function drawBrandLogoOnCanvasV154(ctx, x, y, size) {
+  const r = size / 2;
+  ctx.save();
+  ctx.fillStyle = "#1E40FF";
+  ctx.beginPath();
+  ctx.arc(x + r, y + r, r, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.strokeStyle = "#FFFFFF";
+  ctx.lineWidth = Math.max(4, size * 0.055);
+  ctx.beginPath();
+  ctx.arc(x + r, y + r, r - size * 0.12, 0, Math.PI * 2);
+  ctx.stroke();
+
+  ctx.fillStyle = "#FFFFFF";
+  ctx.strokeStyle = "#FFFFFF";
+  ctx.lineWidth = Math.max(4, size * 0.045);
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+
+  const cx = x + r;
+  const top = y + size * 0.33;
+  const bottom = y + size * 0.68;
+  const left = x + size * 0.25;
+  const right = x + size * 0.75;
+
+  ctx.beginPath();
+  ctx.moveTo(cx, bottom);
+  ctx.quadraticCurveTo(x + size * 0.38, y + size * 0.58, left, bottom);
+  ctx.lineTo(left, top);
+  ctx.quadraticCurveTo(x + size * 0.38, y + size * 0.32, cx, y + size * 0.45);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(cx, bottom);
+  ctx.quadraticCurveTo(x + size * 0.62, y + size * 0.58, right, bottom);
+  ctx.lineTo(right, top);
+  ctx.quadraticCurveTo(x + size * 0.62, y + size * 0.32, cx, y + size * 0.45);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.strokeStyle = "#1E40FF";
+  ctx.lineWidth = Math.max(2, size * 0.018);
+  ctx.beginPath();
+  ctx.moveTo(cx, y + size * 0.43);
+  ctx.lineTo(cx, bottom);
+  ctx.stroke();
+  ctx.restore();
+}
+
 function downloadWordCardV12(item) {
   const canvas=document.createElement("canvas"); canvas.width=1080; canvas.height=1080;
   const ctx=canvas.getContext("2d");
-  ctx.fillStyle="#F4F6FB"; ctx.fillRect(0,0,1080,1080);
+
+  ctx.fillStyle="#F7F8FC"; ctx.fillRect(0,0,1080,1080);
   ctx.fillStyle="#1E40FF"; ctx.fillRect(0,0,1080,28);
+
+  // Card surface
+  ctx.fillStyle="#FFFFFF";
+  ctx.fillRect(64,64,952,952);
   ctx.strokeStyle="#DCE3FF"; ctx.lineWidth=2; ctx.strokeRect(64,64,952,952);
+
+  // Marka alanı
   ctx.fillStyle="#1E40FF"; ctx.font="800 34px system-ui"; ctx.fillText("ALMANCA AŞKINA",92,132);
-  ctx.fillStyle="#0B0F19"; ctx.font="900 92px system-ui";
-  const display=getGermanDisplay(item); wrapCanvasTextV12(ctx,display,880).slice(0,2).forEach((line,i)=>ctx.fillText(line,92,300+i*104));
-  ctx.fillStyle="#1E40FF"; ctx.font="750 48px system-ui"; wrapCanvasTextV12(ctx,item.tr,880).slice(0,3).forEach((line,i)=>ctx.fillText(line,92,540+i*62));
-  const example=item.examples?.[0]||""; ctx.fillStyle="#2A2F36"; ctx.font="500 34px system-ui"; wrapCanvasTextV12(ctx,example,880).slice(0,3).forEach((line,i)=>ctx.fillText(line,92,760+i*50));
-  ctx.fillStyle="#667085"; ctx.font="650 26px system-ui"; ctx.fillText(`${item.level||"A1/A2"} · ${getPosLabel(item.pos)}${item.topicLabel?` · ${item.topicLabel}`:""}`,92,948);
-  ctx.fillStyle="#1E40FF"; ctx.beginPath(); ctx.arc(945,130,38,0,Math.PI*2); ctx.fill();
-  ctx.strokeStyle="#fff"; ctx.lineWidth=7; ctx.beginPath(); ctx.moveTo(921,130); ctx.quadraticCurveTo(938,108,945,130); ctx.quadraticCurveTo(952,108,969,130); ctx.moveTo(945,130); ctx.lineTo(945,157); ctx.stroke();
+  ctx.fillStyle="#667085"; ctx.font="600 22px system-ui"; ctx.fillText("Sade Almanca çalışma kartı",92,166);
+
+  // Sağ üst gerçek marka izi
+  drawBrandLogoOnCanvasV154(ctx, 890, 88, 92);
+  ctx.fillStyle="#0B0F19"; ctx.font="800 24px system-ui"; ctx.textAlign="right";
+  ctx.fillText("Almanca Aşkına",982,210);
+  ctx.textAlign="left";
+
+  ctx.fillStyle="#0B0F19"; ctx.font="900 90px system-ui";
+  const display=getGermanDisplay(item); wrapCanvasTextV12(ctx,display,820).slice(0,2).forEach((line,i)=>ctx.fillText(line,92,318+i*104));
+
+  ctx.fillStyle="#1E40FF"; ctx.font="750 48px system-ui";
+  wrapCanvasTextV12(ctx,item.tr,860).slice(0,3).forEach((line,i)=>ctx.fillText(line,92,560+i*62));
+
+  const example=item.examples?.[0]||"";
+  ctx.fillStyle="#2A2F36"; ctx.font="500 34px system-ui";
+  wrapCanvasTextV12(ctx,example,860).slice(0,3).forEach((line,i)=>ctx.fillText(line,92,780+i*50));
+
+  ctx.fillStyle="#667085"; ctx.font="650 26px system-ui";
+  ctx.fillText(`${item.level||"A1/A2"} · ${getPosLabel(item.pos)}${item.topicLabel?` · ${item.topicLabel}`:""}`,92,948);
+
+  // Alt marka izi
+  ctx.fillStyle="#1E40FF"; ctx.font="800 24px system-ui";
+  ctx.fillText("almancaaskina.vercel.app",92,990);
+
   const link=document.createElement("a"); link.download=`almanca-askina-${normalizeGerman(item.word)}.png`; link.href=canvas.toDataURL("image/png"); link.click();
 }
 

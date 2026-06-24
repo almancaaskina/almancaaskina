@@ -1,0 +1,227 @@
+/* Almanca Aşkına — Hotfix 15.4
+   Amaç: çalışan gövdeyi bozmadan görünür hataları düzeltmek. */
+
+/* 1) Güncelleme bannerı artık kullanıcıyı kilitlemesin */
+#appUpdateBanner,
+.app-update-banner {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* 2) Gece modu: aktif sekme bembeyaz patlamasın */
+html[data-theme="dark"] .brand-v11 .primary-nav .nav-link.is-active,
+[data-theme="dark"] .brand-v11 .primary-nav .nav-link.is-active,
+html[data-theme="dark"] .brand-v11.lim14 .primary-nav .nav-link.is-active,
+[data-theme="dark"] .brand-v11.lim14 .primary-nav .nav-link.is-active,
+html[data-theme="dark"] .primary-nav .nav-link.is-active,
+[data-theme="dark"] .primary-nav .nav-link.is-active {
+  background: #1e40ff !important;
+  color: #ffffff !important;
+  border-color: #1e40ff !important;
+  box-shadow: 0 10px 26px rgba(30,64,255,.25) !important;
+}
+
+html[data-theme="dark"] .brand-v11 .primary-nav,
+[data-theme="dark"] .brand-v11 .primary-nav {
+  background: rgba(10,17,31,.86) !important;
+  border-color: rgba(255,255,255,.13) !important;
+}
+
+/* 3) Gelişmiş araçlar: başlık ve açıklama yapışmasın */
+.lim-advanced-tools summary,
+.study-expander-bar,
+.vitrine-more-top {
+  gap: 18px !important;
+}
+
+.lim-advanced-tools summary {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) auto !important;
+  align-items: center !important;
+  padding: 22px 24px !important;
+}
+
+.lim-advanced-tools summary strong {
+  display: block !important;
+  margin: 0 0 6px 0 !important;
+  line-height: 1.1 !important;
+}
+
+.lim-advanced-tools summary span {
+  display: block !important;
+  line-height: 1.5 !important;
+  max-width: 760px !important;
+}
+
+/* 4) Dinleme / pratik alanlarında dark-mode kontrastı */
+html[data-theme="dark"] .section-panel,
+html[data-theme="dark"] .practice-shell,
+html[data-theme="dark"] .listening-shell,
+html[data-theme="dark"] .sentence-shell,
+html[data-theme="dark"] .game-card,
+html[data-theme="dark"] .reader-card,
+html[data-theme="dark"] .level-card,
+html[data-theme="dark"] .story-card,
+html[data-theme="dark"] .mode-card,
+html[data-theme="dark"] .practice-toolbar,
+html[data-theme="dark"] .answer-area,
+[data-theme="dark"] .section-panel,
+[data-theme="dark"] .practice-shell,
+[data-theme="dark"] .listening-shell,
+[data-theme="dark"] .sentence-shell,
+[data-theme="dark"] .game-card,
+[data-theme="dark"] .reader-card,
+[data-theme="dark"] .level-card,
+[data-theme="dark"] .story-card,
+[data-theme="dark"] .mode-card,
+[data-theme="dark"] .practice-toolbar,
+[data-theme="dark"] .answer-area {
+  background: #0f172a !important;
+  border-color: rgba(255,255,255,.14) !important;
+  color: #f8fafc !important;
+}
+
+html[data-theme="dark"] .practice-toolbar,
+[data-theme="dark"] .practice-toolbar {
+  background: #111c31 !important;
+}
+
+html[data-theme="dark"] .practice-toolbar button,
+html[data-theme="dark"] .segmented button,
+html[data-theme="dark"] .mode-card,
+html[data-theme="dark"] .level-card,
+[data-theme="dark"] .practice-toolbar button,
+[data-theme="dark"] .segmented button,
+[data-theme="dark"] .mode-card,
+[data-theme="dark"] .level-card {
+  background: #0b1220 !important;
+  color: #e5edf8 !important;
+  border-color: rgba(255,255,255,.16) !important;
+}
+
+html[data-theme="dark"] .practice-toolbar button.is-active,
+html[data-theme="dark"] .segmented button.is-active,
+html[data-theme="dark"] .mode-card.is-active,
+html[data-theme="dark"] .level-card.is-active,
+[data-theme="dark"] .practice-toolbar button.is-active,
+[data-theme="dark"] .segmented button.is-active,
+[data-theme="dark"] .mode-card.is-active,
+[data-theme="dark"] .level-card.is-active {
+  background: #1e40ff !important;
+  color: #fff !important;
+  border-color: #1e40ff !important;
+}
+
+html[data-theme="dark"] .section-panel h2,
+html[data-theme="dark"] .section-panel h3,
+html[data-theme="dark"] .practice-mount h2,
+html[data-theme="dark"] .practice-mount h3,
+html[data-theme="dark"] .game-question strong,
+html[data-theme="dark"] .reader-card h3,
+html[data-theme="dark"] .level-card span,
+html[data-theme="dark"] .story-card span,
+[data-theme="dark"] .section-panel h2,
+[data-theme="dark"] .section-panel h3,
+[data-theme="dark"] .practice-mount h2,
+[data-theme="dark"] .practice-mount h3,
+[data-theme="dark"] .game-question strong,
+[data-theme="dark"] .reader-card h3,
+[data-theme="dark"] .level-card span,
+[data-theme="dark"] .story-card span {
+  color: #f8fafc !important;
+}
+
+html[data-theme="dark"] .section-panel p,
+html[data-theme="dark"] .section-panel small,
+html[data-theme="dark"] .game-question small,
+html[data-theme="dark"] .practice-mount p,
+html[data-theme="dark"] .level-card small,
+html[data-theme="dark"] .story-card small,
+[data-theme="dark"] .section-panel p,
+[data-theme="dark"] .section-panel small,
+[data-theme="dark"] .game-question small,
+[data-theme="dark"] .practice-mount p,
+[data-theme="dark"] .level-card small,
+[data-theme="dark"] .story-card small {
+  color: #b8c3d6 !important;
+}
+
+/* 5) Okuma metni: kelime tooltip çizgileri metni boğmasın, sayı/noktalama kaymış gibi görünmesin */
+.reader-text {
+  word-spacing: normal !important;
+  letter-spacing: normal !important;
+  white-space: normal !important;
+}
+
+.reader-word {
+  display: inline !important;
+  position: relative !important;
+  border-bottom: 0 !important;
+  background-image: linear-gradient(to right, rgba(30,64,255,.35), rgba(30,64,255,.35)) !important;
+  background-size: 100% 1px !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 100% !important;
+  border-radius: 2px !important;
+  padding: 0 1px !important;
+}
+
+.reader-word.is-missing {
+  background-image: linear-gradient(to right, rgba(239,68,68,.38), rgba(239,68,68,.38)) !important;
+}
+
+.reader-word:hover,
+.reader-word:focus-visible,
+.reader-word.is-visible {
+  background-color: rgba(30,64,255,.08) !important;
+}
+
+.reader-tooltip {
+  white-space: normal !important;
+}
+
+/* 6) Mobilde taşma ve tarayıcı giriş güvenliği */
+@media (max-width: 760px) {
+  html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  .container {
+    width: calc(100% - 22px) !important;
+  }
+
+  .lim-advanced-tools summary {
+    grid-template-columns: 1fr auto !important;
+    padding: 18px !important;
+  }
+
+  .practice-toolbar,
+  .game-toolbar,
+  .search-form,
+  .local-data-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .practice-control-group,
+  .segmented,
+  .mode-grid,
+  .level-choice,
+  .topic-pack-grid,
+  .trust-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .practice-toolbar button,
+  .segmented button,
+  .mode-card,
+  .level-card,
+  .search-form button {
+    width: 100% !important;
+    min-height: 46px !important;
+  }
+}
