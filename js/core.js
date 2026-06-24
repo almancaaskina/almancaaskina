@@ -1183,3 +1183,15 @@ function initTheme() {
     themeToggle.textContent = next === "dark" ? "Gündüz Modu" : "Gece Modu";
   });
 }
+
+
+/* Hotfix 15.5: safe plain reader
+   Okuma metnindeki kelime tooltip katmanı bazı sürümlerde metni kelime kelime aşağı kırıyordu.
+   Bu güvenli sürüm okuma metnini düz metin olarak render eder. */
+function annotateStoryText(text) {
+  return escapeHtml(String(text || ""))
+    .replace(/(\d):\s+(\d{2})/g, "$1:$2")
+    .replace(/[ \t]+/g, " ")
+    .replace(/\n{3,}/g, "\n\n")
+    .replace(/\n/g, "<br>");
+}

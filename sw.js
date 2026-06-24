@@ -1,4 +1,4 @@
-const CACHE_NAME = "almanca-askina-hotfix-15-4";
+const CACHE_NAME = "almanca-askina-hotfix-15-5";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -20,6 +20,7 @@ const APP_SHELL = [
   "./css/less-is-more.css",
   "./css/mobile-ux.css",
   "./css/hotfix-15-4.css",
+  "./css/hotfix-15-5.css",
   "./js/core.js",
   "./js/reading-grammar.js",
   "./js/tools-pwa.js",
@@ -37,6 +38,7 @@ const APP_SHELL = [
   "./js/less-is-more.js",
   "./js/mobile-ux.js",
   "./js/hotfix-15-4.js",
+  "./js/hotfix-15-5.js",
   "./data/a1-words.json",
   "./data/a2-words.json",
   "./data/stories-data.js",

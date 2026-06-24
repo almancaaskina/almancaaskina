@@ -1,0 +1,80 @@
+/* Almanca Aşkına — Hotfix 15.5
+   Okuma ekranı güvenli düz metin + küçük UI düzeltmeleri */
+
+/* Okuma metninde eski tooltip markup kalırsa akışı bozmasın */
+.reader-text .reader-tooltip,
+.reader-tooltip {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.reader-text .reader-word,
+.reader-word {
+  display: inline !important;
+  position: static !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: none !important;
+  color: inherit !important;
+  line-height: inherit !important;
+  white-space: normal !important;
+}
+
+.reader-text {
+  white-space: normal !important;
+  word-spacing: normal !important;
+  letter-spacing: normal !important;
+  overflow-wrap: anywhere;
+}
+
+/* Okuma kartı nefes alsın, metin satırları doğal aksın */
+.reader-card {
+  overflow: visible !important;
+}
+
+.reader-card h3,
+#readerTitle {
+  word-break: normal !important;
+  overflow-wrap: anywhere;
+}
+
+/* Eski 'Şimdi yenile' bannerı kesin olarak görünmesin */
+#appUpdateBanner,
+.app-update-banner {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Gelişmiş araçlar başlığı ile açıklaması birbirine yapışmasın */
+.lim-advanced-tools summary .advanced-copy-wrap,
+.advanced-copy-wrap {
+  display: grid !important;
+  gap: 6px !important;
+}
+
+.lim-advanced-tools summary {
+  column-gap: 20px !important;
+}
+
+/* Gece modu aktif nav: beyaz patlama yok */
+html[data-theme="dark"] .primary-nav .nav-link.is-active,
+[data-theme="dark"] .primary-nav .nav-link.is-active {
+  background: #1e40ff !important;
+  color: #fff !important;
+  border-color: #1e40ff !important;
+}
+
+/* Mobil okuma güvenliği */
+@media (max-width: 760px) {
+  .reader-text {
+    font-size: 17px !important;
+    line-height: 1.85 !important;
+  }
+  .reader-card {
+    padding: 18px !important;
+  }
+}
