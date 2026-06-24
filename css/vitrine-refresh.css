@@ -717,3 +717,331 @@ html[data-theme="dark"] .brand-v11.vitrine151 .vitrine-path-card.primary span,
     line-height: 1.85;
   }
 }
+
+
+/* ============================
+   V15.2 Stabilizasyon Hotfix
+   - Karanlık mod kontrastı
+   - Boş/teknik kart temizliği
+   - Mobil taşma önlemleri
+   ============================ */
+
+.brand-v11.vitrine151 {
+  color-scheme: light;
+}
+
+/* Eski devrim/klasik katmanlardan kalan ağır efektleri etkisizleştir */
+.brand-v11.vitrine151 .section-panel,
+.brand-v11.vitrine151 .dictionary-section,
+.brand-v11.vitrine151 .topic-packs-section,
+.brand-v11.vitrine151 .section-surface,
+.brand-v11.vitrine151 .local-data-tools,
+.brand-v11.vitrine151 .search-card,
+.brand-v11.vitrine151 .reader-card,
+.brand-v11.vitrine151 .game-card,
+.brand-v11.vitrine151 .practice-shell,
+.brand-v11.vitrine151 .topic-pack-card,
+.brand-v11.vitrine151 .trust-card,
+.brand-v11.vitrine151 .level-card,
+.brand-v11.vitrine151 .mode-card,
+.brand-v11.vitrine151 .practice-toolbar,
+.brand-v11.vitrine151 .answer-area,
+.brand-v11.vitrine151 .result-preview,
+.brand-v11.vitrine151 .empty-state {
+  background-image: none !important;
+  filter: none !important;
+}
+
+.brand-v11.vitrine151 .panel-head h2,
+.brand-v11.vitrine151 .daily-study-head h2,
+.brand-v11.vitrine151 .topic-packs-head h2,
+.brand-v11.vitrine151 .return-hub-head-v13 h2,
+.brand-v11.vitrine151 .reader-card h3,
+.brand-v11.vitrine151 .game-question strong,
+.brand-v11.vitrine151 .practice-mount h3,
+.brand-v11.vitrine151 .practice-mount strong,
+.brand-v11.vitrine151 .level-card span,
+.brand-v11.vitrine151 .mode-card span {
+  color: var(--v-ink) !important;
+}
+
+.brand-v11.vitrine151 p,
+.brand-v11.vitrine151 small,
+.brand-v11.vitrine151 .panel-head p,
+.brand-v11.vitrine151 .daily-study-head p,
+.brand-v11.vitrine151 .topic-packs-head p,
+.brand-v11.vitrine151 .practice-mount p,
+.brand-v11.vitrine151 .game-question small,
+.brand-v11.vitrine151 .level-card small,
+.brand-v11.vitrine151 .mode-card small {
+  color: var(--v-muted) !important;
+}
+
+.brand-v11.vitrine151 .section-kicker,
+.brand-v11.vitrine151 .hero-eyebrow,
+.brand-v11.vitrine151 .practice-mount .section-kicker {
+  color: var(--v-blue) !important;
+}
+
+/* Buton renkleri */
+.brand-v11.vitrine151 button {
+  color: inherit;
+}
+.brand-v11.vitrine151 .search-form button,
+.brand-v11.vitrine151 .hero-primary,
+.brand-v11.vitrine151 .primary-btn,
+.brand-v11.vitrine151 .dialog-primary-btn,
+.brand-v11.vitrine151 .vitrine-path-card.primary,
+.brand-v11.vitrine151 .mode-card.is-active,
+.brand-v11.vitrine151 .segment-btn.is-active,
+.brand-v11.vitrine151 .practice-control-group button.is-active {
+  background: var(--v-blue) !important;
+  border-color: var(--v-blue) !important;
+  color: #fff !important;
+}
+.brand-v11.vitrine151 .vitrine-path-card.primary span,
+.brand-v11.vitrine151 .mode-card.is-active small {
+  color: rgba(255,255,255,.78) !important;
+}
+.brand-v11.vitrine151 .hero-secondary,
+.brand-v11.vitrine151 .secondary-btn,
+.brand-v11.vitrine151 .vitrine-more-toggle,
+.brand-v11.vitrine151 .vitrine-more-grid button,
+.brand-v11.vitrine151 .practice-control-group button,
+.brand-v11.vitrine151 .segment-btn,
+.brand-v11.vitrine151 .mode-card,
+.brand-v11.vitrine151 .level-card {
+  background: #fff !important;
+  border: 1px solid var(--v-line) !important;
+  color: var(--v-ink) !important;
+}
+
+/* Dinleme / cümle / oyun toolbar okunaklılığı */
+.brand-v11.vitrine151 .practice-toolbar,
+.brand-v11.vitrine151 .game-toolbar,
+.brand-v11.vitrine151 .answer-area {
+  background: #F8FAFC !important;
+  border: 1px solid var(--v-line) !important;
+  color: var(--v-ink) !important;
+}
+.brand-v11.vitrine151 .practice-control-group span,
+.brand-v11.vitrine151 .game-direction,
+.brand-v11.vitrine151 label,
+.brand-v11.vitrine151 .score-pill {
+  color: var(--v-muted) !important;
+}
+.brand-v11.vitrine151 input,
+.brand-v11.vitrine151 textarea,
+.brand-v11.vitrine151 select {
+  background: #fff !important;
+  border: 1px solid var(--v-line) !important;
+  color: var(--v-ink) !important;
+}
+.brand-v11.vitrine151 input::placeholder,
+.brand-v11.vitrine151 textarea::placeholder {
+  color: #98A2B3 !important;
+}
+
+/* Hakkında/İletişim alanında boş kart kalmasın */
+.brand-v11.vitrine151 .about-section .trust-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.brand-v11.vitrine151 .about-section .trust-card {
+  min-height: 220px;
+  padding: 20px;
+}
+.brand-v11.vitrine151 .about-section .trust-card h3 {
+  color: var(--v-ink) !important;
+}
+.brand-v11.vitrine151 .about-section .trust-card p,
+.brand-v11.vitrine151 .about-section .trust-card li {
+  color: var(--v-muted) !important;
+}
+
+/* Karanlık mod tam kontrast */
+html[data-theme="dark"] body.brand-v11.vitrine151,
+html[data-theme="dark"] .brand-v11.vitrine151,
+[data-theme="dark"] body.brand-v11.vitrine151,
+[data-theme="dark"] .brand-v11.vitrine151 {
+  --v-bg: #0B1220;
+  --v-paper: #10192E;
+  --v-ink: #F8FAFC;
+  --v-muted: #C7D2E1;
+  --v-line: rgba(255,255,255,.14);
+  --v-blue: #6EA8FF;
+  --v-blue-soft: rgba(110,168,255,.13);
+  --v-shadow: none;
+  color-scheme: dark;
+  background: #0B1220 !important;
+  color: var(--v-ink) !important;
+}
+
+html[data-theme="dark"] .brand-v11.vitrine151 .site-header,
+[data-theme="dark"] .brand-v11.vitrine151 .site-header {
+  background: rgba(11,18,32,.94) !important;
+  border-bottom-color: var(--v-line) !important;
+}
+
+html[data-theme="dark"] .brand-v11.vitrine151 .section-panel,
+html[data-theme="dark"] .brand-v11.vitrine151 .dictionary-section,
+html[data-theme="dark"] .brand-v11.vitrine151 .topic-packs-section,
+html[data-theme="dark"] .brand-v11.vitrine151 .section-surface,
+html[data-theme="dark"] .brand-v11.vitrine151 .local-data-tools,
+html[data-theme="dark"] .brand-v11.vitrine151 .vitrine-start-panel,
+html[data-theme="dark"] .brand-v11.vitrine151 .vitrine-more-panel,
+html[data-theme="dark"] .brand-v11.vitrine151 .search-card,
+html[data-theme="dark"] .brand-v11.vitrine151 .reader-card,
+html[data-theme="dark"] .brand-v11.vitrine151 .game-card,
+html[data-theme="dark"] .brand-v11.vitrine151 .practice-shell,
+html[data-theme="dark"] .brand-v11.vitrine151 .topic-pack-card,
+html[data-theme="dark"] .brand-v11.vitrine151 .trust-card,
+html[data-theme="dark"] .brand-v11.vitrine151 .level-card,
+html[data-theme="dark"] .brand-v11.vitrine151 .mode-card,
+html[data-theme="dark"] .brand-v11.vitrine151 .vitrine-path-card,
+html[data-theme="dark"] .brand-v11.vitrine151 .vitrine-more-grid button,
+html[data-theme="dark"] .brand-v11.vitrine151 .practice-toolbar,
+html[data-theme="dark"] .brand-v11.vitrine151 .game-toolbar,
+html[data-theme="dark"] .brand-v11.vitrine151 .answer-area,
+html[data-theme="dark"] .brand-v11.vitrine151 .empty-state,
+html[data-theme="dark"] .brand-v11.vitrine151 .result-preview,
+[data-theme="dark"] .brand-v11.vitrine151 .section-panel,
+[data-theme="dark"] .brand-v11.vitrine151 .dictionary-section,
+[data-theme="dark"] .brand-v11.vitrine151 .topic-packs-section,
+[data-theme="dark"] .brand-v11.vitrine151 .section-surface,
+[data-theme="dark"] .brand-v11.vitrine151 .local-data-tools,
+[data-theme="dark"] .brand-v11.vitrine151 .vitrine-start-panel,
+[data-theme="dark"] .brand-v11.vitrine151 .vitrine-more-panel,
+[data-theme="dark"] .brand-v11.vitrine151 .search-card,
+[data-theme="dark"] .brand-v11.vitrine151 .reader-card,
+[data-theme="dark"] .brand-v11.vitrine151 .game-card,
+[data-theme="dark"] .brand-v11.vitrine151 .practice-shell,
+[data-theme="dark"] .brand-v11.vitrine151 .topic-pack-card,
+[data-theme="dark"] .brand-v11.vitrine151 .trust-card,
+[data-theme="dark"] .brand-v11.vitrine151 .level-card,
+[data-theme="dark"] .brand-v11.vitrine151 .mode-card,
+[data-theme="dark"] .brand-v11.vitrine151 .vitrine-path-card,
+[data-theme="dark"] .brand-v11.vitrine151 .vitrine-more-grid button,
+[data-theme="dark"] .brand-v11.vitrine151 .practice-toolbar,
+[data-theme="dark"] .brand-v11.vitrine151 .game-toolbar,
+[data-theme="dark"] .brand-v11.vitrine151 .answer-area,
+[data-theme="dark"] .brand-v11.vitrine151 .empty-state,
+[data-theme="dark"] .brand-v11.vitrine151 .result-preview {
+  background: var(--v-paper) !important;
+  border-color: var(--v-line) !important;
+  color: var(--v-ink) !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="dark"] .brand-v11.vitrine151 :is(h1,h2,h3,h4,strong,b),
+[data-theme="dark"] .brand-v11.vitrine151 :is(h1,h2,h3,h4,strong,b) {
+  color: var(--v-ink) !important;
+}
+html[data-theme="dark"] .brand-v11.vitrine151 :is(p,small,span,label,li,td,th),
+[data-theme="dark"] .brand-v11.vitrine151 :is(p,small,span,label,li,td,th) {
+  color: var(--v-muted) !important;
+}
+html[data-theme="dark"] .brand-v11.vitrine151 .section-kicker,
+html[data-theme="dark"] .brand-v11.vitrine151 .hero-eyebrow,
+[data-theme="dark"] .brand-v11.vitrine151 .section-kicker,
+[data-theme="dark"] .brand-v11.vitrine151 .hero-eyebrow {
+  color: var(--v-blue) !important;
+}
+
+html[data-theme="dark"] .brand-v11.vitrine151 input,
+html[data-theme="dark"] .brand-v11.vitrine151 textarea,
+html[data-theme="dark"] .brand-v11.vitrine151 select,
+[data-theme="dark"] .brand-v11.vitrine151 input,
+[data-theme="dark"] .brand-v11.vitrine151 textarea,
+[data-theme="dark"] .brand-v11.vitrine151 select {
+  background: #0B1220 !important;
+  color: var(--v-ink) !important;
+  border-color: var(--v-line) !important;
+}
+
+html[data-theme="dark"] .brand-v11.vitrine151 button:not(.hero-primary):not(.search-form button):not(.primary-btn):not(.dialog-primary-btn):not(.is-active),
+[data-theme="dark"] .brand-v11.vitrine151 button:not(.hero-primary):not(.search-form button):not(.primary-btn):not(.dialog-primary-btn):not(.is-active) {
+  color: var(--v-ink) !important;
+}
+
+html[data-theme="dark"] .brand-v11.vitrine151 .hero-primary,
+html[data-theme="dark"] .brand-v11.vitrine151 .search-form button,
+html[data-theme="dark"] .brand-v11.vitrine151 .primary-btn,
+html[data-theme="dark"] .brand-v11.vitrine151 .dialog-primary-btn,
+html[data-theme="dark"] .brand-v11.vitrine151 .mode-card.is-active,
+html[data-theme="dark"] .brand-v11.vitrine151 .segment-btn.is-active,
+html[data-theme="dark"] .brand-v11.vitrine151 .practice-control-group button.is-active,
+[data-theme="dark"] .brand-v11.vitrine151 .hero-primary,
+[data-theme="dark"] .brand-v11.vitrine151 .search-form button,
+[data-theme="dark"] .brand-v11.vitrine151 .primary-btn,
+[data-theme="dark"] .brand-v11.vitrine151 .dialog-primary-btn,
+[data-theme="dark"] .brand-v11.vitrine151 .mode-card.is-active,
+[data-theme="dark"] .brand-v11.vitrine151 .segment-btn.is-active,
+[data-theme="dark"] .brand-v11.vitrine151 .practice-control-group button.is-active {
+  background: var(--v-blue) !important;
+  color: #07101F !important;
+  border-color: var(--v-blue) !important;
+}
+
+html[data-theme="dark"] .brand-v11.vitrine151 .primary-nav,
+[data-theme="dark"] .brand-v11.vitrine151 .primary-nav {
+  background: rgba(16,25,46,.92) !important;
+  border-color: var(--v-line) !important;
+}
+html[data-theme="dark"] .brand-v11.vitrine151 .primary-nav .nav-link.is-active,
+[data-theme="dark"] .brand-v11.vitrine151 .primary-nav .nav-link.is-active {
+  background: #F8FAFC !important;
+  color: #111827 !important;
+}
+
+/* Mobil sağlamlaştırma */
+@media (max-width: 760px) {
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  .brand-v11.vitrine151 .container {
+    width: calc(100% - 22px) !important;
+  }
+  .brand-v11.vitrine151 .panel-head,
+  .brand-v11.vitrine151 .topic-packs-head,
+  .brand-v11.vitrine151 .daily-study-head,
+  .brand-v11.vitrine151 .return-hub-head-v13 {
+    grid-template-columns: 1fr !important;
+  }
+  .brand-v11.vitrine151 .search-form,
+  .brand-v11.vitrine151 .game-toolbar,
+  .brand-v11.vitrine151 .practice-toolbar,
+  .brand-v11.vitrine151 .local-data-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .brand-v11.vitrine151 .practice-control-group,
+  .brand-v11.vitrine151 .segmented,
+  .brand-v11.vitrine151 .mode-grid,
+  .brand-v11.vitrine151 .topic-pack-grid,
+  .brand-v11.vitrine151 .trust-grid {
+    grid-template-columns: 1fr !important;
+    display: grid !important;
+  }
+  .brand-v11.vitrine151 .practice-control-group {
+    gap: 8px;
+  }
+  .brand-v11.vitrine151 .practice-control-group button,
+  .brand-v11.vitrine151 .segmented button,
+  .brand-v11.vitrine151 .mode-card,
+  .brand-v11.vitrine151 .level-card,
+  .brand-v11.vitrine151 .search-form button {
+    width: 100%;
+    min-height: 46px;
+  }
+  .brand-v11.vitrine151 .dictionary-quick-tools {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    padding-bottom: 4px;
+  }
+  .brand-v11.vitrine151 .quick-tool-btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+}

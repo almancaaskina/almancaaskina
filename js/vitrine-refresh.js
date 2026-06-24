@@ -1,4 +1,4 @@
-/* Almanca Aşkına — V15.1 Sade Vitrin Düzeltmesi */
+/* Almanca Aşkına — V15.2 Sade Vitrin Stabilizasyonu */
 (function(){
   const SECONDARY_IDS = ["topicPacks", "listening", "sentence", "grammar", "progress"];
   const MORE_BUTTONS = [
@@ -13,17 +13,29 @@
   const qs = (sel, root=document) => root.querySelector(sel);
   const qsa = (sel, root=document) => Array.from(root.querySelectorAll(sel));
 
+  function openSecondaryIfNeeded(id){
+    if (SECONDARY_IDS.includes(id)) {
+      document.body.classList.add("show-vitrine-more");
+      const toggle = qs("#vitrineMoreToggle");
+      if (toggle) toggle.textContent = "Alanları gizle";
+    }
+  }
+
   function scrollToSection(id){
+    openSecondaryIfNeeded(id);
     const el = document.getElementById(id);
     if (!el) return;
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    requestAnimationFrame(() => el.scrollIntoView({ behavior: "smooth", block: "start" }));
   }
 
   function bindTargets(root=document){
     qsa("[data-section-target]", root).forEach(btn => {
-      if (btn.dataset.vitrineBound === "1") return;
-      btn.dataset.vitrineBound = "1";
-      btn.addEventListener("click", () => scrollToSection(btn.dataset.sectionTarget));
+      if (btn.dataset.vitrineBound === "2") return;
+      btn.dataset.vitrineBound = "2";
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+        scrollToSection(btn.dataset.sectionTarget);
+      });
     });
   }
 
@@ -60,6 +72,23 @@
 
   function removeOldInternalPanels(){
     qsa("#simpleStartV14, #classicQuickStart, #secondaryExpander").forEach(el => el.remove());
+
+    // Önceki denemeden kalmış tasarım notu metinleri kullanıcıya görünmesin.
+    const forbiddenTexts = [
+      "Yeni düzen ne sağlıyor?",
+      "Daha az kart ve daha net bir sayfa akışı",
+      "Klasik tipografi ile daha güçlü okuma hissi",
+      "İleri araçları isteyen için ayrı bir alan",
+      "Yeni düzen",
+      "Klasik tipografi",
+      "tasarım"
+    ];
+    qsa("section, article, div").forEach(el => {
+      const ownText = (el.childNodes.length === 1 && el.textContent || "").trim();
+      if (forbiddenTexts.some(t => ownText.includes(t))) {
+        el.remove();
+      }
+    });
   }
 
   function createStartPanel(){
@@ -110,7 +139,7 @@
 
     const grid = qs("#vitrineMoreGrid");
     if (grid) {
-      grid.innerHTML = MORE_BUTTONS.map(([label, target]) => 
+      grid.innerHTML = MORE_BUTTONS.map(([label, target]) =>
         `<button type="button" data-section-target="${target}">${label}</button>`
       ).join("");
     }
@@ -164,22 +193,85 @@
     const searchInput = qs("#searchInput");
     if (searchInput) searchInput.placeholder = "Örn: Haus, gehen, Arzt ya da pencere...";
 
-    const recent = qs("#recentSearchesBtn");
-    if (recent) recent.firstChild.textContent = "Son baktıklarım";
+    const quickLabels = [
+      ["#recentSearchesBtn", "Son baktıklarım"],
+      ["#wordExploreBtn", "Kelime seç"]
+    ];
+    quickLabels.forEach(([sel, txt]) => {
+      const el = qs(sel);
+      if (el) el.textContent = txt;
+    });
 
     const notebook = qs("#wordNotebookBtn");
-    if (notebook) notebook.firstChild.textContent = "Kaydettiklerim ";
-
-    const explore = qs("#wordExploreBtn");
-    if (explore) explore.textContent = "Kelime seç";
+    if (notebook) {
+      const count = qs("#favoriteCount", notebook)?.textContent || "0";
+      notebook.innerHTML = `Kaydettiklerim <span id="favoriteCount">${count}</span>`;
+    }
 
     const phrase = qs("#phraseLibraryBtn");
-    if (phrase) phrase.firstChild.textContent = "Hazır cümleler ";
+    if (phrase) {
+      const count = qs("#phraseCount", phrase)?.textContent || "307";
+      phrase.innerHTML = `Hazır cümleler <span id="phraseCount">${count}</span>`;
+    }
 
     const footer = qs(".site-footer p");
     if (footer) {
-      footer.innerHTML = `Almanca Aşkına — ücretsiz, sade ve dikkat dağıtmayan Almanca çalışma alanı. · <a href="mailto:akkayanbusiness@gmail.com">İletişim</a> · Sürüm 15.1`;
+      footer.innerHTML = `Almanca Aşkına — ücretsiz, sade ve dikkat dağıtmayan Almanca çalışma alanı. · <a href="mailto:akkayanbusiness@gmail.com">İletişim</a> · Sürüm 15.2`;
     }
+  }
+
+  function rebuildAbout(){
+    const about = qs("#about");
+    if (!about || about.dataset.vitrineAbout === "2") return;
+    about.dataset.vitrineAbout = "2";
+    about.innerHTML = `
+      <div class="panel-head">
+        <div>
+          <div class="section-kicker">Hakkında</div>
+          <h2 id="aboutTitle">Almanca Aşkına nedir?</h2>
+        </div>
+        <p>A1–A2 için ücretsiz, sade ve düzenli bir Almanca çalışma alanı.</p>
+      </div>
+      <div class="trust-grid">
+        <article class="trust-card">
+          <span>Ne sunar?</span>
+          <h3>Kelime, hikâye ve pratik.</h3>
+          <p>Kelime ara, kısa metinler oku, mini testlerle öğrendiğini pekiştir.</p>
+        </article>
+        <article class="trust-card">
+          <span>Gizlilik</span>
+          <h3>Verilerin cihazında kalır.</h3>
+          <p>Kelime defteri ve ilerleme bilgileri hesabına değil, kullandığın cihaza kaydedilir.</p>
+        </article>
+        <article class="trust-card">
+          <span>İletişim</span>
+          <h3>Geri bildirim gönder.</h3>
+          <p>Hata, kelime önerisi veya iş birliği için bize e-posta gönderebilirsin.</p>
+          <button class="primary-btn" id="copyContactEmailBtn" type="button">E-posta adresini kopyala</button>
+        </article>
+      </div>
+    `;
+
+    const copyBtn = qs("#copyContactEmailBtn");
+    if (copyBtn) {
+      copyBtn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText("akkayanbusiness@gmail.com");
+          copyBtn.textContent = "E-posta kopyalandı";
+          setTimeout(() => copyBtn.textContent = "E-posta adresini kopyala", 1600);
+        } catch {
+          window.location.href = "mailto:akkayanbusiness@gmail.com";
+        }
+      });
+    }
+  }
+
+  function stabilizeTheme(){
+    // Aktif tema ne olursa olsun kontrast sınıfları doğru kalsın.
+    document.body.classList.add("vitrine151");
+    qsa(".practice-toolbar button, .segmented button, .mode-card").forEach(btn => {
+      btn.setAttribute("type", btn.getAttribute("type") || "button");
+    });
   }
 
   function preventInitialJump(){
@@ -188,6 +280,9 @@
       setTimeout(() => window.scrollTo(0,0), 0);
       setTimeout(() => window.scrollTo(0,0), 120);
       setTimeout(() => window.scrollTo(0,0), 300);
+    } else {
+      const target = location.hash.replace("#","");
+      openSecondaryIfNeeded(target);
     }
   }
 
@@ -198,6 +293,8 @@
     createStartPanel();
     markSecondary();
     updateTexts();
+    rebuildAbout();
+    stabilizeTheme();
     bindTargets();
     preventInitialJump();
   }
@@ -210,7 +307,18 @@
 
   window.addEventListener("load", () => {
     updateTexts();
+    rebuildAbout();
+    stabilizeTheme();
     bindTargets();
     preventInitialJump();
   });
+
+  const observer = new MutationObserver(() => {
+    updateTexts();
+    rebuildAbout();
+    bindTargets();
+  });
+  if (document.body) {
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
 })();

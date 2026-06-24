@@ -1,4 +1,4 @@
-const CACHE_NAME = "almanca-askina-v15-1-sade-vitrin";
+const CACHE_NAME = "almanca-askina-v15-2-stabil";
 const APP_SHELL = [
   "./",
   "./index.html",
