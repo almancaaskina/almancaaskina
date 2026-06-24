@@ -488,21 +488,3 @@ button, a, input, select, textarea { -webkit-tap-highlight-color: rgba(30,64,255
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
-
-
-/* V15.2 mobil tarayıcı sağlamlaştırma */
-@media (max-width: 760px) {
-  body.brand-v11.vitrine151 {
-    padding-bottom: calc(86px + env(safe-area-inset-bottom, 0px));
-  }
-  .brand-v11.vitrine151 .primary-nav {
-    max-width: calc(100vw - 24px);
-  }
-  .brand-v11.vitrine151 dialog,
-  .brand-v11.vitrine151 .modal,
-  .brand-v11.vitrine151 .dialog,
-  .brand-v11.vitrine151 .topic-pack-dialog {
-    width: calc(100vw - 18px) !important;
-    max-width: calc(100vw - 18px) !important;
-  }
-}
